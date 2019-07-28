@@ -39,7 +39,11 @@ namespace System.Common
             }
             return (T)cache;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cacheKey"></param>
+        /// <returns></returns>
         public static object GetCache(string cacheKey)
         {
             if (devMode == "Y")
