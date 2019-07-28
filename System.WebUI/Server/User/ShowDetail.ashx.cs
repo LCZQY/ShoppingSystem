@@ -23,8 +23,9 @@ namespace System.WebUI.Server.User
             if (int.TryParse(id, out iid))
             {
                 Users instance = UserInfoService.GetDeail(Convert.ToInt32(id));
+                
                 //读取模板文件
-                string filePath = context.Request.MapPath("ShowDetail.html");
+                string filePath = context.Request.MapPath(@"..//..//Web//User//ShowDetail.html");
                 string fileCotent = File.ReadAllText(filePath);
                 fileCotent = fileCotent.Replace("$username", instance.UserName).Replace("$pwd", instance.UserPass).Replace("$email", instance.Email);
                 context.Response.Write(fileCotent);

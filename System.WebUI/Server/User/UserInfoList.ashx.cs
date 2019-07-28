@@ -27,7 +27,7 @@ namespace System.WebUI.server.User
                 sb.AppendFormat("<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td><a href='ShowDetail.ashx?id={0}'>详细</a></td><td><a href='DeleteUser.ashx?id={0}' class='deletes'>删除</a></td><td><a href='ShowEdit.ashx?id={0}' class='edits'>编辑</a></td></tr>", userInfo.Id, userInfo.UserName, userInfo.UserPass, userInfo.Email, userInfo.RegTime);
             }
             //读取模板文件
-            string filePath = context.Request.MapPath(@"Web\User\UserInfoList.html");
+            string filePath = context.Request.MapPath(@"..//..//Web//User//UserInfoList.html");
             string fileCotent = File.ReadAllText(filePath);
             fileCotent = fileCotent.Replace("@tbody", sb.ToString());
             context.Response.Write(fileCotent);

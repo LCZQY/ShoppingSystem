@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -45,9 +46,9 @@ namespace System.DAL
         /// <returns></returns>
         public Users GetDeail(int id)
         {
-            string sql = "SELECT id,Usersname,Userspass,regtime,email FROM Users where id = @id";
-            SqlParameter[] pars ={
-                                      new SqlParameter("@id",SqlDbType.Int)
+            string sql = "SELECT id,Username,Userpass,regtime,email FROM Users where id = @id";
+            MySqlParameter[] pars ={
+                                      new MySqlParameter("@id",SqlDbType.Int)
                                   };
             pars[0].Value = id;
             DataTable dt = SqlHelper.GetDataTable(sql, CommandType.Text, pars);
@@ -67,12 +68,12 @@ namespace System.DAL
         /// <returns></returns>
         public int AddUsers(Users Users)
         {
-            string sql = "insert into Users(UsersName,UsersPass,RegTime,Email) values(@UsersName,@UsersPass,@RegTime,@Email)";
-            SqlParameter[] pars = {
-                                new SqlParameter("@UsersName",SqlDbType.NVarChar,32),
-                                  new SqlParameter("@UsersPass",SqlDbType.NVarChar,32),
-                                         new SqlParameter("@RegTime",SqlDbType.DateTime),
-                                    new SqlParameter("@Email",SqlDbType.NVarChar,32)
+            string sql = "insert into Users(UserName,UserPass,RegTime,Email) values(@UsersName,@UsersPass,@RegTime,@Email)";
+            MySqlParameter[] pars = {
+                                new MySqlParameter("@UsersName",MySqlDbType.VarChar,32),
+                                  new MySqlParameter("@UsersPass",MySqlDbType.VarChar,32),
+                                         new MySqlParameter("@RegTime",MySqlDbType.DateTime),
+                                    new MySqlParameter("@Email",MySqlDbType.VarChar,32)
                                   };
             pars[0].Value = Users.UserName;
             pars[1].Value = Users.UserPass;
@@ -88,13 +89,13 @@ namespace System.DAL
         /// <returns></returns>
         public int UpdateUsers(Users Users)
         {
-            string sql = "UPDATE Users SET Usersname = @Usersname,Userspass = @Userspass,regtime = @regtime,email = @email WHERE id = @id";
-            SqlParameter[] pars = {
-                                       new SqlParameter("@Usersname",SqlDbType.NVarChar,50),
-                                       new SqlParameter("@Userspass",SqlDbType.NVarChar,50),
-                                       new SqlParameter("@regtime",SqlDbType.DateTime),
-                                       new SqlParameter("@email",SqlDbType.NVarChar,50),
-                                       new SqlParameter("@id",SqlDbType.Int)
+            string sql = "UPDATE Users SET Usersname = @Username,Userspass = @Userpass,regtime = @regtime,email = @email WHERE id = @id";
+            MySqlParameter[] pars = {
+                                       new MySqlParameter("@Username",MySqlDbType.VarChar,50),
+                                       new MySqlParameter("@Userpass",MySqlDbType.VarChar,50),
+                                       new MySqlParameter("@regtime",MySqlDbType.DateTime),
+                                       new MySqlParameter("@email",MySqlDbType.VarChar,50),
+                                       new MySqlParameter("@id",MySqlDbType.Int32)
                                    };
             pars[0].Value = Users.UserName;
             pars[1].Value = Users.UserPass;
@@ -112,8 +113,8 @@ namespace System.DAL
         public int DeleteUsers(int id)
         {
             string sql = "DELETE FROM Users WHERE id = @id";
-            SqlParameter[] pars ={
-                                      new SqlParameter("@id",SqlDbType.Int)
+            MySqlParameter[] pars ={
+                                      new MySqlParameter("@id",SqlDbType.Int)
                                   };
             pars[0].Value = id;
             return SqlHelper.ExecuteNonquery(sql, CommandType.Text, pars);
@@ -121,9 +122,9 @@ namespace System.DAL
 
         private void LoadEntity(Users Users, DataRow row)
         {
-            Users.UserName = row["UsersName"] != DBNull.Value ? row["UsersName"].ToString() : string.Empty;
+            Users.UserName = row["UserName"] != DBNull.Value ? row["UserName"].ToString() : string.Empty;
 
-            Users.UserPass = row["UsersPass"] != DBNull.Value ? row["UsersPass"].ToString() : string.Empty;
+            Users.UserPass = row["UserPass"] != DBNull.Value ? row["UserPass"].ToString() : string.Empty;
             Users.Email = row["Email"] != DBNull.Value ? row["Email"].ToString() : string.Empty;
             Users.Id = Convert.ToInt32(row["ID"]);
             Users.RegTime = row["RegTime"] != DBNull.Value ? Convert.ToDateTime(row["RegTime"]) : DateTime.Now;

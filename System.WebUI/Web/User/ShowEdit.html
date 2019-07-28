@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="post" action="../../Server/User/UpdateUser.ashx">
+        用户名:<input type="text" name="txtName" value="$username" /><br />
+        密码:<input type="password" name="txtPwd" value="$pwd" /><br />
+        邮箱:<input type="text" name="txtMail" value="$email" /><br />
+        <input type="hidden" name="hid_id" value="$hid_id" />
+        <input type="submit" value="更新用户" />
+    </form>
+</body>
+</html>

@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Model", "System.Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.WebUI", "System.WebUI\System.WebUI.csproj", "{407FE902-B225-4444-B1C8-BC27E0627409}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System.Web", "System.Web\System.Web.csproj", "{8F37DFED-402F-46B4-A018-6753B7970567}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "File", "File", "{61B60A75-2662-489C-AF10-D5C1AEB48238}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Administrator\Desktop\shopping.sql = C:\Users\Administrator\Desktop\shopping.sql
+		C:\Users\Administrator\Desktop\入口项目（网上商城） .docx = C:\Users\Administrator\Desktop\入口项目（网上商城） .docx
+		参考资料.txt = 参考资料.txt
+		进度报告.txt = 进度报告.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +49,10 @@ Global
 		{407FE902-B225-4444-B1C8-BC27E0627409}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407FE902-B225-4444-B1C8-BC27E0627409}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407FE902-B225-4444-B1C8-BC27E0627409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F37DFED-402F-46B4-A018-6753B7970567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F37DFED-402F-46B4-A018-6753B7970567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F37DFED-402F-46B4-A018-6753B7970567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F37DFED-402F-46B4-A018-6753B7970567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,12 +12,10 @@ namespace System.WebUI.server.User
     /// </summary>
     public class DeleteUser : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            //context.Response.Write("Hello World");
-           UserInfoService UserInfoService = CacheControl.Get<BLL.UserInfoService>();
+            UserInfoService UserInfoService = CacheControl.Get<BLL.UserInfoService>();
             string id = context.Request.QueryString["id"];
             int iid;
             if (int.TryParse(id, out iid))

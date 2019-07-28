@@ -41,6 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appraise.cs" />
+    <Compile Include="AdminUser.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Photo.cs" />
+    <Compile Include="OrdersDetail.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="Favorite.cs" />
+    <Compile Include="Delivery.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

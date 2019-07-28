@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace System.DAL
 {
     public class SqlHelper
     {
-        private static readonly string connStr = ConfigurationManager.ConnectionStrings["server=localhost;user=root;database=Shopping;port=3306;password=123456;"].ConnectionString;
+        private static string connStr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        public static DataTable GetDataTable(string sql, CommandType type, params SqlParameter[] pars)
+        public static DataTable GetDataTable(string sql, CommandType type, params MySqlParameter[] pars)
         {
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (MySqlConnection conn = new MySqlConnection(connStr))
             {
-                using (SqlDataAdapter apter = new SqlDataAdapter(sql, conn))
+                using (MySqlDataAdapter apter = new MySqlDataAdapter(sql, conn))
                 {
                     if (pars != null)
                     {
@@ -31,11 +27,18 @@ namespace System.DAL
             }
         }
 
-        public static int ExecuteNonquery(string sql, CommandType type, params SqlParameter[] pars)
+        /// <summary>
+        /// 操作数据库
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="type"></param>
+        /// <param name="pars"></param>
+        /// <returns></returns>
+        public static int ExecuteNonquery(string sql, CommandType type, params MySqlParameter[] pars)
         {
-            using (SqlConnection conn = new SqlConnection(connStr))
+            using (MySqlConnection conn = new MySqlConnection(connStr))
             {
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     if (pars != null)
                     {
@@ -47,5 +50,26 @@ namespace System.DAL
                 }
             }
         }
+
+
+        /// <summary>
+        /// 查询结果集里的第一个单元格的值（单个值）-- 泛型版本
+        /// </summary>
+        /// <typeparam name="T">类型参数</typeparam>
+        /// <param name="strSelectCmd"></param>
+        /// <param name="paras"></param>
+        /// <returns></returns>
+        public static T ExcuteScalar<T>(string strSelectCmd, params SqlParameter[] paras)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                SqlCommand cmd = new SqlCommand(strSelectCmd, conn);
+                cmd.Parameters.AddRange(paras);
+                conn.Open();
+                object o = cmd.ExecuteScalar();
+                return (T)Convert.ChangeType(o, typeof(T));
+            }
+        }
+
     }
 }
