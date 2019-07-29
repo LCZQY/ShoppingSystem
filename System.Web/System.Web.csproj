@@ -105,12 +105,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="Aspx\Favorites.aspx" />
+    <Content Include="Aspx\ManageIndex.aspx" />
+    <Content Include="Aspx\ManagePages\index.html" />
+    <Content Include="Aspx\MyChange.aspx" />
+    <Content Include="Aspx\ShoppingCart.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font\iconfont.svg" />
+    <Content Include="Content\Shopping\laydate.css" />
+    <Content Include="Content\Shopping\layer.css" />
+    <Content Include="Content\Shopping\layui.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -124,6 +131,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\font\iconfont.eot" />
+    <Content Include="Content\font\iconfont.ttf" />
+    <Content Include="Content\font\iconfont.woff" />
+    <Content Include="Content\font\iconfont.woff2" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -131,7 +142,30 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Shopping\layui.js" />
+    <Content Include="Scripts\Shopping\lay\modules\carousel.js" />
+    <Content Include="Scripts\Shopping\lay\modules\code.js" />
+    <Content Include="Scripts\Shopping\lay\modules\colorpicker.js" />
+    <Content Include="Scripts\Shopping\lay\modules\element.js" />
+    <Content Include="Scripts\Shopping\lay\modules\flow.js" />
+    <Content Include="Scripts\Shopping\lay\modules\form.js" />
+    <Content Include="Scripts\Shopping\lay\modules\jquery.js" />
+    <Content Include="Scripts\Shopping\lay\modules\laydate.js" />
+    <Content Include="Scripts\Shopping\lay\modules\layedit.js" />
+    <Content Include="Scripts\Shopping\lay\modules\layer.js" />
+    <Content Include="Scripts\Shopping\lay\modules\laypage.js" />
+    <Content Include="Scripts\Shopping\lay\modules\laytpl.js" />
+    <Content Include="Scripts\Shopping\lay\modules\mobile.js" />
+    <Content Include="Scripts\Shopping\lay\modules\rate.js" />
+    <Content Include="Scripts\Shopping\lay\modules\slider.js" />
+    <Content Include="Scripts\Shopping\lay\modules\table.js" />
+    <Content Include="Scripts\Shopping\lay\modules\transfer.js" />
+    <Content Include="Scripts\Shopping\lay\modules\tree.js" />
+    <Content Include="Scripts\Shopping\lay\modules\upload.js" />
+    <Content Include="Scripts\Shopping\lay\modules\util.js" />
+    <Content Include="Scripts\Shopping\master.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -161,20 +195,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="Aspx\Favorites.aspx.cs">
+      <DependentUpon>Favorites.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="Aspx\Favorites.aspx.designer.cs">
+      <DependentUpon>Favorites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManageIndex.aspx.cs">
+      <DependentUpon>ManageIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\ManageIndex.aspx.designer.cs">
+      <DependentUpon>ManageIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\MyChange.aspx.cs">
+      <DependentUpon>MyChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\MyChange.aspx.designer.cs">
+      <DependentUpon>MyChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -201,6 +249,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SiteManagers.Master.cs">
+      <DependentUpon>SiteManagers.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteManagers.Master.designer.cs">
+      <DependentUpon>SiteManagers.Master</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,12 +266,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="html\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="SiteManagers.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

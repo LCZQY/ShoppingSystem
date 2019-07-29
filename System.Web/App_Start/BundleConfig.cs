@@ -12,6 +12,7 @@ namespace System.Web
         // 有关捆绑的详细信息，请访问 https://go.microsoft.com/fwlink/?LinkID=303951
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //注册JS
             bundles.Add(new ScriptBundle("~/bundles/WebFormsJs").Include(
                             "~/Scripts/WebForms/WebForms.js",
                             "~/Scripts/WebForms/WebUIValidation.js",
@@ -20,7 +21,8 @@ namespace System.Web
                             "~/Scripts/WebForms/GridView.js",
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
-                            "~/Scripts/WebForms/WebParts.js"));
+                            "~/Scripts/WebForms/WebParts.js",                            
+                             "~/Scripts/Shopping/master.js"));
 
             // 若要使这些文件正常工作，采用适当的顺序是非常重要的；这些文件具有显式依赖关系
             bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(

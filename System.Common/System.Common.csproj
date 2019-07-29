@@ -46,5 +46,11 @@
     <Compile Include="IServerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\System.Model\System.Model.csproj">
+      <Project>{7E818C1B-4745-4D14-9C37-352743562530}</Project>
+      <Name>System.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

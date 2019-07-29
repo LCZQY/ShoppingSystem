@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Model;
 using System.Threading.Tasks;
 
 namespace System.Common
 {
-    public interface IServerBase
+    /// <summary>
+    /// 数据库操作定义z
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IServerBase<T> where T :class
     {
+
 
         /// <summary>
         /// 返回数据列表

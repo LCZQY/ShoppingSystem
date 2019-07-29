@@ -1,2 +1,11 @@
 三层架构
 https://www.cnblogs.com/youguess/p/9239159.html
+
+前端模板
+http://www.17sucai.com/pins/demo-show?id=30081
+
+后台模板
+http://www.17sucai.com/pins/demo-show?id=33619
+
+asp.net 调转方式
+https://www.cnblogs.com/joean/p/4415115.html

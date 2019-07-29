@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Changes</title>
+    <title>Change官网-首页</title><%--<%: Page.Title %> ---%>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -21,7 +21,6 @@
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
@@ -36,6 +35,10 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+
+                <%-- 注意母版页中的js，css要作用于全局，要保持节点命名的唯一性--%>
+                <asp:ScriptReference Name="Master.js" Path="~/Scripts/Shopping/master.js" />
+                <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
@@ -47,16 +50,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">欢迎光临Changes商城[]</a>
+                    <a class="navbar-brand" runat="server" href="~/">欢迎光临Change商城[登陆-注册]</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">主页</a></li>
-                        <li><a runat="server" href="~/About">关于</a></li>
-                        <li><a runat="server" href="~/Contact">联系方式</a></li>
-                        <li><a runat="server" href="~/">主页</a></li>
-                        <li><a runat="server" href="~/About">关于</a></li>
-                        <li><a runat="server" href="~/Contact">联系方式</a></li>
+                        <li><a runat="server" href="~/">Change商城</a> |</li>
+                        <li><a runat="server" href="~/Aspx/MyChange">我的Change</a> |</li>
+                        <li><a runat="server" href="~/Aspx/ShoppingCart">购物车</a>|</li>
+                        <li><a runat="server" href="~/Aspx/Favorites">收藏夹</a>|</li>
+                        <li><a runat="server" target="_blank"  href="~/Aspx/ManageIndex">登陆后台</a></li>
                     </ul>
                 </div>
             </div>
@@ -66,10 +68,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Change商城</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

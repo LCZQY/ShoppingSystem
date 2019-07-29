@@ -15,7 +15,7 @@ namespace System.BLL
     /// <summary>
     ///用户表
     /// </summary>
-    public class UserInfoService : IServerBase
+    public class UserInfoService 
     {
         UserInfoDal UserInfoDal = System.Common.CacheControl.Get<UserInfoDal>();
 
