@@ -1,76 +1,507 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="System.Web.SiteMaster" %>
 
 <!DOCTYPE html>
-
 <html lang="zh">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Change官网-首页</title><%--<%: Page.Title %> ---%>
-
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <title>Change官网-首页</title>
+    <%--  <webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+    ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
+    <!-- google fonts here -->
+    <%--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">--%>
+
+    <!-- all css here -->
+    <!-- bootstrap v3.3.6 css -->
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="Content/Shopping/master/animate.css">
+    <!-- jquery-ui.min css -->
+    <link rel="stylesheet" href="Content/Shopping/master/jquery-ui.min.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="Content/Shopping/master/meanmenu.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="Content/Shopping/master/owl.carousel.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="Content/Shopping/master/font-awesome.min.css">
+    <!-- nivo-slider css -->
+    <link rel="stylesheet" href="Content/Shopping/master/nivo-slider.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="Content/Shopping/master/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="Content/Shopping/master/responsive.css">
+    <!-- modernizr css -->
+    <script src="Scripts/Shopping/master/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-
-                <%-- 注意母版页中的js，css要作用于全局，要保持节点命名的唯一性--%>
-                <asp:ScriptReference Name="Master.js" Path="~/Scripts/Shopping/master.js" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header class="header-area">
+        <div class="header-top-area hidden-xs ">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">欢迎光临Change商城[登陆-注册]</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Change商城</a> |</li>
-                        <li><a runat="server" href="~/Aspx/MyChange">我的Change</a> |</li>
-                        <li><a runat="server" href="~/Aspx/ShoppingCart">购物车</a>|</li>
-                        <li><a runat="server" href="~/Aspx/Favorites">收藏夹</a>|</li>
-                        <li><a runat="server" target="_blank"  href="~/Aspx/ManageIndex">登陆后台</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="header-top-left">
+                            <ul>
+                                <li>
+                                    <a href="#">我的账户</a>
+                                    <ul>
+                                        <li><a href="#">我的Change</a></li>
+                                        <li><a  runat="server" target="_blank" href="Aspx/ManageIndex.aspx">后台登陆</a></li>
+                                        <li><a href="#">登陆/注册</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <div class="header-top-right">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Change商城</p>
-            </footer>
+        <!-- End Header Top Area -->
+        <div class="header-mid-area hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="header-mid-inner">
+                            <span class="header-mid-inner-icon"><i class="fa fa-truck"></i></span>
+                            <div class="header-mid-info">
+                                <span class="title-upper">免费送货
+                                </span>
+                                <span class="title-capi">所有产品免费</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="header-mid-inner">
+                            <span class="header-mid-inner-icon"><i class="fa fa-money"></i></span>
+                            <div class="header-mid-info">
+                                <span class="title-upper">30天退款</span>
+                                <span class="title-capi">退款100%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="header-mid-inner">
+                            <span class="header-mid-inner-icon"><i class="fa fa-phone"></i></span>
+                            <div class="header-mid-info">
+                                <span class="title-upper">付款担保</span>
+                                <span class="title-capi">付款担保</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="header-mid-inner">
+                            <span class="header-mid-inner-icon"><i class="fa fa-lock"></i></span>
+                            <div class="header-mid-info">
+                                <span class="title-upper">电话：8888-888-888</span>
+                                <span class="title-capi">在线订购！</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+        <!-- End Header Mid Area  -->
+        <div class="header-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                        <div class="logo pad-logo final-mrg">
+                            <a href="index.html">
+                                <img src="img/logo.jpg" alt="" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                        <div class="header-cart-search-box clearfix">
+                            <!-- cart-total start -->
+                            <div class="cart-total">
+                                <ul>
+                                    <li>
+                                        <a href="cart.html">
+                                            <span class="cart-icon"><i class="fa fa-shopping-cart"></i></span>
+                                            <span class="cart-no">购物车</span>
+                                        </a>
+                                        <div class="mini-cart-content">
+                                            <div class="cart-img-details">
+                                                <div class="cart-img-photo">
+                                                    <a href="#">
+                                                        <img src="img/product/1.jpg" alt=""></a>
+                                                </div>
+                                                <div class="cart-img-contaent">
+                                                    <a href="#">
+                                                        <h4>Printed...</h4>
+                                                    </a>
+                                                    <span>£165.00</span>
+                                                </div>
+                                                <div class="pro-del">
+                                                    <a href="#"><i class="fa fa-times-circle"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            <div class="cart-img-details">
+                                                <div class="cart-img-photo">
+                                                    <a href="#">
+                                                        <img src="img/product/2.jpg" alt=""></a>
+                                                </div>
+                                                <div class="cart-img-contaent">
+                                                    <a href="#">
+                                                        <h4>Printed...</h4>
+                                                    </a>
+                                                    <span>£50.00</span>
+                                                </div>
+                                                <div class="pro-del">
+                                                    <a href="#"><i class="fa fa-times-circle"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="cart-inner-bottom">
+                                                <p class="total">Total: <span class="amount">£ 56.28</span></p>
+                                                <div class="clear"></div>
+                                                <!--<p class="cart-button-top"><a href="checkout.html">查看</a></p>-->
+                                                <p class="cart-button-top"><a href="cart.html">查看</a></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- cart-total end -->
+                            <div class="header-search-box">
+                                <form action="#">
+                                    <div class="pos-select-box">
+                                        <select>
+                                            <option value="">所有类别</option>
+                                            <option value="70">Health</option>
+                                            <option value="71">Medical</option>
+                                            <option value="72">Electronics</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-box">
+                                        <input type="text" placeholder="Search entire store here ..." />
+                                        <button id="Search"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+ <%--    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" runat="server" href="~/">欢迎光临Change商城[登陆-注册]</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a runat="server" href="~/">Change商城</a> |</li>
+                    <li><a runat="server" href="~/Aspx/MyChange">我的Change</a> |</li>
+                    <li><a runat="server" href="~/Aspx/ShoppingCart">购物车</a>|</li>
+                    <li><a runat="server" href="~/Aspx/Favorites">收藏夹</a>|</li>
+                    <li><a runat="server" target="_blank" href="~/Aspx/ManageIndex">登陆后台</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>--%>
+
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <footer class="footer-area">
+        <div class="footer-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-7">
+                        <div class="news-letter">
+                            <form action="#">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter your e-mail">
+                                    <button disabled type="submit">
+                                        <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">订阅</font></font></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-5 text-right">
+                        <div class="footer-top-social-bookmarks">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-top-area -->
+        <div class="footer-middle-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-10">
+                        <div class="footer-widget">
+                            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">信息</font></font></h4>
+                            <ul>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特价</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新产品</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最畅销</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的商店</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站地图</font></font></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-10">
+                        <div class="footer-widget">
+                            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的帐户</font></font></h4>
+                            <ul>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的订单</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的信用卡滑了</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的地址</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的个人信息</font></font></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-10">
+                        <div class="footer-widget">
+                            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分类</font></font></h4>
+                            <ul>
+                               <%-- <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">妇女</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">男人</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首饰</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备</font></font></a></li>
+                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">手表</font></font></a></li>--%>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-10">
+                        <div class="footer-widget">
+                            <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></h4>
+                            <div class="footer-contact">
+                                <p class="address add">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址：1234天堂压力，比佛利山OldYork-美国Lorem</font></font></span>
+                                </p>
+                                <p class="phone add">
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(800)0123 4567 890 </font></font></span>
+                                    <br>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（800）0987 654 321</font></font></span>
+                                </p>
+                                <p class="email add">
+                                    <a href="mailto:hastech@hastech.company"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">demo@hastech.company</font></font></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer-middle-area -->
+        <div class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="copyright">
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有© </font></font><a href="http://hastech.company/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hastech</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有</font></font></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="payment">
+                            <a href="#">
+                                <img src="img/payment.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End footer-bottom-area -->
+    </footer>
+
+    <!-- End footer-area -->
+    <!-- Modal -->
+    <div class="modal animated zoomIn" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="product-details">
+                        <div class="single-product">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="first-img">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img src="img/product-view/1_1.jpg" alt="" />
+                                                    <span class="new-box">new</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="second-img">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img src="img/product-view/2_2.jpg" alt="" />
+                                                    <span class="new-box">new</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="third-img">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img src="img/product-view/3_3.jpg" alt="" />
+                                                    <span class="new-box">new</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="fourth-img">
+                                            <div class="product-img">
+                                                <a href="#">
+                                                    <img src="img/product-view/4_4.jpg" alt="" />
+                                                    <span class="new-box">new</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="product-details-menu">
+                                        <li class="active"><a href="#first-img" data-toggle="tab">
+                                            <img src="img/product-view/1.jpg" alt="" /></a></li>
+                                        <li><a href="#second-img" data-toggle="tab">
+                                            <img src="img/product-view/2.jpg" alt="" /></a></li>
+                                        <li><a href="#third-img" data-toggle="tab">
+                                            <img src="img/product-view/3.jpg" alt="" /></a></li>
+                                        <li><a href="#fourth-img" data-toggle="tab">
+                                            <img src="img/product-view/4.jpg" alt="" /></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="product-content">
+                                        <h1 class="product-name">Faded Short Sleeves T-shirt</h1>
+                                        <p class="productreference">
+                                            <label>Reference: </label>
+                                            <span class="editable" content="demo_1">demo_1</span>
+                                        </p>
+                                        <p id="product-condition">
+                                            <label>Condition: </label>
+                                            <span class="editable">New product</span>
+                                        </p>
+                                        <div class="product-price">
+                                            <h2>£ 19.81
+                                                <span>tax incl.</span>
+                                            </h2>
+                                        </div>
+                                        <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+                                        <div class="box-info-product clearfix">
+                                            <form action="#">
+                                                <div class="quantity-wanted-p">
+                                                    <label for="quantity-wanted">Quantity</label>
+                                                    <input type="number" id="quantity-wanted" min="1" name="qty" value="1" />
+                                                </div>
+                                                <div class="product-action">
+                                                    <ul>
+                                                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="usefull-link">
+                                                    <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>Send to a friend</a></li>
+                                                    <li><a href="#"><i class="fa fa-print" aria-hidden="true"></i>Print</a></li>
+                                                    <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Add to wishlist</a></li>
+                                                    <li>
+                                                        <div class="size">
+                                                            <label>Size</label>
+                                                            <select>
+                                                                <option value="">S</option>
+                                                                <option value="">M</option>
+                                                                <option value="">L</option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </form>
+                                        </div>
+                                        <div class="color-list-container">
+                                            <h5>Color</h5>
+                                            <ul>
+                                                <li><a href="#" id="color_one" class="color_pick"></a></li>
+                                                <li><a href="#" id="color_two" class="color_pick"></a></li>
+                                            </ul>
+                                        </div>
+                                        <span class="quantity-available">296 Items</span>
+                                        <span class="availability">In stock </span>
+                                        <div class="social">
+                                            <ul>
+                                                <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Tweet</a></li>
+                                                <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Share</a></li>
+                                                <li><a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i>google+</a></li>
+                                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i>Pinterest </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="back-top"><i class="fa fa-angle-up"></i></div>
+    <!-- all js here -->
+    <!-- jquery latest version -->
+    <script src="Scripts/Shopping/master/jquery-1.12.0.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="Scripts/Shopping/master/bootstrap.min.js"></script>
+    <!-- ajax mails JS
+    ============================================ -->
+    <script src="Scripts/Shopping/master/ajax-mail.js"></script>
+    <!-- owl.carousel js -->
+    <script src="Scripts/Shopping/master/owl.carousel.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="Scripts/Shopping/master/jquery.meanmenu.min.js"></script>
+    <!-- jquery-ui js -->
+    <script src="Scripts/Shopping/master/jquery-ui.min.js"></script>
+    <!-- wow js -->
+    <script src="Scripts/Shopping/master/wow.min.js"></script>
+    <!-- nivo-slider js -->
+    <script src="Scripts/Shopping/master/jquery.nivo.slider.pack.js"></script>
+    <!-- nivo-slider activate js -->
+    <script src="Scripts/Shopping/master/nivo-active.js"></script>
+    <!-- jquery countdown js -->
+    <script src="Scripts/Shopping/master/jquery.countdown.min.js"></script>
+    <!-- jquery waypoints js -->
+    <script src="Scripts/Shopping/master/waypoints.min.js"></script>
+    <!-- jquery counterup js -->
+    <script src="Scripts/Shopping/master/jquery.counterup.min.js"></script>
+    <!-- plugins js -->
+    <script src="Scripts/Shopping/master/plugins.js"></script>
+    <!-- main js -->
+    <script src="Scripts/Shopping/master/main.js"></script>
 </body>
+
 </html>

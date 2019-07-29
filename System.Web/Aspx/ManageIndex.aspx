@@ -19,7 +19,7 @@
                 <!-- 头部区域（可配合layui已有的水平导航） -->
                 <ul class="layui-nav layui-layout-left">
                     <li class="layui-nav-item">
-                        <a href="~">网站首页</a>
+                        <a href="../../../">网站首页</a>
                     </li>
                     <span class="layui-nav-bar" style="left: 102px; top: 55px; width: 0px; opacity: 0;"></span>
                 </ul>

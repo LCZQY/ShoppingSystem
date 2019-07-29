@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace System.Model
 {
     /// <summary>
-    /// 商品请假表
+    /// 商品评价表
     /// </summary>
     public class Appraise
     {
@@ -45,8 +45,17 @@ namespace System.Model
     /// </summary>
     public enum EnumGrade
     {
+        /// <summary>
+        /// 很好
+        /// </summary>
         VeryGood = 0,
+        /// <summary>
+        /// 好
+        /// </summary>
         Good = 1,
+        /// <summary>
+        /// 不好
+        /// </summary>
         Bad = 2
     }
 
