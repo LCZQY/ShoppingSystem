@@ -22,7 +22,7 @@ namespace System.DAL
         /// <returns></returns>
         public List<Users> GetList()
         {
-            string sql = "select userId,username,pwd,nick,email,deliveryId from Users";
+            string sql = "select UserId,UserName,Pwd,Nick,Email,DeliveryId from Users";
             DataTable da = SqlHelper.GetDataTable(sql, CommandType.Text);
             List<Users> list = null;
             if (da.Rows.Count > 0)

@@ -124,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aspx\Favorites.aspx" />
+    <Content Include="Aspx\Login.aspx" />
     <Content Include="Aspx\ManageIndex.aspx" />
     <Content Include="Aspx\ManagePages\grounding.aspx" />
     <Content Include="Aspx\ManagePages\news.aspx" />
@@ -266,6 +267,16 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Shopping\css\layui.css" />
+    <Content Include="Scripts\Shopping\css\layui.mobile.css" />
+    <Content Include="Scripts\Shopping\css\modules\code.css" />
+    <Content Include="Scripts\Shopping\css\modules\laydate\default\laydate.css" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\icon-ext.png" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\icon.png" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\layer.css" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\loading-0.gif" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\loading-1.gif" />
+    <Content Include="Scripts\Shopping\css\modules\layer\default\loading-2.gif" />
     <Content Include="Scripts\Shopping\layui.js" />
     <Content Include="Scripts\Shopping\lay\modules\carousel.js" />
     <Content Include="Scripts\Shopping\lay\modules\code.js" />
@@ -341,6 +352,13 @@
     </Compile>
     <Compile Include="Aspx\Favorites.aspx.designer.cs">
       <DependentUpon>Favorites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManageIndex.aspx.cs">
       <DependentUpon>ManageIndex.aspx</DependentUpon>
