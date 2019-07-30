@@ -9,19 +9,11 @@ using System.Threading.Tasks;
 /// </summary>
 namespace System.Model
 {
-
     /// <summary>
     /// 用户
     /// </summary>
     public class Users
-    {
-        public int Id { get; set; }
-
-        public string UserPass { get; set; }
-        public DateTime RegTime { get; set; }
-
-
-
+    {    
         /// <summary>
         /// key
         /// </summary>
@@ -51,7 +43,7 @@ namespace System.Model
         /// <summary>
         /// 用户收获地址ID
         /// </summary>
-        public string DeliveryID { get; set; }
+        public string DeliveryId { get; set; }
     }
 
 

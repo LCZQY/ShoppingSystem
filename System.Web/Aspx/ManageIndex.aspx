@@ -19,7 +19,7 @@
                 <!-- 头部区域（可配合layui已有的水平导航） -->
                 <ul class="layui-nav layui-layout-left">
                     <li class="layui-nav-item">
-                        <a href="../../../">网站首页</a>
+                        <a runat="server" href="~">网站首页</a>
                     </li>
                     <span class="layui-nav-bar" style="left: 102px; top: 55px; width: 0px; opacity: 0;"></span>
                 </ul>
@@ -48,19 +48,19 @@
                             <a class="" href="javascript:;">基本功能<span class="layui-nav-more"></span></a>
                             <dl class="layui-nav-child">
                                 <dd class="layui-this">
-                                    <a class="layui-unselect" href="##"><i class="layui-icon"></i>用户管理</a>
+                                    <a class="layui-unselect" id="user" href="javascript:;"><i class="layui-icon"></i>用户管理</a>
                                 </dd>
                                 <dd>
-                                    <a href="##"><i class="layui-icon"></i>商品类型</a>
+                                    <a id="type" href="javascript:;"><i class="layui-icon"></i>商品类型</a>
                                 </dd>
                                 <dd>
-                                    <a href="#"><i class="layui-icon"></i>上架商品</a>
+                                    <a id="grounding" href="javascript:;"><i class="layui-icon"></i>上架商品</a>
                                 </dd>
                                 <dd>
-                                    <a href="#"><i class="layui-icon"></i>订单管理</a>
+                                    <a id="order" href="javascript:;"><i class="layui-icon"></i>订单管理</a>
                                 </dd>
                                 <dd>
-                                    <a href="#"><i class="layui-icon"></i>促销咨询</a>
+                                    <a id="news" href="javascript:;"><i class="layui-icon"></i>促销咨询</a>
                                 </dd>
                             </dl>
                         </li>
@@ -68,10 +68,12 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="layui-body">
-
-                <iframe id="rightMain" src="javascript:;" style="width: 100%; height: 100%;"></iframe>
+            <div class="layui-body" id="LAY_app_body">
+                <div class="layadmin-tabsbody-item layui-show">
+                    <div class="layui-fluid">
+                        <iframe id="rightMain" src="ManagePages/user"  style="width: 100%; border:none; height: 100%;"></iframe>
+                    </div>
+                </div>
             </div>
             <div class="layui-footer">
                 <!-- 底部固定区域 -->
@@ -90,20 +92,34 @@
                 //一些事件监听
                 element.on('tab(demo)', function (data) {
                     layer.msg('切换了：' + this.innerHTML);
-
                 });
             });
+            //菜单栏内容Url控制        
+            $('.leftMain a:not(a:first)').on("click", function (e) {
+                var href = "";
+                var id = $(this).attr("id");
+                console.log(id, "id");
+                switch (id) {
+                    case "user":
+                        href = "ManagePages/user.html";
+                        break;
+                    case "type":
+                        href = "ManagePages/type.html";
+                        break;
+                    case "grounding":
+                        href = "ManagePages/grounding.html";
+                        break;
+                    case "order":
+                        href = "ManagePages/order.html";
+                        break;
+                    case "news":
+                        href = "ManagePages/news.html";
+                        break;
+                }
+                $('#rightMain').attr("src", href);
+            });
 
-            //菜单栏内容Url控制
-            $(document).ready(function () {
-                $('.leftMain a').on("click", function (e) {
-                    e.preventDefault();
-                    var href = "../ManagePages/index.html";//$(this).attr('href'); 
-                    console.log(href,"href");
-                    var iframe = $('#rightMain').attr("src", href);
-                })
-            })
-	</script>
+        </script>
     </body>
 
 

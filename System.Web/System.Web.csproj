@@ -51,6 +51,24 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -107,7 +125,11 @@
   <ItemGroup>
     <Content Include="Aspx\Favorites.aspx" />
     <Content Include="Aspx\ManageIndex.aspx" />
-    <Content Include="Aspx\ManagePages\index.html" />
+    <Content Include="Aspx\ManagePages\grounding.aspx" />
+    <Content Include="Aspx\ManagePages\news.aspx" />
+    <Content Include="Aspx\ManagePages\order.aspx" />
+    <Content Include="Aspx\ManagePages\user.html" />
+    <Content Include="Aspx\ManagePages\type.html" />
     <Content Include="Aspx\MyChange.aspx" />
     <Content Include="Aspx\ShoppingCart.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -153,6 +175,8 @@
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Aspx\ManagePages\typehandler.ashx" />
+    <Content Include="Aspx\ManagePages\userhandler.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
@@ -325,6 +349,33 @@
     <Compile Include="Aspx\ManageIndex.aspx.designer.cs">
       <DependentUpon>ManageIndex.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Aspx\ManagePages\grounding.aspx.cs">
+      <DependentUpon>grounding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\grounding.aspx.designer.cs">
+      <DependentUpon>grounding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\typehandler.ashx.cs">
+      <DependentUpon>typehandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\news.aspx.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\news.aspx.designer.cs">
+      <DependentUpon>news.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\order.aspx.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\order.aspx.designer.cs">
+      <DependentUpon>order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\userhandler.ashx.cs">
+      <DependentUpon>userhandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Aspx\MyChange.aspx.cs">
       <DependentUpon>MyChange.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -379,7 +430,20 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\System.BLL\System.BLL.csproj">
+      <Project>{236d5c0a-8827-465e-8423-6a96ddfcf6e2}</Project>
+      <Name>System.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Common\System.Common.csproj">
+      <Project>{96E9F0A9-0C4C-4CE8-A0FB-9AE7FACA36AE}</Project>
+      <Name>System.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Model\System.Model.csproj">
+      <Project>{7E818C1B-4745-4D14-9C37-352743562530}</Project>
+      <Name>System.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />

@@ -1,0 +1,285 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LC_Leitao.Master.cs" Inherits="WebApplication1.App_Site.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="Shortcut Icon" href="../App_Image/3.jpg" />
+    <link href="../App_Style/bootstrap.min.css" rel="stylesheet" />
+    <%--    <link href="../App_Style/AllStyle.css" rel="stylesheet" />--%>    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<style type="text/css">
+    [class*="col-md"] {
+        /*border: black solid thin;*/
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+    li {
+        list-style-type: none;
+    }
+
+    header {
+        font-size: 10px;
+    }
+
+    footer {
+        font-size: 5px;
+    }
+
+    /*页脚字体*/
+
+    /* 导航*/
+    #Master_nav {
+        margin-top: -0.5%;
+    }
+
+    #Master_nav > li {
+    }
+
+    #Master_nav > li > a:hover {
+                color: #ffffff;
+                background: rgb(241, 6, 132);
+     }
+    .ioc {
+    font-size:1px;
+    }
+
+    /*搜索框*/
+    #seek {
+        border: rgb(241,6,132) solid 3px;
+        height: 50px;
+    }
+        /*搜索框后的按钮*/
+        #seek + #basic-addon2 {
+            background: rgb(241,6,132);
+            border: rgb(241,6,132) solid 3px;
+        }
+
+    .NavUser {
+        margin: 6%;
+    }
+    /*退出*/
+    .NAVname {
+    }
+
+    .Eixt {
+        position: absolute;
+        z-index: 1;
+        width: 180px;
+        background-image: -webkit-linear-gradient(180deg,rgba(241, 6, 132,1),rgba(241, 6, 132,.5));
+        background-image: linear-gradient(360deg 100deg,rgba(241, 6, 132,1),rgb(189, 16, 121));
+        border-top-right-radius: 20em;
+    }
+
+    .pu_left {
+        margin-left: 12%;
+    }
+
+    .pu_right {
+        margin-right: 20%;
+    }
+
+    .Eixt > span > a {
+        color: #ffffff;
+    }
+
+        .Eixt > span > a:hover {
+            color: #000000;
+        }
+</style>
+
+
+<body>
+    <%--页首--%>
+    <header>
+        <div class="container-fluid">
+            <div class="row" style="background: rgba(242, 205, 205,.7);">
+                <div class="col-md-2 ">
+                    <div class="NavUser">
+                        <div class="NAVname"><a href="#" class="h6"><%= MaterUsername%></a></div>
+                        <div class="Eixt text-center" hidden="hidden">
+                            <div class="h5"><%= MaterUsername%></div>
+                            <span class="pull-left pu_left"><a href="#">账号管理</a></span>
+                            <span class="pull-right pu_right"><a id="LeiTaoEixt" href="../LC_LogIng.aspx">退出</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10" style="height: 37px;">
+                    <%=TitleNav %>                   
+                </div>
+            </div>
+        </div>
+    </header>
+    <%--身体--%>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--页脚--%>
+    <footer>
+
+        <div class="container-fluid" style="background:rgba(242, 205, 205,.7);">
+            <div class="row"> 
+                <div class="col-md-3  text-center">
+                    <ul>
+                        <li>
+                            <img class="pull-left" src="../../App_Image/FootImage/Footercustomer.png" width="20" height="20" />
+                            <h6>消费者保障</h6>
+                        </li>
+                        <li class="FootSize"><a href="#">保障范围</a><a href="#">退货退款流程 </a><a href="#">服务中心</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3  text-center">
+                    <ul>
+                        <li>
+                            <img class="pull-left" src="../../App_Image/FootImage/Footerhands.png" width="20" height="20" />
+                            <h6>新手报到</h6>
+                        </li>
+                        <li class="FootSize"><a href="#">新手专区</a><a href="#">消费警示 </a><a href="#">交易安全</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3  text-center">
+                    <ul>
+                        <li>
+                            <img class="pull-left" src="../../App_Image/FootImage/Footerpayment.png" width="20" height="20" />
+                            <h6>付款方式</h6>
+                        </li>
+                        <li class="FootSize"><a href="#">快捷支付</a><a href="#">信用卡 </a><a href="#">余额宝</a><a href="#">蚂蚁花呗</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3  text-center">
+                    <ul>
+                        <li>
+                            <img class="pull-left" src="../../App_Image/FootImage/Footerleitao.png" width="20" height="20" />
+                            <h6>淘宝特色</h6>
+                        </li>
+                        <li class="FootSize"><a href="#">手机淘宝</a><a href="#">汪汪/汪信 </a><a href="#">大众评审</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-inline">
+                        <li><a href="http://www.alibabagroup.com/cn/global/home?spm=a21bo.50862.1997523009.1.574a5a14b75jhk">阿里巴巴集团|</a></li>
+                        <li><a href="https://www.taobao.com/">淘宝网&nbsp|</a></li>
+                        <li><a href="https://www.tmall.com/?spm=a21bo.50862.1997523009.3.574a5a14b75jhkhttps://www.tmall.com/?spm=a21bo.50862.1997523009.3.574a5a14b75jhk">天猫|</a></li>
+                        <li><a href="https://ju.taobao.com/">聚划算|</a></li>
+                        <li><a href="http://www.vip.com/">唯品会|</a></li>
+                        <li><a href="http://www.alibaba.com/?spm=a21bo.50862.1997523009.6.574a5a14b75jhk">阿里巴巴国际交易市场|</a></li>
+                        <li><a href="http://www.autonavi.com/?spm=a21bo.50862.1997523009.15.574a5a14b75jhk">高德|</a></li>
+                        <li><a href="http://www.gome.com.cn/?cmpid=sem_360_pinpai_yx_logo">国美|</a></li>
+                        <li><a href="http://www.suning.com/?utm_source=360&utm_medium=cpc_pinpai&utm_campaign=%E5%93%81%E7%89%8C%E8%AF%8D&utm_content=%E5%93%81%E7%89%8C%E8%AF%8D+%E4%B8%BB%E9%A1%B5&utm_term=u1433130519.c1338163372.g2580219115.k4845921779.a465316124.pz">舒宁易购</a></li>
+                        <li><a href="#">支付宝|</a></li>
+                        <li><a href="#">优酷|</a></li>
+                        <li><a href="#">土豆|</a></li>
+                        <li><a href="#">阿里健康|</a></li>
+                        <li><a href="#">阿里影业|</a></li>
+                        <li><a href="#">阿里体育|</a></li>
+                        <li><a href="#">网商银行|</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row" style="border-top: gray solid thin; margin-top: 2px;">
+                <div class="col-md-12">
+                    <%-- --%>
+                    <ul class="list-inline">
+                        <li><a href="http://www.alibabagroup.com/cn/global/home?spm=a21bo.50862.1997523009.1.574a5a14b75jhk">关于类淘</a></li>
+                        <li><a href="https://www.taobao.com/">合作伙伴</a></li>
+                        <li><a href="https://www.tmall.com/?spm=a21bo.50862.1997523009.3.574a5a14b75jhkhttps://www.tmall.com/?spm=a21bo.50862.1997523009.3.574a5a14b75jhk">天猫</a></li>
+                        <li><a href="https://ju.taobao.com/">联系客服</a></li>
+                        <li><a href="http://www.vip.com/">开放平台</a></li>
+                        <li><a href="http://www.alibaba.com/?spm=a21bo.50862.1997523009.6.574a5a14b75jhk">诚征英才</a></li>
+                        <li><a href="http://www.autonavi.com/?spm=a21bo.50862.1997523009.15.574a5a14b75jhk">高德</a></li>
+                        <li><a href="##">&copy2017-9-19老苍----类淘</a></li>
+                        <li><a href="##">联系方式:13167874692</a></li>
+                        <li><a href="##">QQ:2536156085 微信:sl580230</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-md-8">                      
+                    <ul class="list-inline" id="Master_img">
+                           <li>                          
+                            <img src="../../App_Image/FootImage/FootSixths.jpg" class="img-responsive" width="35" height="30" /></li>                                          
+                        <li>                          
+                            <img src="../../App_Image/LC.jpg" class="img-responsive" width="35" height="30" /></li>
+                        <li>
+                            <img src="../../App_Image/FootImage/FootSend.jpg" class="img-responsive" width="30" height="30" /></li>
+                        <li>
+                            <img src="../../App_Image/FootImage/FootFourthly.png" class="img-responsive" width="100" height="30" /></li>                      
+                          <li>
+                            <img src="../../App_Image/FootImage/FootFifth.png" class="img-responsive" width="100" height="30" /></li>
+                        <li>
+                            <img src="../../App_Image/FootImage/FootThirdly.png" class="img-responsive" width="100" height="30" /></li>
+                       
+                    </ul>                    
+                </div>
+            </div>
+        </div>
+    </footer>
+     <script src="../App_Script/jquery1.11.0.js"></script>
+    <script src="../App_Script/jquery-3.1.1.min.js"></script>
+<%--    <script src="../App_Script/jquery.min.js"></script>--%>
+    <script src="../App_Script/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".NAVname").bind({
+                "mouseenter": function () {
+                    $(".Eixt").show();
+                    $(".Eixt").bind({
+                        "mouseenter": function () {
+                            $(this).show();
+                        },
+                        "mouseleave": function () {
+                            $(this).hide();
+                        }
+                    })
+                },
+                "mouseleave": function () {
+                    $(".Eixt").hide();
+                }
+            });
+            //  $(".pu_right").find("a").removeAttr("href");
+            $(".pu_right").bind("click", function () {
+                alert("你在点击退出！");
+                binds("ClearCookie");
+                // $(".pu_right").find("a").attr("href", "../LC_LogIng.aspx");
+            });
+
+        });
+
+        //发送数据
+        function binds(msg) {
+            $.post(
+                "../../App_BackgroundProcedure/LC_LeitaoMaster.ashx", //登录时的一般处理程序
+                {
+                    ClearCookies: msg
+                },
+                function (data, state) {
+                    if (state == "success") {
+                        alert("这个是:" + data);
+                        if (data == "true") {
+
+                            //$(".pu_right").find("a").attr("href", "../LC_LogIng.aspx");
+                            //window.parent.location.href =                    
+                        }
+                    } else {
+                        alert("传值失败！");
+                    }
+                }
+                )
+        }
+    </script>
+    `
+</body>
+</html>

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="CacheControl.cs" />
     <Compile Include="IServerBase.cs" />
+    <Compile Include="LayerTableJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7ADE8882-28F7-43B7-927B-F3EC41A94D80}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication1</RootNamespace>
+    <AssemblyName>WebApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_aspx\APP_Administrator\Administrator.aspx" />
+    <Content Include="App_aspx\App_HomePage\LC_HomePage.aspx" />
+    <Content Include="App_aspx\LC_Payment.aspx" />
+    <Content Include="App_aspx\LC_PurchasePro.aspx" />
+    <Content Include="App_aspx\LC_LogIN.aspx" />
+    <Content Include="App_aspx\LC_LogIng.aspx" />
+    <Content Include="App_aspx\LC_SetUpShop.aspx" />
+    <Content Include="App_aspx\LC_ShowProHomePage.aspx" />
+    <Content Include="App_aspx\LC_My.aspx" />
+    <Content Include="App_Image\3.jpg" />
+    <Content Include="App_Image\LogIngTitle.jpg" />
+    <Content Include="App_Image\LogIng.jpg" />
+    <Content Include="App_Image\CarouselImage\1.jpg" />
+    <Content Include="App_Image\CarouselImage\1_bg.jpg" />
+    <Content Include="App_Image\CarouselImage\3.jpg" />
+    <Content Include="App_Image\CarouselImage\4_bg.jpg" />
+    <Content Include="App_Image\CarouselImage\3_bg.jpg" />
+    <Content Include="App_Image\CarouselImage\5.jpg" />
+    <Content Include="App_Image\CarouselImage\4.jpg" />
+    <Content Include="App_Image\CarouselImage\Alipay.jpg" />
+    <Content Include="App_Image\CarouselImage\HrimgSeend.jpg" />
+    <Content Include="App_Image\CarouselImage\HrimgFifth.jpg" />
+    <Content Include="App_Image\CarouselImage\HrimgThrity.jpg" />
+    <Content Include="App_Image\CarouselImage\HrimgFrist.jpg" />
+    <Content Include="App_Image\CarouselImage\Taopolarizer.png" />
+    <Content Include="App_Image\CarouselImage\5_bg.jpg" />
+    <Content Include="App_Image\CarouselImage\CarouseThrith.jpg" />
+    <Content Include="App_Image\FootImage\FooterFrist.jpg" />
+    <Content Include="App_Image\FootImage\FootFifth.png" />
+    <Content Include="App_Image\FootImage\FootFourthly.png" />
+    <Content Include="App_Image\FootImage\Footlogo.png" />
+    <Content Include="App_Image\FootImage\FootSend.jpg" />
+    <Content Include="App_Image\FootImage\FootSixths.jpg" />
+    <Content Include="App_Image\FootImage\FootThirdly.png" />
+    <Content Include="App_Image\FootImage\Footercustomer.png" />
+    <Content Include="App_Image\FootImage\Footerhands.png" />
+    <Content Include="App_Image\FootImage\Footerpayment.png" />
+    <Content Include="App_Image\FootImage\Footerleitao.png" />
+    <Content Include="App_Image\packet.jpg" />
+    <Content Include="App_Image\PayMent\PayLogo.png" />
+    <Content Include="App_Image\PayMent\payer.png" />
+    <Content Include="App_Image\PayMent\NoPay.jpg" />
+    <Content Include="App_Image\ProImage\Pro111_bg.jpg" />
+    <Content Include="App_Image\ProImage\Pro222.jpg" />
+    <Content Include="App_Image\ProImage\Pro111.jpg" />
+    <Content Include="App_Image\ProImage\ProNine2.jpg" />
+    <Content Include="App_Image\ProImage\ProTen2.jpg" />
+    <Content Include="App_Image\ProImage\ProTwelve2_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProTen2_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProTwelve2.jpg" />
+    <Content Include="App_Image\ProImage\ProEleven2.jpg" />
+    <Content Include="App_Image\ProImage\ProEleven2_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProNine2_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProNight1.jpg" />
+    <Content Include="App_Image\ProImage\ProNight1_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProSix1_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProSeven1_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProSeven1.jpg" />
+    <Content Include="App_Image\ProImage\ProSix1.jpg" />
+    <Content Include="App_Image\ProImage\ProFive1.jpg" />
+    <Content Include="App_Image\ProImage\ProFive1_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProFour_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProThree_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProTwo_bg.jpg" />
+    <Content Include="App_Image\ProImage\ProOne.jpg" />
+    <Content Include="App_Image\ProImage\ProThree.jpg" />
+    <Content Include="App_Image\ProImage\ProFour.jpg" />
+    <Content Include="App_Image\ProImage\ProTwo.jpg" />
+    <Content Include="App_Image\ProImage\ProOne_bg.jpg" />
+    <Content Include="App_Image\ProImage\Pro222_bg.jpg" />
+    <Content Include="App_Image\SellerProImage\1.jpg" />
+    <Content Include="App_Image\LC.jpg" />
+    <Content Include="App_Script\bootstrap.js" />
+    <Content Include="App_Script\Calendar_JS\dcalendar.picker.js" />
+    <Content Include="App_Script\Calendar_JS\jquery-1.11.0.min.js" />
+    <Content Include="App_Script\jquery1.11.0.js" />
+    <Content Include="App_Script\jquery-3.1.1.min.js" />
+    <Content Include="App_Style\cityLayout.css" />
+    <Content Include="App_Script\City_JS\cityselect.js" />
+    <Content Include="App_Script\City_JS\distpicker.data.js" />
+    <Content Include="App_Script\City_JS\distpicker.data.min.js" />
+    <Content Include="App_Script\City_JS\distpicker.js" />
+    <Content Include="App_Script\City_JS\distpicker.min.js" />
+    <Content Include="App_Script\City_JS\jquery-1[1].2.6.js" />
+    <Content Include="App_Script\City_JS\jquery.provincesCity.js" />
+    <Content Include="App_Script\City_JS\main.js" />
+    <Content Include="App_Script\City_JS\provincesdata.js" />
+    <Content Include="App_Script\Files_JS\fileinput.js" />
+    <Content Include="App_Script\Files_JS\fileinput_locale_zh.js" />
+    <Content Include="App_Script\jquery-1.4.1.min.js" />
+    <Content Include="App_Script\jquery-1.8.3.min.js" />
+    <Content Include="App_Script\jquery-form.js" />
+    <Content Include="App_Script\jquery.min.js" />
+    <Content Include="App_Style\Calendar_Css\dcalendar.picker.css" />
+    <Content Include="App_Style\Calendar_Css\zzsc.css" />
+    <Content Include="App_Style\Files_css\fileinput.css" />
+    <Content Include="App_Style\Files_css\fileinput.min.css" />
+    <Content Include="App_Style\manhuaDate.1.0.css" />
+    <Content Include="App_Script\manhuaDate.1.0.js" />
+    <Content Include="App_Style\AllStyle.css" />
+    <Content Include="App_Script\bootstrap.min.js" />
+    <Content Include="App_Style\bootstrap.min.css" />
+    <Content Include="App_Style\LC_LogIN_Style.css" />
+    <Content Include="App_Style\LC_HomePage_style.css" />
+    <Content Include="App_Style\LC_SetUpShop.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App_aspx\LC_ShoppingTrolley.aspx" />
+    <Content Include="LC_CS.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_aspx\APP_Administrator\Administrator.aspx.cs">
+      <DependentUpon>Administrator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\APP_Administrator\Administrator.aspx.designer.cs">
+      <DependentUpon>Administrator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\App_HomePage\LC_HomePage.aspx.cs">
+      <DependentUpon>LC_HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\App_HomePage\LC_HomePage.aspx.designer.cs">
+      <DependentUpon>LC_HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_Payment.aspx.cs">
+      <DependentUpon>LC_Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_Payment.aspx.designer.cs">
+      <DependentUpon>LC_Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_PurchasePro.aspx.cs">
+      <DependentUpon>LC_PurchasePro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_PurchasePro.aspx.designer.cs">
+      <DependentUpon>LC_PurchasePro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_LogIN.aspx.cs">
+      <DependentUpon>LC_LogIN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_LogIN.aspx.designer.cs">
+      <DependentUpon>LC_LogIN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_LogIng.aspx.cs">
+      <DependentUpon>LC_LogIng.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_LogIng.aspx.designer.cs">
+      <DependentUpon>LC_LogIng.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_SetUpShop.aspx.cs">
+      <DependentUpon>LC_SetUpShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_SetUpShop.aspx.designer.cs">
+      <DependentUpon>LC_SetUpShop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_ShowProHomePage.aspx.cs">
+      <DependentUpon>LC_ShowProHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_ShowProHomePage.aspx.designer.cs">
+      <DependentUpon>LC_ShowProHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_My.aspx.cs">
+      <DependentUpon>LC_My.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_My.aspx.designer.cs">
+      <DependentUpon>LC_My.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_Administrator.ashx.cs">
+      <DependentUpon>LC_Administrator.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_HomePage.ashx.cs">
+      <DependentUpon>LC_HomePage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_Payment.ashx.cs">
+      <DependentUpon>LC_Payment.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_PurchasePro.ashx.cs">
+      <DependentUpon>LC_PurchasePro.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\IssuePro.ashx.cs">
+      <DependentUpon>IssuePro.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_LeitaoMaster.ashx.cs">
+      <DependentUpon>LC_LeitaoMaster.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_SetUpShop.ashx.cs">
+      <DependentUpon>LC_SetUpShop.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_LogIng.ashx.cs">
+      <DependentUpon>LC_LogIng.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_Shopping.ashx.cs">
+      <DependentUpon>LC_Shopping.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\MY.ashx.cs">
+      <DependentUpon>MY.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\SQLDBC_2.cs" />
+    <Compile Include="App_Site\LC_Leitao.Master.cs">
+      <DependentUpon>LC_Leitao.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Site\LC_Leitao.Master.designer.cs">
+      <DependentUpon>LC_Leitao.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_BackgroundProcedure\LC_HLogIN.ashx.cs">
+      <DependentUpon>LC_HLogIN.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler3.ashx.cs">
+      <DependentUpon>Handler3.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="App_aspx\LC_ShoppingTrolley.aspx.cs">
+      <DependentUpon>LC_ShoppingTrolley.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_aspx\LC_ShoppingTrolley.aspx.designer.cs">
+      <DependentUpon>LC_ShoppingTrolley.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LC_CS.aspx.cs">
+      <DependentUpon>LC_CS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LC_CS.aspx.designer.cs">
+      <DependentUpon>LC_CS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Site\LC_Leitao.Master" />
+    <Content Include="App_BackgroundProcedure\LC_HLogIN.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_LogIng.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_SetUpShop.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_LeitaoMaster.ashx" />
+    <Content Include="Handler3.ashx" />
+    <Content Include="App_BackgroundProcedure\IssuePro.ashx" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App_BackgroundProcedure\LC_PurchasePro.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_Payment.ashx" />
+    <Content Include="App_BackgroundProcedure\MY.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_Shopping.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_HomePage.ashx" />
+    <Content Include="App_BackgroundProcedure\LC_Administrator.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1115</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:39647/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
