@@ -127,8 +127,8 @@
     <Content Include="Aspx\Login.aspx" />
     <Content Include="Aspx\ManageIndex.aspx" />
     <Content Include="Aspx\ManagePages\grounding.aspx" />
-    <Content Include="Aspx\ManagePages\news.aspx" />
     <Content Include="Aspx\ManagePages\order.aspx" />
+    <Content Include="Aspx\ManagePages\news.html" />
     <Content Include="Aspx\ManagePages\user.html" />
     <Content Include="Aspx\ManagePages\type.html" />
     <Content Include="Aspx\MyChange.aspx" />
@@ -376,13 +376,6 @@
     </Compile>
     <Compile Include="Aspx\ManagePages\typehandler.ashx.cs">
       <DependentUpon>typehandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Aspx\ManagePages\news.aspx.cs">
-      <DependentUpon>news.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\ManagePages\news.aspx.designer.cs">
-      <DependentUpon>news.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManagePages\order.aspx.cs">
       <DependentUpon>order.aspx</DependentUpon>
