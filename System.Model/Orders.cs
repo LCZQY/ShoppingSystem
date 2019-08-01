@@ -14,7 +14,7 @@ namespace System.Model
         /// <summary>
         /// key
         /// </summary>
-        public string OrdersID { get; set; }
+        public string OrdersId { get; set; }
 
         /// <summary>
         /// 下单时间

@@ -15,7 +15,7 @@ namespace System.Model
         /// <summary>
         /// key
         /// </summary>
-        public string NewsID { get; set; }
+        public string NewsId { get; set; }
 
         /// <summary>
         /// 标题
@@ -41,7 +41,7 @@ namespace System.Model
         /// <summary>
         /// 发布时间
         /// </summary>
-        public string PushTime { get; set; }
+        public DateTime PushTime { get; set; }
 
         /// <summary>
         /// 消息状态

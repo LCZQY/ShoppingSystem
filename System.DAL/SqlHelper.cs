@@ -29,6 +29,7 @@ namespace System.DAL
 
         /// <summary>
         /// 操作数据库
+        /// **如果是修改的话，这里是修改的所有的字段
         /// </summary>
         /// <param name="sql"></param>
         /// <param name="type"></param>

@@ -15,7 +15,7 @@ namespace System.Model
         /// <summary>
         /// key
         /// </summary>
-        public string DetailID { get; set; }
+        public string DetailId { get; set; }
 
         /// <summary>
         /// 订单编号
@@ -30,7 +30,7 @@ namespace System.Model
         /// <summary>
         /// 商品数量
         /// </summary>
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         /// <summary>
         /// 明细状态

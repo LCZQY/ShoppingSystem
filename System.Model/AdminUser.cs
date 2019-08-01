@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/// <summary>
+﻿/// <summary>
 /// 数据模型层
 /// </summary>
 namespace System.Model
@@ -14,19 +8,25 @@ namespace System.Model
     /// </summary>
     public class AdminUser
     {
-        public int SuId { get; set; }
+        public string SuId { get; set; }
         public string UserName { get; set; }
         public string Pwd { get; set; }
-        public EnumRole role { get; set; }      
+        public RoleEnum Role { get; set; }
     }
 
     /// <summary>
     /// 角色类型
     /// </summary>
-    public enum EnumRole
+    public enum RoleEnum
     {
-        Admin=0,
-        SystemAdmin=1
+        /// <summary>
+        /// 管理员： 可以执行一些操作就是不可以开后台账号
+        /// </summary>
+        Admin = 0,
+        /// <summary>
+        /// 超级管理员：  随你为所欲为，后面版本可以细分权限
+        /// </summary>
+        SystemAdmin = 1
     }
 
 }
