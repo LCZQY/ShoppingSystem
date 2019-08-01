@@ -11,6 +11,7 @@ namespace System.Common
     public class LayerTableJson
     {
 
+
         /// <summary>
         /// 行数
         /// </summary>
@@ -28,5 +29,20 @@ namespace System.Common
         /// </summary>
         public dynamic data { get; set; }
 
+    }
+
+    /// <summary>
+    /// 返回体
+    /// </summary>
+    public class ResponseMessage
+    {
+        /// <summary>
+        /// 状态码
+        /// </summary>
+        public int code { get; set; } = 0;
+        /// <summary>
+        /// 消息
+        /// </summary>
+        public string msg { get; set; }
     }
 }

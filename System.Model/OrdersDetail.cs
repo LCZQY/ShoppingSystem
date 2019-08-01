@@ -33,6 +33,39 @@ namespace System.Model
         public string Quantity { get; set; }
 
         /// <summary>
+        /// 明细状态
+        /// </summary>
+        public OrdersStatesEnum States { get; set; }
+
+    }
+
+
+    /// <summary>
+    ///订单扩展表
+    /// </summary>
+    public class OrdersDetailExtend : Orders
+    {
+        /// <summary>
+        /// key
+        /// </summary>
+        public string OrdersDetailExtendID { get; set; }
+
+        ///// <summary>
+        ///// 订单编号
+        ///// </summary>
+        //public string OrdersID { get; set; }
+
+        /// <summary>
+        /// 商品编号
+        /// </summary>
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// 商品数量
+        /// </summary>
+        public string Quantity { get; set; }
+
+        /// <summary>
         /// 订单状态
         /// </summary>
         public OrdersStatesEnum States { get; set; }

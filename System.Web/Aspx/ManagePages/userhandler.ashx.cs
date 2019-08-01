@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.BLL;
+﻿using System.BLL;
 using System.Collections.Generic;
 using System.Common;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace System.Web.Aspx.ManagePages
     /// </summary>
     public class userhandler : IHttpHandler
     {
-
+        private UserInfoService _userInfoService = CacheControl.Get<UserInfoService>();
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -33,8 +32,21 @@ namespace System.Web.Aspx.ManagePages
                 case "search":
                     SeachUsersRequest(context);
                     break;
+                case "removelist":
+                    DeleteListUsersRequest(context);
+                    break;
             }
         }
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="context"></param>
+        public void DeleteListUsersRequest(HttpContext context)
+        {
+            // ?
+        }
+
 
         /// <summary>
         /// 搜索用户
@@ -42,8 +54,10 @@ namespace System.Web.Aspx.ManagePages
         /// <param name="context"></param>
         public void SeachUsersRequest(HttpContext context)
         {
-
-
+            var username = context.Request["name"];
+            var list = _userInfoService.GetList().Where(y => y.UserName.Contains(username)).ToList();
+            var res = SerializeHelp.ToTableJson<Users>(list);
+            context.Response.Write(res);
         }
 
         /// <summary>
@@ -52,8 +66,24 @@ namespace System.Web.Aspx.ManagePages
         /// <param name="context"></param>
         public void DeleteUsersRequest(HttpContext context)
         {
+            var response = new ResponseMessage();
+            try
+            {
+                var id = context.Request["id"];
+                var del = _userInfoService.DeleteUserInfo(id);
+
+                response.code = del == true ? 0 : 500;
+                response.msg = "删除成功";
+                context.Response.Write(SerializeHelp.ToJson(response));
 
 
+            }
+            catch (Exception e)
+            {
+                response.code = 500;
+                response.msg = "删除失败";
+                context.Response.Write(SerializeHelp.ToJson(response));
+            }
         }
 
 
@@ -64,7 +94,35 @@ namespace System.Web.Aspx.ManagePages
         /// <param name="context"></param>
         public void UpdateUsersRequest(HttpContext context)
         {
+            var response = new ResponseMessage();
+            try
+            {
 
+                string userName = context.Request.Form["UserName"];
+                string userPwd = context.Request.Form["Pwd"];
+                string userEmail = context.Request.Form["Email"];
+                string usernick = context.Request.Form["Nick"];
+                string id = context.Request.Form["UserId"];
+                string deliveryId = context.Request.Form["DeliveryId"];
+                Users userInfo = new Users();
+                userInfo.UserName = userName;
+                userInfo.Pwd = userPwd;
+                userInfo.Email = userEmail;
+                userInfo.Nick = usernick;
+                userInfo.DeliveryId = deliveryId;
+                userInfo.UserId = id;
+
+                var edi = _userInfoService.UpdateUserInfo(userInfo);
+                response.code = edi == true ? 0 : 500;
+                response.msg = "修改成功";
+                context.Response.Write(SerializeHelp.ToJson(response));
+            }
+            catch (Exception e)
+            {
+                response.code = 500;
+                response.msg = "修改失败";
+                context.Response.Write(SerializeHelp.ToJson(response));
+            }
 
         }
 
@@ -74,8 +132,32 @@ namespace System.Web.Aspx.ManagePages
         /// <param name="context"></param>
         public void AddUsersRequest(HttpContext context)
         {
+            var response = new ResponseMessage();
+            try
+            {
+                string userName = context.Request.Form["name"];
+                string userPwd = context.Request.Form["pwd"];
+                string userEmail = context.Request.Form["email"];
+                string usernick = context.Request.Form["nick"];
+                Users userInfo = new Users();
+                userInfo.UserId = Guid.NewGuid().ToString();
+                userInfo.UserName = userName;
+                userInfo.Pwd = userPwd;
+                userInfo.Email = userEmail;
+                userInfo.Nick = usernick;
+                userInfo.DeliveryId = "?";
+                var add = _userInfoService.AddUserInfo(userInfo);
 
-
+                response.code = add == true ? 0 : 500;
+                response.msg = "添加成功";
+                context.Response.Write(SerializeHelp.ToJson(response));
+            }
+            catch (Exception e)
+            {
+                response.code = 500;
+                response.msg = "添加失败";
+                context.Response.Write(SerializeHelp.ToJson(response));
+            }
 
         }
 
@@ -85,17 +167,23 @@ namespace System.Web.Aspx.ManagePages
         /// <param name="context"></param>
         public void ListUsersRequest(HttpContext context)
         {
-            UserInfoService UserInfoService = CacheControl.Get<UserInfoService>();
-            List<Users> list = UserInfoService.GetList();
-            var json = new LayerTableJson
+
+            var page = context.Request.Form["page"];
+            var index = context.Request.Form["limit"];
+            if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
-                data = list,
-                code = 0,
-                count = list.Count(),
-                msg = "成功"
-            };
-            var res = JsonConvert.SerializeObject(json);
-            context.Response.Write(res);
+                List<Users> list = _userInfoService.GetList();
+                var res = SerializeHelp.ToTableJson<Users>(list);
+                context.Response.Write(res);
+
+            }
+            else
+            {
+                var list = _userInfoService.GetList();
+                var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
+                var res = SerializeHelp.ToTableJson<Users>(list1, list.Count());
+                context.Response.Write(res);
+            }
         }
 
         public bool IsReusable

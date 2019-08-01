@@ -1,301 +1,313 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>layui</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8" />
+    <title>促销咨询</title>
+    <link href="../../Content/Shopping/layer.css" rel="stylesheet" />
     <link href="../../Content/Shopping/layui.css" rel="stylesheet" />
-
-    layui 源码参考
-    https://github.com/TracyXiaowei/.NetMvc_Wap_Distributor_Order_Management_System.git
-
-    layui 后台管理系统参考
-    https://github.com/WangEn/WeAdmin.git
-    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
-    <blockquote class="layui-elem-quote">
-        鉴于小伙伴的普遍反馈，先温馨提醒两个常见“问题”：1. <a href="http://www.layui.com/v1/doc/base/faq.html#form" target="_blank">为什么select/checkbox/radio没显示？</a> 2. <a href="http://www.layui.com/v1/doc/modules/form.html#render" target="_blank">动态添加的表单元素如何更新？</a>
-    </blockquote>
-    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-        <legend>响应式的表单集合</legend>
-    </fieldset>
-
-    <form class="layui-form" action="">
-        <div class="layui-form-item">
-            <label class="layui-form-label">单行输入框</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">验证必填项</label>
-            <div class="layui-input-block">
-                <input type="text" name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">验证手机</label>
-                <div class="layui-input-inline">
-                    <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input">
+   
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+    <div id="add-main" hidden>
+        <div class="my-form">
+            <form class="layui-form" method="POST" lay-skin="line">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="Title" lay-verify="required" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">验证邮箱</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">分类</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="NTypes" lay-verify="required" placeholder="请输入分类" autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">多规则验证</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">封面</label>
+                        <div class="layui-input-inline">
+                            <button type="button" class="layui-btn" id="files">
+                                <i class="layui-icon">&#xe67c;</i>上传图片
+                            </button>
+                        </div>
+                        <input type="hidden" id="PhotoUrl" name="PhotoId" />
+                    </div>
                 </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">验证日期</label>
-                <div class="layui-input-inline">
-                    <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"></label>
+                    <div class="layui-inline">
+                        <img id="myPic" src="" width="400em" style="max-height:300em;  box-shadow:1px 2px 1px black;" />
+                    </div>
                 </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">验证链接</label>
-                <div class="layui-input-inline">
-                    <input type="tel" name="url" lay-verify="url" autocomplete="off" class="layui-input">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">咨询内容</label>
+                    <div class="layui-input-block">
+                        <textarea class="layui-textarea layui-hide" name="Content" lay-verify="content" id="LAY_demo_editor"></textarea>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">验证身份证</label>
-            <div class="layui-input-block">
-                <input type="text" name="identity" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">自定义验证</label>
-            <div class="layui-input-inline">
-                <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
-        </div>
-
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">范围</label>
-                <div class="layui-input-inline" style="width: 100px;">
-                    <input type="text" name="price_min" placeholder="￥" autocomplete="off" class="layui-input">
+                <!--<div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">发布时间：现版本立即发送</label>
+                    <div class="layui-input-block">
+                        <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+                    </div>
+                </div>-->
+                <div class="layui-form-item my-form-item">
+                    <div class="layui-input-block item">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="submit1">发布</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
                 </div>
-                <div class="layui-form-mid">-</div>
-                <div class="layui-input-inline" style="width: 100px;">
-                    <input type="text" name="price_max" placeholder="￥" autocomplete="off" class="layui-input">
-                </div>
-            </div>
+            </form>
         </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">单行选择框</label>
-            <div class="layui-input-block">
-                <select name="interest" lay-filter="aihao">
-                    <option value=""></option>
-                    <option value="0">写作</option>
-                    <option value="1" selected="">阅读</option>
-                    <option value="2">游戏</option>
-                    <option value="3">音乐</option>
-                    <option value="4">旅行</option>
-                </select>
-            </div>
-        </div>
-
-
-        <div class="layui-form-item">
-            <div class="layui-inline">
-                <label class="layui-form-label">分组选择框</label>
-                <div class="layui-input-inline">
-                    <select name="quiz">
-                        <option value="">请选择问题</option>
-                        <optgroup label="城市记忆">
-                            <option value="你工作的第一个城市">你工作的第一个城市</option>
-                        </optgroup>
-                        <optgroup label="学生时代">
-                            <option value="你的工号">你的工号</option>
-                            <option value="你最喜欢的老师">你最喜欢的老师</option>
-                        </optgroup>
-                    </select>
-                </div>
-            </div>
-            <div class="layui-inline">
-                <label class="layui-form-label">搜索选择框</label>
-                <div class="layui-input-inline">
-                    <select name="modules" lay-verify="required" lay-search="">
-                        <option value="">直接选择或搜索选择</option>
-                        <option value="1">layer</option>
-                        <option value="2">form</option>
-                        <option value="3">layim</option>
-                        <option value="4">element</option>
-                        <option value="5">laytpl</option>
-                        <option value="6">upload</option>
-                        <option value="7">laydate</option>
-                        <option value="8">laypage</option>
-                        <option value="9">flow</option>
-                        <option value="10">util</option>
-                        <option value="11">code</option>
-                        <option value="12">tree</option>
-                        <option value="13">layedit</option>
-                        <option value="14">nav</option>
-                        <option value="15">tab</option>
-                        <option value="16">table</option>
-                        <option value="17">select</option>
-                        <option value="18">checkbox</option>
-                        <option value="19">switch</option>
-                        <option value="20">radio</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">联动选择框</label>
-            <div class="layui-input-inline">
-                <select name="quiz1">
-                    <option value="">请选择省</option>
-                    <option value="浙江" selected="">浙江省</option>
-                    <option value="你的工号">江西省</option>
-                    <option value="你最喜欢的老师">福建省</option>
-                </select>
-            </div>
-            <div class="layui-input-inline">
-                <select name="quiz2">
-                    <option value="">请选择市</option>
-                    <option value="杭州">杭州</option>
-                    <option value="宁波" disabled="">宁波</option>
-                    <option value="温州">温州</option>
-                    <option value="温州">台州</option>
-                    <option value="温州">绍兴</option>
-                </select>
-            </div>
-            <div class="layui-input-inline">
-                <select name="quiz3">
-                    <option value="">请选择县/区</option>
-                    <option value="西湖区">西湖区</option>
-                    <option value="余杭区">余杭区</option>
-                    <option value="拱墅区">临安市</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">复选框</label>
-            <div class="layui-input-block">
-                <input type="checkbox" name="like[write]" title="写作">
-                <input type="checkbox" name="like[read]" title="阅读" checked="">
-                <input type="checkbox" name="like[game]" title="游戏">
-            </div>
-        </div>
-
-        <div class="layui-form-item" pane="">
-            <label class="layui-form-label">原始复选框</label>
-            <div class="layui-input-block">
-                <input type="checkbox" name="like1[write]" lay-skin="primary" title="写作" checked="">
-                <input type="checkbox" name="like1[read]" lay-skin="primary" title="阅读">
-                <input type="checkbox" name="like1[game]" lay-skin="primary" title="游戏" disabled="">
-            </div>
-        </div>
-
-        <div class="layui-form-item">
-            <label class="layui-form-label">开关-默认关</label>
-            <div class="layui-input-block">
-                <input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">开关-默认开</label>
-            <div class="layui-input-block">
-                <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">单选框</label>
-            <div class="layui-input-block">
-                <input type="radio" name="sex" value="男" title="男" checked="">
-                <input type="radio" name="sex" value="女" title="女">
-                <input type="radio" name="sex" value="禁" title="禁用" disabled="">
-            </div>
-        </div>
-        <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">普通文本域</label>
-            <div class="layui-input-block">
-                <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
-            </div>
-        </div>
-        <div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">编辑器</label>
-            <div class="layui-input-block">
-                <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
-                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </div>
-        </div>
-    </form>
-
-
+    </div>
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../../Scripts/Shopping/layui.js"></script>
-
-    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-    <script>
-        layui.use(['form', 'layedit', 'laydate'], function () {
-            var form = layui.form
-                , layer = layui.layer
-                , layedit = layui.layedit
-                , laydate = layui.laydate;
-
-            //创建一个编辑器
-            var editIndex = layedit.build('LAY_demo_editor');
-
-            //自定义验证规则
-            form.verify({
-                title: function (value) {
-                    if (value.length < 5) {
-                        return '标题至少得5个字符啊';
-                    }
-                }
-                , pass: [/(.+){6,12}$/, '密码必须6到12位']
-                , content: function (value) {
-                    layedit.sync(editIndex);
-                }
-            });
-
-            //监听指定开关
-            form.on('switch(switchTest)', function (data) {
-                layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
-                    offset: '6px'
-                });
-                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
-            });
-
-            //监听提交
-            form.on('submit(demo1)', function (data) {
-                layer.alert(JSON.stringify(data.field), {
-                    title: '最终的提交信息'
-                })
-                return false;
-            });
-
-
-        });
-    </script>
-
+    <script src="../../Scripts/Shopping/master.js"></script>
 </body>
+
+<script type="text/html" id="toolbarDemo">
+
+    <div class="layui-btn-container">
+        <!--<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>-->
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="add">&#xe654;</button>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="batchDel">&#xe640;</button>
+        <div class="layui-btn layui-btn-sm">
+            <span>促销咨询标题搜索：</span> <input type="text" name="search">
+        </div>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="search">&#xe615;</button>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="flush">&#xe669;</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>
+</script>
+
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form
+            , layer = layui.layer
+            , layedit = layui.layedit
+            , laydate = layui.laydate;
+        //日期控件
+        laydate.render({
+            elem: '#test11'
+        });
+        // 富文本框提交图片接口
+        layedit.set({
+            uploadImage: {
+                url: 'groundinghandler.ashx?action=upload' //接口url
+                , type: 'POST' //默认post
+            }
+        });
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+    });
+</script>
+<script>
+    var uploadfile = function () {
+        layui.use(['upload', 'jquery'], function () {
+            var upload = layui.upload;
+            var $ = layui.$;
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#files'                //绑定元素
+                , url: 'groundinghandler.ashx?action=upload'      //上传接口
+
+                //*********************传输限制
+                , size: 100                   //传输大小100k
+                , exts: 'jpg|png|gif|'        //可传输文件的后缀
+                , accept: 'file'              //video audio images
+
+                //****************传输操作相关设置
+                , data: { Parm1: "hello", Parm2: "world" }    //额外传输的参数
+                , headers: { token: 'sasasasa' }                   //额外添加的请求头
+                , auto: true                                 //自动上传,默认是打开的
+                , bindAction: '#btnUpload'                    //auto为false时，点击触发上传
+                , multiple: false                             //多文件上传
+                //, number: 100                               //multiple:true时有效
+                , done: function (res) {                      //传输完成的回调
+                    $('#myPic').attr("src", "../.." + res.src);
+                    //复值到后端
+                    $("#PhotoId").val("../.." + res.src);
+                }
+                , error: function () {                         //传输失败的回调
+                    //请求异常回调
+                }
+            });
+        });
+    }
+    //上传图片
+    uploadfile();
+
+    layui.use(['table', 'layer', 'form'], function () {
+        var table = layui.table,
+            layer = layui.layer,
+            form = layui.form;
+        var $ = layui.$;
+
+
+        table.render({
+            url: "userhandler.ashx?action=list"
+            , method: "POST"
+            //, where: { page: 0, limit: 10 }
+            , elem: '#test'
+            , toolbar: '#toolbarDemo'
+            , title: '用户数据表'
+            , location: true
+            , cols: [
+                [
+                    { type: 'checkbox', fixed: 'left' }
+                    , { field: 'UserName', title: '用户名', width: 120, edit: 'text' }
+                    , { field: 'Nick', title: '昵称', width: 120, edit: 'text' }
+                    , { field: 'Email', title: '邮箱', width: 120, edit: 'text' }
+                    , {
+                        field: 'updateTime', title: '更新时间', minwidth: 50, sort: true, templet: function (d) {
+                            return layui.util.toDateString(d.updateTime);
+                        }
+                    }
+                    , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
+                ]
+            ]
+            , page: true
+        });
+
+        //头工具栏事件
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：' + data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选' : '未全选');
+                    break;
+                case 'add':
+                    layer.open({
+                        title: '发布促销咨询',
+                        /*如果是外部的html，type2，内部，type1*/
+                        type: 1,
+                        btnAlign: 'c',
+                        area: "50%",
+                        content: $("#add-main")
+                        //未做的是去监听表单提交，给后台发送ajax请求
+                    }
+                    );
+                    break;
+                case
+                    'batchDel'
+                    :
+                    layer.msg("开发中...");
+                    /*发送ajax请求到后台执行批量删除*/
+                    break;
+                case
+                    'flush'
+                    :
+                    table.reload('test', {
+                        url: "userhandler.ashx?action=list"
+                        , method: "GET"
+                    });
+                    break;
+                case
+                    'search'
+                    :
+                    layer.msg("根据用户名查找");
+                    var name = $('input[name="search"]').val();
+                    table.reload('test', {
+                        url: 'userhandler.ashx?action=search',
+                        where: {
+                            name: name,
+                        },
+                        page: {
+                            curr: 1
+                        }
+                    });
+                    break;
+            };
+        });
+
+        //监听单元格编辑，修改
+        table.on('edit(test)', function (obj) {
+            var value = obj.value //得到修改后的值
+                , data = obj.data //得到所在行所有键值
+                , field = obj.field; //得到字段
+            $.ajax({
+                url: 'userhandler.ashx?action=update',
+                type: 'POST',
+                dataType: 'json',
+                data: data,
+                success: function (e) {
+                    if (e.code == 0) {
+                        layer.msg(e.msg);
+                    } else {
+                        layer.msg(e.msg);
+                    }
+                },
+                error: function (e) {
+                    layer.msg(e);
+                }
+            })
+        });
+        //监听行工具事件
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'del') { //删除
+                layer.confirm('亲爱的,你要删除我吗？', function (index) {
+                    obj.del();
+                    layer.close(index);
+                    $.ajax({
+                        url: "userhandler.ashx?action=delete",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            id: data.UserId
+                        },
+                        success: function (e) {
+                            if (e.code == 0) {
+                                layer.msg(e.msg);
+                            } else {
+                                layer.msg(e.msg);
+                            }
+                        },
+                        error: function (e) {
+                            layer.msg(e);
+                        }
+                    })
+                });
+            }
+        });
+
+        //添加咨询
+        form.on('submit(demo1)', function (data) {
+            $.ajax({
+                url: "userhandler.ashx?action=add",
+                type: "POST",
+                dataType: "json",
+                data: data.field,
+                success: function (e) {
+                    if (e.code == 0) {
+                        layer.msg(e.msg);
+                        window.parent.location.reload();//修改成功后刷新父界面
+                    } else {
+                        layer.msg(e.msg);
+                    }
+                },
+                error: function (e) {
+                    layer.msg(e);
+                }
+            });
+            return false;
+        });
+    });
+</script>
 </html>

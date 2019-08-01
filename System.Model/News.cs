@@ -11,17 +11,19 @@ namespace System.Model
     /// </summary>
     public class News
     {
+
         /// <summary>
         /// key
         /// </summary>
         public string NewsID { get; set; }
+
         /// <summary>
         /// 标题
         /// </summary>
         public string Title { get; set; }
 
         /// <summary>
-        /// NTypes
+        /// 分类 【可抽出单独的一张表】
         /// </summary>
         public string NTypes { get; set; }
 
@@ -41,18 +43,10 @@ namespace System.Model
         /// </summary>
         public string PushTime { get; set; }
 
-
-
         /// <summary>
         /// 消息状态
         /// </summary>
         public NewsEnum States { get; set; }
-
-
-
-
-
-
     }
 
     /// <summary>

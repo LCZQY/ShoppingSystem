@@ -124,11 +124,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Aspx\Favorites.aspx" />
-    <Content Include="Aspx\Login.aspx" />
+    <Content Include="Aspx\login.html" />
     <Content Include="Aspx\ManageIndex.aspx" />
-    <Content Include="Aspx\ManagePages\grounding.aspx" />
-    <Content Include="Aspx\ManagePages\order.aspx" />
+    <Content Include="Aspx\ManagePages\grounding.html" />
     <Content Include="Aspx\ManagePages\news.html" />
+    <Content Include="Aspx\ManagePages\order.html" />
     <Content Include="Aspx\ManagePages\user.html" />
     <Content Include="Aspx\ManagePages\type.html" />
     <Content Include="Aspx\MyChange.aspx" />
@@ -137,7 +137,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\iconfont.svg" />
+    <Content Include="Content\fonts\资源使用说明.txt" />
     <Content Include="Content\font\iconfont.svg" />
+    <Content Include="Content\Shopping\font.css" />
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Shopping\master\animate.css" />
     <Content Include="Content\Shopping\master\font-awesome.min.css" />
@@ -150,6 +153,7 @@
     <Content Include="Content\Shopping\master\owl.carousel.css" />
     <Content Include="Content\Shopping\master\responsive.css" />
     <Content Include="Content\Shopping\master\style.css" />
+    <Content Include="Content\Shopping\weadmin.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -167,7 +171,6 @@
     <Content Include="Content\font\iconfont.eot" />
     <Content Include="Content\font\iconfont.ttf" />
     <Content Include="Content\font\iconfont.woff" />
-    <Content Include="Content\font\iconfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -176,8 +179,17 @@
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\Shopping\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Aspx\ManagePages\typehandler.ashx" />
     <Content Include="Aspx\ManagePages\userhandler.ashx" />
+    <Content Include="Aspx\ManagePages\typehandler.ashx" />
+    <Content Include="Aspx\ManagePages\groundinghandler.ashx" />
+    <Content Include="Aspx\ManagePages\newshandler.ashx" />
+    <Content Include="Aspx\ManagePages\orderhandler.ashx" />
+    <Content Include="Content\Shopping\weadmin.less" />
+    <Content Include="Content\fonts\iconfont.eot" />
+    <Content Include="Content\fonts\iconfont.ttf" />
+    <Content Include="Content\fonts\iconfont.woff" />
+    <Content Include="img\bg.png" />
+    <Content Include="json\menu.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
@@ -267,6 +279,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Shopping\admin.js" />
     <Content Include="Scripts\Shopping\css\layui.css" />
     <Content Include="Scripts\Shopping\css\layui.mobile.css" />
     <Content Include="Scripts\Shopping\css\modules\code.css" />
@@ -298,6 +311,8 @@
     <Content Include="Scripts\Shopping\lay\modules\tree.js" />
     <Content Include="Scripts\Shopping\lay\modules\upload.js" />
     <Content Include="Scripts\Shopping\lay\modules\util.js" />
+    <Content Include="Scripts\Shopping\menu.js" />
+    <Content Include="Scripts\Shopping\showtable.js" />
     <Content Include="Scripts\Shopping\master.js" />
     <Content Include="Scripts\Shopping\master\ajax-mail.js" />
     <Content Include="Scripts\Shopping\master\bootstrap.min.js" />
@@ -316,6 +331,7 @@
     <Content Include="Scripts\Shopping\master\plugins.js" />
     <Content Include="Scripts\Shopping\master\waypoints.min.js" />
     <Content Include="Scripts\Shopping\master\wow.min.js" />
+    <Content Include="Scripts\Shopping\weadmin.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -353,13 +369,6 @@
     <Compile Include="Aspx\Favorites.aspx.designer.cs">
       <DependentUpon>Favorites.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Aspx\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Aspx\ManageIndex.aspx.cs">
       <DependentUpon>ManageIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,22 +376,17 @@
     <Compile Include="Aspx\ManageIndex.aspx.designer.cs">
       <DependentUpon>ManageIndex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Aspx\ManagePages\grounding.aspx.cs">
-      <DependentUpon>grounding.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Aspx\ManagePages\groundinghandler.ashx.cs">
+      <DependentUpon>groundinghandler.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Aspx\ManagePages\grounding.aspx.designer.cs">
-      <DependentUpon>grounding.aspx</DependentUpon>
+    <Compile Include="Aspx\ManagePages\newshandler.ashx.cs">
+      <DependentUpon>newshandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\orderhandler.ashx.cs">
+      <DependentUpon>orderhandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManagePages\typehandler.ashx.cs">
       <DependentUpon>typehandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Aspx\ManagePages\order.aspx.cs">
-      <DependentUpon>order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aspx\ManagePages\order.aspx.designer.cs">
-      <DependentUpon>order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManagePages\userhandler.ashx.cs">
       <DependentUpon>userhandler.ashx</DependentUpon>
@@ -467,6 +471,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

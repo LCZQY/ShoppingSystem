@@ -19,6 +19,7 @@ namespace System.BLL
     {
         UserInfoDal UserInfoDal = System.Common.CacheControl.Get<UserInfoDal>();
 
+      
         /// <summary>
         /// 返回数据列表
         /// </summary>
@@ -28,6 +29,14 @@ namespace System.BLL
             return UserInfoDal.GetList();
         }
 
+        /// <summary>
+        /// 返回数据列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> GetList(int page,int index)
+        {
+            return UserInfoDal.GetList(page, index);
+        }
         /// <summary>
         /// 返回用户信息 一条
         /// </summary>
@@ -63,7 +72,7 @@ namespace System.BLL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool DeleteUserInfo(int id)
+        public bool DeleteUserInfo(string id)
         {
             return UserInfoDal.DeleteUsers(id) > 0;
         }

@@ -1,126 +1,118 @@
 ﻿<%@ Page Title="Change官网-后台-后台主页" Language="C#" MasterPageFile="~/Site.Mobile.Master" AutoEventWireup="true" CodeBehind="ManageIndex.aspx.cs" Inherits="System.Web.Aspx.ManageIndex" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <head>
-        <link rel="stylesheet" href="../../Content/Shopping/layui.css">
-        <style>
-            .leftMain .layui-icon {
-                margin-right: 5px;
-            }
-        </style>
-        <link id="layuicss-layer" rel="stylesheet" href="../../Content/Shopping/layer.css" media="all">
-    </head>
+    <link href="../Content/Shopping/font.css" rel="stylesheet" />
+    <link href="../Content/Shopping/layui.css" rel="stylesheet" />
+    <link href="../Content/Shopping/weadmin.css" rel="stylesheet" />
 
-    <body class="layui-layout-body">
 
-        <div class="layui-layout layui-layout-admin">
-            <div class="layui-header">
-                <div class="layui-logo">Change商城后台管理</div>
-                <!-- 头部区域（可配合layui已有的水平导航） -->
-                <ul class="layui-nav layui-layout-left">
-                    <li class="layui-nav-item">
-                        <a runat="server" href="~">网站首页</a>
-                    </li>
-                    <span class="layui-nav-bar" style="left: 102px; top: 55px; width: 0px; opacity: 0;"></span>
-                </ul>
-                <ul class="layui-nav layui-layout-right">
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">admin					
-                            <span class="layui-nav-more"></span></a>
-                        <dl class="layui-nav-child">
-                            <dd>
-                                <a href="##">个人资料</a>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="##">退出</a>
-                    </li>
-                    <span class="layui-nav-bar"></span>
-                </ul>
-            </div>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo">
+            <a href="./index.html">Change 商城后台管理</a>
+        </div>
+        <div class="left_open">
+             <i title="展开左侧栏" class="iconfont">&#xe699;</i>         
+        </div>       
+        <ul class="layui-nav right" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="javascript:;">Admin</a>
+                <dl class="layui-nav-child">
+                    <!-- 二级菜单 -->
+                    <dd>
+                        <a onclick="WeAdminShow('个人信息','http://www.baidu.com')">个人信息</a>
+                    </dd>
+                    <dd>
+                        <a onclick="WeAdminShow('切换帐号','./login.html')">切换帐号</a>
+                    </dd>
+                    <dd>
+                        <a class="loginout" href="./login.html">退出</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item to-index">
+                <a runat="server" href="~" target="_blank">前台首页</a>
+            </li>
+        </ul>
 
-            <div class="layui-side layui-bg-black">
-                <div class="layui-side-scroll">
-                    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-                    <ul class="layui-nav layui-nav-tree leftMain" lay-filter="test">
-                        <li class="layui-nav-item layui-nav-itemed">
-                            <a class="" href="javascript:;">基本功能<span class="layui-nav-more"></span></a>
-                            <dl class="layui-nav-child">
-                                <dd class="layui-this">
-                                    <a class="layui-unselect" id="user" href="javascript:;"><i class="layui-icon"></i>用户管理</a>
-                                </dd>
-                                <dd>
-                                    <a id="type" href="javascript:;"><i class="layui-icon"></i>商品类型</a>
-                                </dd>
-                                <dd>
-                                    <a id="grounding" href="javascript:;"><i class="layui-icon"></i>上架商品</a>
-                                </dd>
-                                <dd>
-                                    <a id="order" href="javascript:;"><i class="layui-icon"></i>订单管理</a>
-                                </dd>
-                                <dd>
-                                    <a id="news" href="javascript:;"><i class="layui-icon"></i>促销咨询</a>
-                                </dd>
-                            </dl>
-                        </li>
-                        <span class="layui-nav-bar"></span>
-                    </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav">
+        <div id="side-nav">     
+        </div>
+    </div>
+    <!-- <div class="x-slide_left"></div> -->
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="wenav_tab" id="WeTabTip" lay-allowclose="true">
+            <ul class="layui-tab-title" id="tabName">
+                <li>我的桌面</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src="ManagePages/order.html" frameborder="0" scrolling="yes" class="weIframe"></iframe>
                 </div>
-            </div>
-            <div class="layui-body" id="LAY_app_body">
-                <div class="layadmin-tabsbody-item layui-show">
-                    <div class="layui-fluid">
-                        <iframe id="rightMain" src="ManagePages/user"  style="width: 100%; border:none; height: 100%;"></iframe>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-footer">
-                <!-- 底部固定区域 -->
-                <p>&copy; <%:DateTime.Now.Year %> - Change商城</p>
             </div>
         </div>
+    </div>
+    <div class="page-content-bg"></div>
+    <!-- 右侧主体结束 -->
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="copyright">Copyright ©2019 Change 商城后台管理V1.0 </div>
+    </div>
+    <!-- 底部结束 -->
+    <script src="../Scripts/jquery-3.3.1.js"></script>
+    <script src="../Scripts/Shopping/layui.js"></script> 
 
-        <script src="../../Scripts/jquery.js"></script>
-        <script src="../../Scripts/Shopping/layui.js"></script>
-
-        <script>
-            //JavaScript代码区域
-            layui.use(['element', 'layer'], function () {
-                var element = layui.element;
-                var layer = layui.layer;
-                //一些事件监听
-                element.on('tab(demo)', function (data) {
-                    layer.msg('切换了：' + this.innerHTML);
-                });
+    <script type="text/javascript">
+        //			layui扩展模块的两种加载方式-示例
+        //		    layui.extend({
+        //			  admin: '{/}../../static/js/admin' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+        //			});
+        //			//使用拓展模块
+        //			layui.use('admin', function(){
+        //			  var admin = layui.admin;
+        //			});
+        layui.config({ //加载js资源
+            base: '../Scripts/Shopping/'
+            , version: '101100'
+        }).extend({ //设定模块别名
+            admin: 'admin'
+            , menu: 'menu'
+        });
+        layui.use(['jquery', 'admin', 'menu'], function () {
+            var $ = layui.jquery,
+                admin = layui.admin,
+                menu = layui.menu;
+            $(function () {
+                menu.getMenu('../json/menu.json');
+                //    var login = JSON.parse(localStorage.getItem("login"));
+                //    if (login) {
+                //        if (login === 0) {
+                //            window.location.href = './login.html';
+                //            return false;
+                //        } else {
+                //            return false;
+                //        }
+                //    } else {
+                //        window.location.href = './login.html';
+                //        return false;
+                //    }
             });
-            //菜单栏内容Url控制        
-            $('.leftMain a:not(a:first)').on("click", function (e) {
-                var href = "";
-                var id = $(this).attr("id");
-                console.log(id, "id");
-                switch (id) {
-                    case "user":
-                        href = "ManagePages/user.html";
-                        break;
-                    case "type":
-                        href = "ManagePages/type.html";
-                        break;
-                    case "grounding":
-                        href = "ManagePages/grounding.html";
-                        break;
-                    case "order":
-                        href = "ManagePages/order.html";
-                        break;
-                    case "news":
-                        href = "ManagePages/news.html";
-                        break;
-                }
-                $('#rightMain').attr("src", href);
-            });
+        });
 
-        </script>
-    </body>
+    </script>
 
-
+    <!--Tab菜单右键弹出菜单-->
+    <ul class="rightMenu" id="rightMenu">
+        <li data-type="fresh">刷新</li>
+        <li data-type="current">关闭当前</li>
+        <li data-type="other">关闭其它</li>
+        <li data-type="all">关闭所有</li>
+    </ul>  
 </asp:Content>
