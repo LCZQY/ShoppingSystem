@@ -9,3 +9,6 @@ http://www.17sucai.com/pins/demo-show?id=33619
 
 asp.net 调转方式
 https://www.cnblogs.com/joean/p/4415115.html
+
+
+经验教训   不应该把js 和 css 跨文件跨路径存放！！！！！！

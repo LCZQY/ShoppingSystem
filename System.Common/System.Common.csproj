@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheControl.cs" />
+    <Compile Include="CreateSqlString.cs" />
     <Compile Include="LayerTreeJson.cs" />
     <Compile Include="LayerTableJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

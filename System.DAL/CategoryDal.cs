@@ -42,7 +42,7 @@ namespace System.DAL
 
 
         /// <summary>
-        /// 获取用户列表
+        /// 分页获取列表
         /// </summary>
         /// <returns></returns>
         public List<Category> GetList(int page, int index)
@@ -149,6 +149,28 @@ namespace System.DAL
             }
         }
 
+        /// <summary>
+        /// 批量删除信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeletecAllategory(string[] id)
+        {
+            try
+            {
+                var arry = string.Join("', '", id);
+                string sql = $"DELETE FROM Category WHERE CateId in(@CateId)";
+                MySqlParameter[] pars ={
+                                      new MySqlParameter("@CateId",MySqlDbType.VarChar,36)
+                                  };
+                pars[0].Value = arry;
+                return SqlHelper.ExecuteNonquery(sql, CommandType.Text, pars);
+            }
+            catch
+            {
+                throw;
+            }
+        }
         /// <summary>
         ///  初始化实体
         /// </summary>
