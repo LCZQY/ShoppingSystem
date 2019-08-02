@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminUserDal.cs" />
+    <Compile Include="PhotoDal.cs" />
     <Compile Include="OrdersDetailDal.cs" />
     <Compile Include="OrdersDal.cs" />
     <Compile Include="NewsDal.cs" />

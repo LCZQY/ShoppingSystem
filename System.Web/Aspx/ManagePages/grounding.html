@@ -8,16 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../../Content/Shopping/layui.css" rel="stylesheet" />
 
-    <!--layui 源码参考
-    https://github.com/TracyXiaowei/.NetMvc_Wap_Distributor_Order_Management_System.git
-
-    layui 后台管理系统参考
-    https://github.com/WangEn/WeAdmin.git-->
+ 
 </head>
 <body>
     <blockquote class="layui-elem-quote">
-        注意: 图片大小最多为5M
-    </blockquote>   
+        注意: 图片大小最多为100k
+    </blockquote>
 
     <form class="layui-form" action="">
         <div class="layui-form-item">
@@ -49,8 +45,7 @@
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">上架时间</label>
-                <div class="layui-input-inline">
-                    <!--<input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-mm-dd" autocomplete="off" class="layui-input" onclick="layui.laydate({elem: this})">-->
+                <div class="layui-input-inline">                
                     <input type="text" name="PostTime" class="layui-input" placeholder="上架时间" id="test11">
                 </div>
             </div>
@@ -72,11 +67,7 @@
                         <i class="layui-icon">&#xe67c;</i>上传图片
                     </button>
                 </div>
-                <input type="hidden" id="PhotoId" name="PhotoId" />
-                <!--<div class="layui-input-inline">
-                    <button type="button" class="layui-btn" id="btnUpload">开始上传</button>
-                    <button type="button" class="layui-btn" id="btnReset">重置</button>
-                </div>-->
+                <input type="hidden" id="PhotoId" name="PhotoId" />               
             </div>
         </div>
         <div class="layui-form-item">
@@ -90,13 +81,7 @@
             <div class="layui-input-block">
                 <textarea name="Content" placeholder="请输入内容" class="layui-textarea"></textarea>
             </div>
-        </div>
-        <!--<div class="layui-form-item layui-form-text">
-            <label class="layui-form-label">编辑器</label>
-            <div class="layui-input-block">
-                <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
-            </div>
-        </div>-->
+        </div>       
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
@@ -159,27 +144,42 @@
             //创建一个编辑器
             var editIndex = layedit.build('LAY_demo_editor');
 
-
             //监听提交
             form.on('submit(demo1)', function (data) {
-                layer.alert(JSON.stringify(data.field), {
-                    title: '最终的提交信息'
-                })
+                console.log(data.field,"11111111111111111");
+                //layer.alert(JSON.stringify(data.field), {
+                //    title: '最终的提交信息'
+                //})
+                ajax_request({
+                    url: "groundinghandler.ashx?action=add",
+                    data: data.field,
+                    callback: function (e) {
+                        e = JSON.parse(e);
+                        if (e.code == 0) {
+                            layer.msg(e.msg);
+                            setTimeout(function () {
+                                window.parent.location.reload();
+                            }, 2000);
+                        
+                        } else {
+                            layer.msg(e.msg);
+                        }
+                    }
+                });
                 return false;
             });
         });
     </script>
     <script>
 
-        //加载父级菜单
+        //商品类型
         ajax_request({
             url: "typehandler.ashx?action=tree",
             callback: function (data) {
 
                 json = JSON.parse(data);
                 console.log(json, "0000");
-                // if (json.code == 0) {
-                // console.log(data, "model");
+
                 var html = ' <select name="CateId">';
                 $.each(json, function (index, item) {
                     if (index == 0) html += ' <option value="">请选择商品类型</option>';
@@ -190,16 +190,11 @@
                             html += '<option value="' + childname.id + '">' + childname.title + '</option>';
                         });
                     html += ' </optgroup>';
-                    //   $('#interest').append(new Option(item.CateName, item.CateId));// 下拉菜单里添加元素
-                    //$("#Parent >div > div> dl").append('<dd lay-value="' + item.CateId + '" class="">' + item.CateName + '</dd>');
                 });
                 html += '</select>';
                 console.log(html, "生成");
                 $("#appendsSelect").html(html);
-                //} else {
-                //    console.log(data);
-                //    layer.msg("服务器出错了，请重试");
-                //}
+
             }
         });
 

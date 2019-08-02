@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Common;
+using System.DAL;
 using System.Linq;
 using System.Model;
-using System.Text;
-using System.Threading.Tasks;
-using System.DAL;
-using System.Common;
 
 /// <summary>
 /// 逻辑处理层
@@ -17,9 +14,9 @@ namespace System.BLL
     /// </summary>
     public class CategoryService : IBaseServer<Category>
     {
-        private  CategoryDal  _infoDal = System.Common.CacheControl.Get<CategoryDal>();
+        private CategoryDal _infoDal = CacheControl.Get<CategoryDal>();
 
-     
+
         /// <summary>
         ///  父级菜单
         /// </summary>
@@ -28,8 +25,8 @@ namespace System.BLL
         public List<LayerTreeJson> CreateTreeJson(string parentId = "0")
         {
             var jsontree = new List<LayerTreeJson>();
-            IEnumerable<Category> data = GetList();         
-            data= data.Where(y => y.ParentId == parentId);         
+            IEnumerable<Category> data = GetList();
+            data = data.Where(y => y.ParentId == parentId);
             foreach (var item in data)
             {
                 jsontree.Add(new LayerTreeJson
@@ -68,12 +65,12 @@ namespace System.BLL
 
         public bool Add(Category model)
         {
-            return _infoDal.Addcategory(model)>0;
+            return _infoDal.Addcategory(model) > 0;
         }
 
         public bool Delete(string id)
         {
-            return _infoDal.Deletecategory(id)>0;
+            return _infoDal.Deletecategory(id) > 0;
         }
 
         public Category GetDeail(int id)
@@ -88,12 +85,12 @@ namespace System.BLL
 
         public List<Category> GetList(int page, int index)
         {
-            return _infoDal.GetList(page,index);
+            return _infoDal.GetList(page, index);
         }
 
         public bool Update(Category model)
         {
-            return _infoDal.Updatecategory(model)>0 ;
+            return _infoDal.Updatecategory(model) > 0;
         }
     }
 }

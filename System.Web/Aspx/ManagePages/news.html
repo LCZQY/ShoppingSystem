@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title>促销咨询</title>
-    <link href="../../Content/Shopping/layer.css" rel="stylesheet" />
-    <link href="../../Content/Shopping/layui.css" rel="stylesheet" />
+    <link href="../../AppData/layui/css/layui.css" rel="stylesheet" />
 </head>
 <body>
-   
+
     <table class="layui-hide" id="test" lay-filter="test"></table>
     <div id="add-main" hidden>
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>发布促销咨询</legend>
+        </fieldset>
         <div class="my-form">
             <form class="layui-form" method="POST" lay-skin="line">
                 <div class="layui-form-item">
@@ -33,7 +35,7 @@
                                 <i class="layui-icon">&#xe67c;</i>上传图片
                             </button>
                         </div>
-                        <input type="hidden" id="PhotoUrl" name="PhotoId" />
+                        <input type="hidden" id="Photoid" name="PhotoUrl" />
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -64,7 +66,8 @@
         </div>
     </div>
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
-    <script src="../../Scripts/Shopping/layui.js"></script>
+
+    <script src="../../AppData/layui/layui.js"></script>
     <script src="../../Scripts/Shopping/master.js"></script>
 </body>
 
@@ -87,29 +90,9 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>
 </script>
 
-<script>
-    layui.use(['form', 'layedit', 'laydate'], function () {
-        var form = layui.form
-            , layer = layui.layer
-            , layedit = layui.layedit
-            , laydate = layui.laydate;
-        //日期控件
-        laydate.render({
-            elem: '#test11'
-        });
-        // 富文本框提交图片接口
-        layedit.set({
-            uploadImage: {
-                url: 'groundinghandler.ashx?action=upload' //接口url
-                , type: 'POST' //默认post
-            }
-        });
-        //创建一个编辑器
-        var editIndex = layedit.build('LAY_demo_editor');
 
-    });
-</script>
 <script>
+
     var uploadfile = function () {
         layui.use(['upload', 'jquery'], function () {
             var upload = layui.upload;
@@ -117,7 +100,7 @@
             //执行实例
             var uploadInst = upload.render({
                 elem: '#files'                //绑定元素
-                , url: 'groundinghandler.ashx?action=upload'      //上传接口
+                , url: 'newshandler.ashx?action=upload'      //上传接口
 
                 //*********************传输限制
                 , size: 100                   //传输大小100k
@@ -134,7 +117,7 @@
                 , done: function (res) {                      //传输完成的回调
                     $('#myPic').attr("src", "../.." + res.src);
                     //复值到后端
-                    $("#PhotoId").val("../.." + res.src);
+                    $("#Photoid").val("../.." + res.src);
                 }
                 , error: function () {                         //传输失败的回调
                     //请求异常回调
@@ -145,15 +128,32 @@
     //上传图片
     uploadfile();
 
-    layui.use(['table', 'layer', 'form'], function () {
+    layui.use(['table', 'layer', 'form', 'layedit', 'laydate'], function () {
         var table = layui.table,
             layer = layui.layer,
-            form = layui.form;
+            form = layui.form,
+            layedit = layui.layedit,
+            laydate = layui.laydate;
         var $ = layui.$;
 
+        //日期控件
+        laydate.render({
+            elem: '#test11'
+        });
+        // 富文本框提交图片接口
+        layedit.set({
+            uploadImage: {
+                url: 'newshandler.ashx?action=upload'
+                , type: 'POST' //默认post
+            }
+        });
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
 
+
+        //绑定表格数据
         table.render({
-            url: "userhandler.ashx?action=list"
+            url: "newshandler.ashx?action=list"
             , method: "POST"
             //, where: { page: 0, limit: 10 }
             , elem: '#test'
@@ -163,14 +163,12 @@
             , cols: [
                 [
                     { type: 'checkbox', fixed: 'left' }
-                    , { field: 'UserName', title: '用户名', width: 120, edit: 'text' }
-                    , { field: 'Nick', title: '昵称', width: 120, edit: 'text' }
-                    , { field: 'Email', title: '邮箱', width: 120, edit: 'text' }
-                    , {
-                        field: 'updateTime', title: '更新时间', minwidth: 50, sort: true, templet: function (d) {
-                            return layui.util.toDateString(d.updateTime);
-                        }
-                    }
+                    , { field: 'Title', title: '用户名', width: 120, edit: 'text' }
+                    , { field: 'NTypes', title: '分类', width: 120, edit: 'text' }
+                    , { field: 'PhotoUrl', title: '图片地址', width: 120, /*edit: 'text'*/ }
+                    , { field: 'PushTime', title: '发布时间', width: 120, edit: 'text' }
+                    , { field: 'Content', title: '内容', width: 120, edit: 'text' }
+                    , { field: 'States', title: '消息状态', width: 120, edit: 'text' }
                     , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
                 ]
             ]
@@ -194,7 +192,7 @@
                     break;
                 case 'add':
                     layer.open({
-                        title: '发布促销咨询',
+                        title: '',
                         /*如果是外部的html，type2，内部，type1*/
                         type: 1,
                         btnAlign: 'c',
@@ -214,17 +212,17 @@
                     'flush'
                     :
                     table.reload('test', {
-                        url: "userhandler.ashx?action=list"
+                        url: "newshandler.ashx?action=list"
                         , method: "GET"
                     });
                     break;
                 case
                     'search'
                     :
-                    layer.msg("根据用户名查找");
+                //    layer.msg("根据用户名查找");
                     var name = $('input[name="search"]').val();
                     table.reload('test', {
-                        url: 'userhandler.ashx?action=search',
+                        url: 'newshandler.ashx?action=search',
                         where: {
                             name: name,
                         },
@@ -242,12 +240,13 @@
                 , data = obj.data //得到所在行所有键值
                 , field = obj.field; //得到字段
             $.ajax({
-                url: 'userhandler.ashx?action=update',
+                url: 'newshandler.ashx?action=update',
                 type: 'POST',
                 dataType: 'json',
                 data: data,
                 success: function (e) {
                     if (e.code == 0) {
+
                         layer.msg(e.msg);
                     } else {
                         layer.msg(e.msg);
@@ -266,11 +265,11 @@
                     obj.del();
                     layer.close(index);
                     $.ajax({
-                        url: "userhandler.ashx?action=delete",
+                        url: "newshandler.ashx?action=delete",
                         type: "POST",
                         dataType: "json",
                         data: {
-                            id: data.UserId
+                            id: data.NewsId
                         },
                         success: function (e) {
                             if (e.code == 0) {
@@ -289,17 +288,24 @@
 
         //添加咨询
         form.on('submit(demo1)', function (data) {
+
+            //0.2透明度的白色背景
+            var loading = layer.load(2, {
+                shade: [0.1, '#000']
+            });
+            data.field.Content = layedit.getContent(editIndex); //只是可以获取到文本不能够获取到源码？         
             $.ajax({
-                url: "userhandler.ashx?action=add",
+                url: "newshandler.ashx?action=add",
                 type: "POST",
                 dataType: "json",
                 data: data.field,
                 success: function (e) {
+                    layer.close(loading);
                     if (e.code == 0) {
                         layer.msg(e.msg);
-                        window.parent.location.reload();//修改成功后刷新父界面
+                        page_reload();
                     } else {
-                        layer.msg(e.msg);
+                        layer.msg(e.msg, { icon: 2, anim: 6, time: 2000 });
                     }
                 },
                 error: function (e) {

@@ -36,9 +36,9 @@ namespace System.Common
                 parameter += "@" + pi.Name + ",";
                 updatestr += $"{pi.Name} =@{pi.Name},";
             }
-            field = field.Substring(0, field.LastIndexOf(",") - 1);
-            parameter = parameter.Substring(0, parameter.LastIndexOf(",") - 1);
-            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(",") - 1);
+            field = field.Substring(0, field.LastIndexOf(",") );
+            parameter = parameter.Substring(0, parameter.LastIndexOf(","));
+            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(",") );
             Sql sql = new Sql { FieldStr = field, ParameterStr = parameter, UpdateStr = updatestr };
             return sql;
         }
@@ -121,42 +121,51 @@ namespace System.Common
         public static MySqlParameter[] SqlParameterArray<T>(T model)
         {
             Type t = model.GetType();
-            MySqlParameter[] pars = new MySqlParameter[t.GetProperties().Length];
-            var i = 0;
-            foreach (PropertyInfo pi in t.GetProperties())
+            try
             {
-                var value = pi.GetValue(model, null);//用pi.GetValue获得值
-                var type = (value?.GetType() ?? typeof(object)).Name;//获得属性的类型         
-                //if (pi.Name.ToLower().IndexOf("id") > -1) continue;
-                switch (type)
+                MySqlParameter[] pars = new MySqlParameter[t.GetProperties().Length];
+                var i = 0;
+                foreach (PropertyInfo pi in t.GetProperties())
                 {
-                    case "String":
-                        pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.VarChar, 32);
-                   
-                        break;
-                    case "DateTime":
-                        pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.DateTime);
-                      
-                        break;
-                    case "Int32":
-                        pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Int32);
-                    
-                        break;
-                    case "Decimal":
-                        pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Decimal);
-                 
-                        break;
-                    case "Double":
-                        pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Double);
-                  
-                        break;
-                    default:
-                        throw new ArgumentNullException();
+                    var value = pi.GetValue(model, null);//用pi.GetValue获得值
+                    var type = (value?.GetType() ?? typeof(object)).Name;//获得属性的类型         
+                                                                         //if (pi.Name.ToLower().IndexOf("id") > -1) continue;
+                    switch (type)
+                    {
+                        case "String":
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.VarChar, 32);
+
+                            break;
+                        case "DateTime":
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.DateTime);
+
+                            break;
+                        case "Int32":
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Int32);
+
+                            break;
+                        case "Decimal":
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Decimal);
+
+                            break;
+                        case "Double":
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.Double);
+                            break;
+                        default:
+                            pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.VarChar, 32);
+                            break;
+                    }
+                    pars[i].Value = value?? null;
+                    i += 1;
                 }
-                pars[i].Value = value;
-                i += 1;
+
+                return pars;
+            }catch(Exception e)
+            {
+                string error = e.Message;
+                throw;
+
             }
-            return pars;
 
         }
     }
