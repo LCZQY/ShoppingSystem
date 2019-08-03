@@ -1,0 +1,68 @@
+﻿{
+    "status": 0,
+    "msg": "ok",
+    "data": [
+        {
+            "id": 1,
+            "name": "用户管理",
+            "icon": "&#xe6b8;",
+            "url": "",
+            "children": [
+                {
+                    "id": 2,
+                    "name": "用户列表",
+                    "icon": "",
+                    "url": "ManagePages/user.html"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "商品管理",
+            "icon": "&#xe6ce;",
+            "url": "",
+            "children": [
+                {
+                    "id": 4,
+                    "name": "商品上架",
+                    "icon": "",
+                    "url": "ManagePages/grounding.html"
+                },
+                {
+                    "id": 3,
+                    "name": "商品类型",
+                    "icon": "",
+                    "url": "ManagePages/type.html"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "促销管理",
+            "icon": "&#xe705;",
+            "url": "",
+            "children": [
+                {
+                    "id": 9,
+                    "name": "促销列表",
+                    "icon": "",
+                    "url": "ManagePages/news.html"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "订单管理",
+            "icon": "&#xe723;",
+            "url": "",
+            "children": [
+                {
+                    "id": 12,
+                    "name": "订单列表",
+                    "icon": "",
+                    "url": "ManagePages/order.html"
+                }
+            ]
+        }      
+    ]
+}

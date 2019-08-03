@@ -36,9 +36,9 @@ namespace System.Common
                 parameter += "@" + pi.Name + ",";
                 updatestr += $"{pi.Name} =@{pi.Name},";
             }
-            field = field.Substring(0, field.LastIndexOf(",") - 1);
-            parameter = parameter.Substring(0, parameter.LastIndexOf(",") - 1);
-            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(",") - 1);
+            field = field.Substring(0, field.LastIndexOf(","));
+            parameter = parameter.Substring(0, parameter.LastIndexOf(","));
+            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(","));
             Sql sql = new Sql { FieldStr = field, ParameterStr = parameter, UpdateStr = updatestr };
             return sql;
         }

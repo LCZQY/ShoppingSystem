@@ -70,9 +70,9 @@ namespace System.DAL
         /// <returns></returns>
         public AdminUser GetDeail(int id)
         {
-            string sql = $"{ CreateSqlString.SelectSqlString(new AdminUser { })} WHERE AdminUserId =@AdminUserId ";
+            string sql = $"{ CreateSqlString.SelectSqlString(new AdminUser { })} WHERE SuId =@SuId ";
             MySqlParameter[] pars ={
-                                      new MySqlParameter("@AdminUserId",SqlDbType.Int)
+                                      new MySqlParameter("@SuId",SqlDbType.Int)
                                   };
             pars[0].Value = id;
             DataTable dt = SqlHelper.GetDataTable(sql, CommandType.Text, pars);
@@ -104,7 +104,7 @@ namespace System.DAL
         /// <returns></returns>
         public int UpdateAdminUser(AdminUser AdminUser)
         {
-            string sql = $"{ CreateSqlString.UpdateSqlString(AdminUser)    } WHERE AdminUserId =@AdminUserId";
+            string sql = $"{ CreateSqlString.UpdateSqlString(AdminUser)    } WHERE SuId =@SuId";
             var pars = CreateSqlString.SqlParameterArray(AdminUser);
             return SqlHelper.ExecuteNonquery(sql, CommandType.Text, pars);
         }
@@ -118,9 +118,9 @@ namespace System.DAL
         {
             try
             {
-                string sql = $"{ CreateSqlString.DeleteSqlString(new AdminUser { }) }  WHERE AdminUserId = @AdminUserId";
+                string sql = $"{ CreateSqlString.DeleteSqlString(new AdminUser { }) }  WHERE SuId = @SuId";
                 MySqlParameter[] pars ={
-                                      new MySqlParameter("@AdminUserId",MySqlDbType.VarChar,36)
+                                      new MySqlParameter("@SuId",MySqlDbType.VarChar,36)
                                   };
                 pars[0].Value = id;
                 return SqlHelper.ExecuteNonquery(sql, CommandType.Text, pars);
@@ -144,8 +144,7 @@ namespace System.DAL
             AdminUser.SuId = row["SuId"] != DBNull.Value ? row["SuId"].ToString() : string.Empty;
             AdminUser.Pwd = row["Pwd"] != DBNull.Value ? row["Pwd"].ToString() : string.Empty;
             AdminUser.UserName = row["UserName"] != DBNull.Value ? row["UserName"].ToString() : string.Empty;
-            AdminUser.Role = (Convert.ToInt32(row["Role"] != DBNull.Value ? row["Role"].ToString() : string.Empty)) == 0 ? RoleEnum.Admin : RoleEnum.SystemAdmin;
-
+            AdminUser.Role = Convert.ToInt32(row["Role"] != DBNull.Value ? row["Role"].ToString() : string.Empty);
 
         }
 

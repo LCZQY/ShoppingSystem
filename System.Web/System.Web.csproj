@@ -296,11 +296,13 @@
     <Content Include="Content\fonts\iconfont.ttf" />
     <Content Include="Content\fonts\iconfont.woff" />
     <Content Include="img\bg.png" />
+    <None Include="json\menu2.json" />
     <Content Include="json\menu.json" />
     <Content Include="AppData\layui\font\iconfont.eot" />
     <Content Include="AppData\layui\font\iconfont.ttf" />
     <Content Include="AppData\layui\font\iconfont.woff" />
     <Content Include="AppData\layui\font\iconfont.woff2" />
+    <Content Include="Aspx\adminhandler.ashx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
@@ -473,6 +475,9 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Aspx\adminhandler.ashx.cs">
+      <DependentUpon>adminhandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Aspx\Favorites.aspx.cs">
       <DependentUpon>Favorites.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

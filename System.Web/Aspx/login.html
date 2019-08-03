@@ -9,10 +9,10 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <link href="../Content/Shopping/font.css" rel="stylesheet" />
-    <link href="../Content/Shopping/layui.css" rel="stylesheet" />
+    <link href="../AppData/layui/css/layui.css" rel="stylesheet" />
     <link href="../Content/Shopping/weadmin.css" rel="stylesheet" />
     <script src="../Scripts/jquery-3.3.1.js"></script>
-    <script src="../Scripts/Shopping/layui.js"></script>
+    <script src="../AppData/layui/layui.js"></script>
 
 </head>
 <body class="login-bg">
@@ -22,31 +22,49 @@
         <div id="darkbannerwrap"></div>
 
         <form method="post" class="layui-form">
-            <input name="username" placeholder="用户名" type="text" lay-verify="required" class="layui-input">
+            <input name="UserName" placeholder="用户名" type="text" lay-verify="required" class="layui-input">
             <hr class="hr15">
-            <input name="password" lay-verify="required" placeholder="密码" type="password" class="layui-input">
+            <input name="Pwd" lay-verify="required" placeholder="密码" type="password" class="layui-input">
             <hr class="hr15">
             <input class="loginin" value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20">
+          
         </form>
     </div>
+    <script src="../Scripts/Shopping/master.js"></script>
     <script type="text/javascript">
         layui.extend({
             admin: '{/}../Scripts/Shopping/admin'
         });
         layui.use(['form', 'admin'], function () {
             var form = layui.form
-                , admin = layui.admin;
-            // layer.msg('玩命卖萌中', function(){
-            //   //关闭后的操作
-            //   });
+                , admin = layui.admin
+                , layer = layui.layer
+                , $ = layui.jquery;    
             //监听提交
             form.on('submit(login)', function (data) {
-                window.location.href = 'ManageIndex.aspx';
-   
-                //layer.msg(JSON.stringify(data.field),function(){
+                loading = layer.load(2, {
+                    shade: [0.1, '#000'] //0.2透明度的白色背景
+                });
+                ajax_request({
+                    url: "adminhandler.ashx?action=isexist",
+                    data:  data.field ,
+                    callback(e) {
+                        layer.close(loading);
+                        e = JSON.parse(e);
+                        console.log(e, "-----------------------");
+                        if (e.code == 0) {
+                            //JSON对象转JSON字符串
+                            var obj = { "user":  data.field.UserName,  "r": e.model };
+                            obj = JSON.stringify(obj); //转化为JSON字符串
+                            localStorage.setItem("login", obj);                 
+                            window.location.href = 'ManageIndex.aspx';
+                        } else {
 
-                //});
+                            layer.msg(e.msg);
+                        }
+                    }
+                });             
                 return false;
             });
         });
