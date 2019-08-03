@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using System.Common;
 using System.Data;
 using System.Model;
 
@@ -113,16 +114,18 @@ namespace System.DAL
         /// <returns></returns>
         public int Updatecategory(Category category)
         {
-            string sql = "UPDATE Category SET CateName = @CateName,ParentId = @ParentId, WHERE CateId = @CateId";
-            MySqlParameter[] pars = {
-                                       new MySqlParameter("@CateName",MySqlDbType.VarChar,50),
-                                       new MySqlParameter("@ParentId",MySqlDbType.VarChar,50),
-                                       new MySqlParameter("@CateId",MySqlDbType.VarChar),
+            string sql = $"{ CreateSqlString.UpdateSqlString(category)    } WHERE CateId =@CateId";
+            var pars = CreateSqlString.SqlParameterArray(category);
+            //string sql = "UPDATE Category SET CateName = @CateName,ParentId = @ParentId, WHERE CateId = @CateId";
+            //MySqlParameter[] pars = {
+            //                           new MySqlParameter("@CateName",MySqlDbType.VarChar,50),
+            //                           new MySqlParameter("@ParentId",MySqlDbType.VarChar,50),
+            //                           new MySqlParameter("@CateId",MySqlDbType.VarChar),
 
-                                   };
-            pars[0].Value = category.CateName;
-            pars[1].Value = category.ParentId;
-            pars[2].Value = category.CateId;
+            //                       };
+            //pars[0].Value = category.CateName;
+            //pars[1].Value = category.ParentId;
+            //pars[2].Value = category.CateId;
             return SqlHelper.ExecuteNonquery(sql, CommandType.Text, pars);
         }
 

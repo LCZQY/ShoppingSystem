@@ -66,9 +66,24 @@ namespace System.Web.Aspx.ManagePages
         public void SeachProductRequest(HttpContext context)
         {
             var title = context.Request["Title"];
-            var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList();
-            var res = SerializeHelp.ToTableJson<Product>(list);
-            context.Response.Write(res);
+            var page = context.Request.Form["page"];
+            var index = context.Request.Form["limit"];
+            if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
+            {
+                var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList();
+                list = list ?? new List<Product> { };
+                var res = SerializeHelp.ToTableJson(list);
+                context.Response.Write(res);
+            }
+            else
+            {
+                var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList();
+                list = list ?? new List<Product> { };
+                var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
+                var res = SerializeHelp.ToTableJson(list1, list.Count());
+                context.Response.Write(res);
+            }
+
         }
 
         /// <summary>
@@ -126,17 +141,24 @@ namespace System.Web.Aspx.ManagePages
                     PostTime = postTime,
                     Price = price
                 };
-
-
                 var edi = _InfoService.Update(Product);
-                response.code = edi == true ? 0 : 500;
-                response.msg = "修改成功";
-                context.Response.Write(SerializeHelp.ToJson(response));
+                if (edi)
+                {
+                    response.code = edi == true ? 0 : 500;
+                    response.msg = "修改成功";
+                    context.Response.Write(SerializeHelp.ToJson(response));
+                }
+                else
+                {
+                    response.code = 500;
+                    response.msg = "修改失败";
+                    context.Response.Write(SerializeHelp.ToJson(response));
+                }
             }
             catch (Exception e)
             {
                 response.code = 500;
-                response.msg = "修改失败";
+                response.msg = "请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
 
@@ -152,14 +174,14 @@ namespace System.Web.Aspx.ManagePages
             try
             {
                 string title = context.Request.Form["Title"];
-                string cateId = context.Request.Form["CateId"];          
+                string cateId = context.Request.Form["CateId"];
                 string content = context.Request.Form["Content"];
                 var marketPrice = Convert.ToDecimal(context.Request.Form["MarketPrice"]);
                 var price = Convert.ToDecimal(context.Request.Form["Price"]);
                 var stock = Convert.ToInt32(context.Request.Form["Stock"]);
                 var postTime = Convert.ToDateTime(context.Request.Form["PostTime"]);
                 var path = context.Request.Form["PhotoId"];
-               
+
 
                 var Id = Guid.NewGuid().ToString();
                 /*如何开启事务 ?*/
@@ -180,7 +202,7 @@ namespace System.Web.Aspx.ManagePages
                     CateId = cateId,
                     Content = content,
                     MarketPrice = marketPrice,
-                    Stock = stock,                    
+                    Stock = stock,
                     PostTime = postTime,
                     Price = price
                 };
@@ -194,7 +216,7 @@ namespace System.Web.Aspx.ManagePages
             {
                 string eroor = e.Message;
                 response.code = 500;
-                response.msg = "添加失败";              
+                response.msg = "添加失败";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
 
@@ -211,14 +233,15 @@ namespace System.Web.Aspx.ManagePages
             var index = context.Request.Form["limit"];
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
-                var list = _InfoService.GetList().ToList();
+                var list = _InfoService.GetList()?.ToList();
+                list = list ?? new List<Product> { };
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
-
             }
             else
             {
-                var list = _InfoService.GetList().ToList(); ;
+                var list = _InfoService.GetList().ToList();
+                list = list ?? new List<Product> { };
                 var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
                 var res = SerializeHelp.ToTableJson(list1, list.Count());
                 context.Response.Write(res);

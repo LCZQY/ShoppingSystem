@@ -52,7 +52,7 @@ namespace System.Web.Aspx.ManagePages
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
 
-                var list = _infoService.OrderDetailJoinList().ToList();
+                var list = _infoService.OrderDetailJoinList();
                 list = list ?? new List<OrdersDetailExtend> { };
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
@@ -60,7 +60,7 @@ namespace System.Web.Aspx.ManagePages
             }
             else
             {
-                var list = _infoService.OrderDetailJoinList().ToList();
+                var list = _infoService.OrderDetailJoinList();
                 list = list ?? new List<OrdersDetailExtend> { };
                 var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
                 var res = SerializeHelp.ToTableJson(list1, list.Count());
@@ -112,8 +112,7 @@ namespace System.Web.Aspx.ManagePages
             var index = context.Request.Form["limit"];
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
-
-                var list = _infoService.OrderDetailJoinList().Where(y=> y.OrdersId.Contains(id)).ToList();
+                var list = _infoService.OrderDetailJoinList().Where(y=> y.OrdersId.Contains(id))?.ToList();
                 list = list ?? new List<OrdersDetailExtend> { };
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
@@ -121,7 +120,7 @@ namespace System.Web.Aspx.ManagePages
             }
             else
             {
-                var list = _infoService.OrderDetailJoinList().Where(y => y.OrdersId.Contains(id)).ToList();
+                var list = _infoService.OrderDetailJoinList().Where(y => y.OrdersId.Contains(id))?.ToList();
                 list = list ?? new List<OrdersDetailExtend> { };
                 var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
                 var res = SerializeHelp.ToTableJson(list1, list.Count());

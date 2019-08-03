@@ -18,7 +18,7 @@ namespace System.BLL
         /// <summary>
         ///  连表查询订单信息
         /// </summary>
-        public IQueryable<OrdersDetailExtend> OrderDetailJoinList()
+        public List<OrdersDetailExtend> OrderDetailJoinList()
         {
             try
             {
@@ -67,11 +67,13 @@ namespace System.BLL
                                DeliveryId = h.DeliveryId,
                                Phone = h.Phone
                            };
-                return list;
+                var response = list== null ? new List<OrdersDetailExtend> { }: list.ToList();
+                return response;
             } catch (Exception e)
             {
-               
-                throw;
+
+                return new List<OrdersDetailExtend> { };
+                //throw;
             }
         }
 

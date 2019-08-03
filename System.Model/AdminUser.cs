@@ -8,8 +8,18 @@ namespace System.Model
     /// </summary>
     public class AdminUser
     {
+        /// <summary>
+        /// key
+        /// </summary>
         public string SuId { get; set; }
+
+        /// <summary>
+        /// 管理员账号
+        /// </summary>
         public string UserName { get; set; }
+        /// <summary>
+        /// 密码：默认123456
+        /// </summary>
         public string Pwd { get; set; }
 
         /// <summary>

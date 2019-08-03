@@ -225,7 +225,7 @@
                 success: function (e) {
                     if (e.code == 0) {
                         layer.msg(e.msg);
-                        window.parent.location.reload();//修改成功后刷新父界面
+                        page_reload();
                     } else {
                         layer.msg(e.msg);
                     }

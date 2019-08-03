@@ -79,7 +79,8 @@
     var reload = function () {
 
         layui.use(['table', 'layer', 'form'], function () {
-            var table = layui.table,
+            var table = layui.table;
+
                 table.render({
                     url: "orderhandler.ashx?action=list"
                     , method: "POST"
@@ -118,7 +119,7 @@
 
     layui.use(['table', 'layer', 'form'], function () {
         var table = layui.table,
-            layer = layui.layer,
+            layer = layui.layer
         var $ = layui.$;
         reload();
         //头工具栏事件
@@ -167,7 +168,8 @@
                     'search'
                     :
                     //  layer.msg("根据订单编号查找");
-                    var name = $('input[name="search"]').val();
+                    var OrdersId = $('input[name="search"]').val();
+                    console.log(name,"0");
                     table.reload('test', {
                         url: 'orderhandler.ashx?action=search',
                         where: {

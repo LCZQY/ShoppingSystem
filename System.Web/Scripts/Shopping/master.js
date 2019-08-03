@@ -7,7 +7,7 @@
 var layer;
 layui.use(['layer', 'form'], function () {
     layer = layui.layer
-     
+
 });
 
 /**
@@ -52,7 +52,7 @@ var loading_start = function () {
     layer.load(2, {
         shade: [0.1, '#000']
     });
-    
+
 };
 
 /**
@@ -61,3 +61,5 @@ var loading_start = function () {
 var loading_end = function () {
     layer.close(loading);
 };
+
+

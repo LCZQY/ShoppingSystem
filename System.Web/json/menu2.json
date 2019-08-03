@@ -44,7 +44,7 @@
             "children": [
                 {
                     "id": 9,
-                    "name": "促销列表",
+                    "name": "促销咨询列表",
                     "icon": "",
                     "url": "ManagePages/news.html"
                 }

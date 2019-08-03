@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>管理员账号管理</title>
+    <link href="../../AppData/layui/css/layui.css" rel="stylesheet" />
+</head>
+<body>
+    <table class="layui-hide" id="test" lay-filter="test"></table>
+    <div id="add-main" style="display: none;">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+            <legend>添加管理员账号</legend>
+        </fieldset>
+        <div class="my-form">
+            <form class="layui-form" method="POST" lay-skin="line">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">管理员账号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="UserName" lay-verify="title" autocomplete="off" placeholder="请输入账号" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">默认密码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="Pwd" lay-verify="title" disabled autocomplete="off" value="123456" class="layui-input">
+                    </div>
+                </div>
+                <!--<div class="layui-form-item my-form-item">
+                    <label class="layui-form-label layui-icon">是否授权</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="Role" value="0" title="是" checked="">
+                        <input type="radio" name="Role" value="2" title="否">
+                    </div>
+                </div>-->
+                <div class="layui-form-item my-form-item">
+                    <div class="layui-input-block item">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="submit1">保存</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../../AppData/layui/layui.js"></script>
+    <script src="../../Scripts/Shopping/master.js"></script>
+</body>
+<script type="text/html" id="takeaction">
+
+    {{#  if(d.Role !== 0){ }}
+    <a class="layui-btn layui-btn-primary layui-btn-xs layui-icon" lay-event="auth">授权</a>
+    {{#  } else { }}
+    <a class="layui-btn layui-btn-primary layui-btn-xs layui-icon" lay-event="delauth">取权</a>
+    {{#  } }}
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">删除</a>
+</script>
+
+<script type="text/html" id="toolbarDemo">
+
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="add">&#xe654;</button>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="batchDel">&#xe640;</button>
+        <div class="layui-btn layui-btn-sm">
+            <span>账号名称：</span> <input type="text" name="search">
+        </div>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="search">&#xe615;</button>
+        <button class="layui-btn layui-btn-sm layui-icon" lay-event="flush">&#xe669;</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    {{#  if(d.Role === 0){ }}
+    <div class="layui-table-cell laytable-cell-1-0-1">已授权</div>
+    {{#  } else { }}
+    <div class="layui-table-cell laytable-cell-1-0-1">未授权</div>
+    {{#  } }}
+</script>
+
+<script>
+
+    /**
+     * 一般用于删除数据行使用
+     */
+    var table_confirm = function (options) {
+
+        layer.confirm(options.tips, function (index) {
+     
+            var loading = layer.load(2, {
+                shade: [0.1, '#000']
+            });
+            ajax_request({
+                url: options.url,
+                data: options.data,
+                callback: function (e) {
+                    layer.close(loading);
+                    e = JSON.parse(e);
+                    if (e.code === 0) {
+                        layer.msg(e.msg);
+                    } else {
+                        layer.msg(e.msg);
+                    }
+                }
+            });
+        });
+    };
+    var reload = function () {
+
+        layui.use(['table', 'layer', 'form'], function () {
+            var table = layui.table
+
+
+
+            table.render({
+                url: "adminhandler.ashx?action=list"
+                , method: "POST"
+                , elem: '#test'
+                , toolbar: '#toolbarDemo'
+                , title: '管理员数据表'
+                , location: true
+                , cols: [
+                    [
+                        { type: 'radio', fixed: 'left' }
+                        , { field: 'UserName', title: '管理员账号', width: 120, edit: 'text' }
+                        , { field: 'Pwd', title: '密码', width: 120, }
+                        , { field: 'Role', title: '权限设置', width: 120, templet: '#barDemo' }
+                        , { fixed: 'right', title: '操作', toolbar: '#takeaction', width: 150 }
+                    ]
+                ]
+                , page: true
+            });
+        });
+    };
+    reload();
+    layui.use(['table', 'layer', 'form'], function () {
+        var table = layui.table,
+            form = layui.form;
+        //头工具栏事件
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：' + data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选' : '未全选');
+                    break;
+                case 'add':
+                    layer.open({
+                        title: '',
+                        /*如果是外部的html，type2，内部，type1*/
+                        type: 1,
+                        btnAlign: 'c',
+                        area: '50%',
+                        content: $("#add-main").html()
+                        //未做的是去监听表单提交，给后台发送ajax请求
+                    }
+                    );
+                    break;
+                case
+                    'batchDel'
+                    :
+                    layer.msg("开发中...");
+                    /*发送ajax请求到后台执行批量删除*/
+                    break;
+                case
+                    'flush'
+                    :
+                    table.reload('test', {
+                        url: "adminhandler.ashx?action=list"
+                        , method: "GET"
+                    });
+                    break;
+                case
+                    'search'
+                    :
+                    layer.msg("根据用户名查找");
+                    var name = $('input[name="search"]').val();
+                    table.reload('test', {
+                        url: 'adminhandler.ashx?action=search',
+                        where: {
+                            name: name,
+                        },
+                        page: {
+                            curr: 1
+                        }
+                    });
+                    break;
+            };
+        });
+
+        //监听单元格编辑，修改
+        table.on('edit(test)', function (obj) {
+            var value = obj.value //得到修改后的值
+                , data = obj.data //得到所在行所有键值
+                , field = obj.field; //得到字段
+            var loading = layer.load(2, {
+                shade: [0.1, '#000']
+            });
+            ajax_request({
+                url: "adminhandler.ashx?action=update",
+                data: data.field,
+                callback: function (e) {
+                    layer.close(loading);
+                    e = JSON.parse(e);
+                    if (e.code === 0) {
+                        layer.msg(e.msg);
+                    } else {
+                        layer.msg(e.msg);
+                    }
+                }
+            });
+        });
+        //监听行工具事件
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            switch (obj.event) {
+                case 'del'://删除
+                    table_confirm({
+                        obj: obj,
+                        url: "adminhandler.ashx?action=delete",
+                        tips: "亲爱的,你要删除我吗？",
+                        data: { id: data.SuId }
+                    });
+                  page_reload();
+                    break;
+                case 'auth'://授权
+                    data.Role = "0";
+                    table_confirm({
+                        obj: obj,
+                        url: "adminhandler.ashx?action=update",
+                        tips: "是否授权？",
+                        data: data
+                    });
+                    page_reload();
+                    break;
+                case 'delauth'://取消授权
+                    data.Role = "2";
+                    table_confirm({
+                        obj: obj,
+                        url: "adminhandler.ashx?action=update",
+                        tips: "是否授权？",
+                        data: data
+                    });
+                    page_reload();
+                    break;
+            }
+        });
+
+        //添加
+        form.on('submit(demo1)', function (data) {
+            $.ajax({
+                url: "adminhandler.ashx?action=add",
+                type: "POST",
+                dataType: "json",
+                data: data.field,
+                success: function (e) {
+                    if (e.code == 0) {
+                        layer.msg(e.msg);
+                        page_reload();                    
+                    } else {
+                        layer.msg(e.msg);
+                    }
+                },
+                error: function (e) {
+                    layer.msg(e);
+                }
+            });
+            return false;
+
+        });
+    });
+</script>
+</html>

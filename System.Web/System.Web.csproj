@@ -239,6 +239,7 @@
     <Content Include="Aspx\ManagePages\grounding.html" />
     <Content Include="Aspx\ManagePages\news.html" />
     <Content Include="Aspx\ManagePages\order.html" />
+    <Content Include="Aspx\ManagePages\adminuser.html" />
     <Content Include="Aspx\ManagePages\user.html" />
     <Content Include="Aspx\ManagePages\type.html" />
     <Content Include="Aspx\MyChange.aspx" />
@@ -299,6 +300,7 @@
     <Content Include="Content\fonts\iconfont.ttf" />
     <Content Include="Content\fonts\iconfont.woff" />
     <Content Include="img\bg.png" />
+    <Content Include="Aspx\ManagePages\adminhandler.ashx" />
     <None Include="json\menu2.json" />
     <Content Include="json\menu.json" />
     <Content Include="AppData\layui\font\iconfont.eot" />
@@ -494,6 +496,9 @@
     </Compile>
     <Compile Include="Aspx\ManageIndex.aspx.designer.cs">
       <DependentUpon>ManageIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\adminhandler.ashx.cs">
+      <DependentUpon>adminhandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManagePages\groundinghandler.ashx.cs">
       <DependentUpon>groundinghandler.ashx</DependentUpon>

@@ -3,7 +3,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Content/Shopping/font.css" rel="stylesheet" />
     <link href="../AppData/layui/css/layui.css" rel="stylesheet" />
-
     <link href="../Content/Shopping/weadmin.css" rel="stylesheet" />
 
     <!-- 顶部开始 -->
@@ -33,8 +32,7 @@
             <li class="layui-nav-item to-index">
                 <a runat="server" href="~" target="_blank">前台首页</a>
             </li>
-        </ul>
-       
+        </ul>       
     </div>
     <!-- 顶部结束 -->
     <!-- 中部开始 -->
@@ -115,8 +113,7 @@
                 } else {
                     window.location.href = './login.html';
                     return false;
-                }
-              
+                }              
             });
         });
 
