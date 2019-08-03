@@ -32,4 +32,32 @@ var ajax_request = function (options) {
             layer.msg("请求失败");
         }
     });
-}
+};
+
+
+/**
+ * 页面刷新
+ * */
+var page_reload = function () {
+
+    setTimeout(function () {
+        window.parent.location.reload();
+    }, 2000);
+};
+
+/**
+ * 数据加载中...
+ * */
+var loading_start = function () {
+    layer.load(2, {
+        shade: [0.1, '#000']
+    });
+    
+};
+
+/**
+ * 关闭数据加载弹窗
+ * */
+var loading_end = function () {
+    layer.close(loading);
+};

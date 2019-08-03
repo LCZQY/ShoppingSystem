@@ -12,3 +12,9 @@ https://www.cnblogs.com/joean/p/4415115.html
 
 
 经验教训   不应该把js 和 css 跨文件跨路径存放！！！！！！
+
+   <!--layui 源码参考
+    https://github.com/TracyXiaowei/.NetMvc_Wap_Distributor_Order_Management_System.git
+
+    layui 后台管理系统参考
+    https://github.com/WangEn/WeAdmin.git-->

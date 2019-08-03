@@ -142,10 +142,11 @@ namespace System.DAL
         {
 
             News.NewsId = row["NewsId"] != DBNull.Value ? row["NewsId"].ToString() : string.Empty;
+            News.Title = row["Title"] != DBNull.Value ? row["Title"].ToString() : string.Empty;
             News.NTypes = row["NTypes"] != DBNull.Value ? row["NTypes"].ToString() : string.Empty;
             News.PhotoUrl = row["PhotoUrl"] != DBNull.Value ? row["PhotoUrl"].ToString() : string.Empty;
-            News.PushTime = Convert.ToDateTime(row["PostTime"] != DBNull.Value ? row["PostTime"].ToString() : string.Empty);
-            News.States = (Convert.ToInt32(row["States"] != DBNull.Value ? row["States"].ToString() : string.Empty)) == 1 ? NewsEnum.Hot : NewsEnum.Top;
+            News.PushTime = Convert.ToDateTime(row["PushTime"] != DBNull.Value ? row["PushTime"].ToString() : string.Empty);
+            News.States = Convert.ToInt32(row["States"] != DBNull.Value ? row["States"].ToString() : string.Empty);
             News.Content = row["Content"] != DBNull.Value ? row["Content"].ToString() : string.Empty;
         }
 

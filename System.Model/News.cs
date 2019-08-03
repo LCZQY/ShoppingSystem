@@ -44,24 +44,24 @@ namespace System.Model
         public DateTime PushTime { get; set; }
 
         /// <summary>
-        /// 消息状态
+        /// 消息状态【0：置顶，1：热点】
         /// </summary>
-        public NewsEnum States { get; set; }
+        public int States { get; set; }
     }
+    
+    ///// <summary>
+    ///// 消息状态
+    ///// </summary>
+    //public enum NewsEnum
+    //{
+    //    /// <summary>
+    //    /// 置顶
+    //    /// </summary>
+    //    Top = 0,
+    //    /// <summary>
+    //    /// 热点
+    //    /// </summary>
+    //    Hot = 1
 
-    /// <summary>
-    /// 消息状态
-    /// </summary>
-    public enum NewsEnum
-    {
-        /// <summary>
-        /// 置顶
-        /// </summary>
-        Top = 0,
-        /// <summary>
-        /// 热点
-        /// </summary>
-        Hot = 1
-
-    }
+    //}
 }
