@@ -6,106 +6,121 @@
     <link href="../../Content/Shopping/layer.css" rel="stylesheet" />
     <link href="../../Content/Shopping/layui.css" rel="stylesheet" />
 </head>
-<body>
-   
-    <table class="layui-hide" id="test" lay-filter="test"></table>
-    <div id="add-main" style="display: none;">
-        <div class="my-form">
-            <form class="layui-form" method="POST" lay-skin="line">
-                <div class="layui-form-item my-form-item">
-                    <label class="layui-form-label layui-icon">&#xe770;</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="name" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item my-form-item">
-                    <label class="layui-form-label layui-icon">&#xe673;</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="pwd" lay-verify="required" placeholder="请输入密码" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
 
-                <div class="layui-form-item my-form-item">
-                    <label class="layui-form-label layui-icon">&#xe612;</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="nick" lay-verify="required" placeholder="昵称" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item my-form-item">
-                    <label class="layui-form-label layui-icon">&#xe63a;</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="email" lay-verify="required" placeholder="电子邮件" autocomplete="off"
-                               class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item my-form-item">
-                    <div class="layui-input-block item">
-                        <button class="layui-btn" lay-submit="" lay-filter="demo1" id="submit1">保存</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+<body>
+    <table class="layui-hide" id="test" lay-filter="test"></table>
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../../Scripts/Shopping/layui.js"></script>
     <script src="../../Scripts/Shopping/master.js"></script>
 </body>
 
 <script type="text/html" id="toolbarDemo">
-
     <div class="layui-btn-container">
         <!--<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
         <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>-->
         <button class="layui-btn layui-btn-sm layui-icon" lay-event="add">&#xe654;</button>
         <button class="layui-btn layui-btn-sm layui-icon" lay-event="batchDel">&#xe640;</button>
         <div class="layui-btn layui-btn-sm">
-            <span>用户名搜索：</span> <input type="text" name="search">
+            <span>订单编号：</span> <input type="text" name="search">
         </div>
+
         <button class="layui-btn layui-btn-sm layui-icon" lay-event="search">&#xe615;</button>
         <button class="layui-btn layui-btn-sm layui-icon" lay-event="flush">&#xe669;</button>
     </div>
 </script>
 
+
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>
+    <!--操纵按钮-->
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="detail">详情</a>
+    {{# if(d.States === 1) { }}
+    <!--该状态是已经付款时，显示本按钮-->
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="send">发货</a>
+    {{# } else if(d.States== 4) { }}
+    <!--当订单状态是，已收货且是已评价的状态即可查看该订单的评价-->
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="evaluate">查看评价</a>
+    {{# } else if(d.States== 4) { }}
+    <!--当订单状态是，已收货且是已评价的状态即可查看该订单的评价-->
+    <div> -- </div>
+    {{# } }}
+
 </script>
 
+
+<script type="text/html" id="table-States">
+    <!--//订单状态-->
+    {{# if(d.States=== 0) { }}
+    <span style="color:blue"> 未付款</span>
+    {{# } else if(d.States== 1) { }}
+    <span style="color:green"> 已付款</span>
+    {{# } else if(d.States== 2) { }}
+    <span style="color:yellowgreen"> 已发货</span>
+    {{# } else if(d.States== 3) { }}
+    <span style="color:yellow"> 已收货</span>
+    {{# } else if(d.States== 4) { }}
+    <span style="color:red"> 已评价</span>
+    {{# } else{  }}
+    <div> -- -- </div>
+    {{# } }}
+</script>
+
+<script type="text/html" id="table-DetailStates">
+    <!--订单跟踪状态-->
+    {{# if(d.DetailStates=== 0) { }}
+    <span style="color:green"> 正常</span>
+    {{# } else if(d.DetailStates== 1) { }}
+    <span style="color:red"> 退货中</span>
+    {{# } else if(d.DetailStates== 2) { }}
+    <span style="color:burlywood"> 已退货</span>
+    {{# } }}
+</script>
 <script>
+
+    var reload = function () {
+
+        layui.use(['table', 'layer', 'form'], function () {
+            var table = layui.table,
+                table.render({
+                    url: "orderhandler.ashx?action=list"
+                    , method: "POST"
+                    //, where: { page: 0, limit: 10 }
+                    , elem: '#test'
+                    , toolbar: '#toolbarDemo'
+                    , title: '用户数据表'
+                    , location: true
+                    , cols: [
+                        [
+                            { type: 'radio', fixed: 'left' }
+                            , { field: 'OrdersId', title: '订单编号', width: 120 }
+                            , { field: 'Title', title: '商品名称', width: 120, }
+                            , { field: 'Total', title: '总价', width: 120, sort: true, }
+                            , { field: 'Nick', title: '卖家昵称', width: 120, }
+                            , { field: 'Orderdate', title: '下单时间', width: 120, sort: true }
+                            , {
+                                field: 'DeliveryDate', title: '收货时间', width: 120, sort: true, templet: function (d) {
+                                    return layui.util.toDateString(d.DeliveryDate);
+                                }, edit: ''
+                            }
+                            , { field: 'Remark', title: '订单备注', width: 120, edit: '' }
+                            , { field: 'Consignee', title: '收货人姓名', width: 120, }
+                            , { field: 'Phone', title: '电话号码', width: 120, }
+                            , { field: 'Complete', title: '收货地址', width: 120, edit: '' }
+                            , { field: 'States', title: '订单状态', width: 120, templet: '#table-States' }
+                            , { field: 'DetailStates', title: '订单跟踪状态', width: 120, templet: '#table-DetailStates' }
+                            , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 140 }
+                        ]
+                    ]
+                    , page: true
+                });
+        });
+    }
+
+
     layui.use(['table', 'layer', 'form'], function () {
         var table = layui.table,
             layer = layui.layer,
-            form = layui.form;
         var $ = layui.$;
-
-        table.render({
-            url: "userhandler.ashx?action=list"
-            , method: "POST"
-            //, where: { page: 0, limit: 10 }
-            , elem: '#test'
-            , toolbar: '#toolbarDemo'
-            , title: '用户数据表'
-            , location: true
-            , cols: [
-                [
-                    { type: 'checkbox', fixed: 'left' }
-                    , { field: 'UserName', title: '用户名', width: 120, edit: 'text' }
-                    , { field: 'Nick', title: '昵称', width: 120, edit: 'text' }
-                    , { field: 'Email', title: '邮箱', width: 120, edit: 'text' }
-                    , {
-                        field: 'updateTime', title: '更新时间', minwidth: 50, sort: true, templet: function (d) {
-                            return layui.util.toDateString(d.updateTime);
-                        }
-                    }
-                    , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
-                ]
-            ]
-            , page: true
-        });
-
+        reload();
         //头工具栏事件
         table.on('toolbar(test)', function (obj) {
             var checkStatus = table.checkStatus(obj.config.id);
@@ -122,16 +137,17 @@
                     layer.msg(checkStatus.isAll ? '全选' : '未全选');
                     break;
                 case 'add':
-                    layer.open({
-                        title: '增加用户',
-                        /*如果是外部的html，type2，内部，type1*/
-                        type: 1,
-                        btnAlign: 'c',
-                        area: ['400px', '340px'],
-                        content: $("#add-main").html()
-                        //未做的是去监听表单提交，给后台发送ajax请求
-                    }
-                    );
+                    layer.msg("开发中...");
+                    //layer.open({
+                    //    title: '增加用户',
+                    //    /*如果是外部的html，type2，内部，type1*/
+                    //    type: 1,
+                    //    btnAlign: 'c',
+                    //    area: ['400px', '340px'],
+                    //    content: $("#add-main").html()
+                    //    //未做的是去监听表单提交，给后台发送ajax请求
+                    //}
+                    //);
                     break;
                 case
                     'batchDel'
@@ -143,19 +159,19 @@
                     'flush'
                     :
                     table.reload('test', {
-                        url: "userhandler.ashx?action=list"
+                        url: "orderhandler.ashx?action=list"
                         , method: "GET"
                     });
                     break;
                 case
                     'search'
                     :
-                    layer.msg("根据用户名查找");
+                    //  layer.msg("根据订单编号查找");
                     var name = $('input[name="search"]').val();
                     table.reload('test', {
-                        url: 'userhandler.ashx?action=search',
+                        url: 'orderhandler.ashx?action=search',
                         where: {
-                            name: name,
+                            id: OrdersId,
                         },
                         page: {
                             curr: 1
@@ -164,42 +180,47 @@
                     break;
             };
         });
-
-        //监听单元格编辑，修改
-        table.on('edit(test)', function (obj) {
-            var value = obj.value //得到修改后的值
-                , data = obj.data //得到所在行所有键值
-                , field = obj.field; //得到字段
-            $.ajax({
-                url: 'userhandler.ashx?action=update',
-                type: 'POST',
-                dataType: 'json',
-                data: data,
-                success: function (e) {
-                    if (e.code == 0) {
-                        layer.msg(e.msg);
-                    } else {
-                        layer.msg(e.msg);
-                    }
-                },
-                error: function (e) {
-                    layer.msg(e);
-                }
-            })
-        });
         //监听行工具事件
         table.on('tool(test)', function (obj) {
             var data = obj.data;
-            if (obj.event === 'del') { //删除
-                layer.confirm('亲爱的,你要删除我吗？', function (index) {
+            if (obj.event === 'send') { //发货
+                layer.confirm('是否确定发货', function (index) {
                     obj.del();
                     layer.close(index);
                     $.ajax({
-                        url: "userhandler.ashx?action=delete",
+                        url: "orderhandler.ashx?action=send",
                         type: "POST",
                         dataType: "json",
                         data: {
-                            id: data.UserId
+                            id: data.OrdersId
+                        },
+                        success: function (e) {
+                            if (e.code == 0) {
+                                layer.msg(e.msg);
+                                reload();
+                            } else {
+                                layer.msg(e.msg);
+                            }
+                        },
+                        error: function (e) {
+                            layer.msg(e);
+                        }
+                    })
+                });
+            }
+            if (obj.event === 'detail') { //详情
+                layer.msg("开发中");
+            }
+            if (obj.event === 'evaluate') { //查看评价
+                layer.confirm('是否确定发货', function (index) {
+                    obj.del();
+                    layer.close(index);
+                    $.ajax({
+                        url: "orderhandler.ashx?action=send",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            id: data.OrdersId
                         },
                         success: function (e) {
                             if (e.code == 0) {
@@ -213,29 +234,10 @@
                         }
                     })
                 });
+
             }
         });
-        //添加
-        form.on('submit(demo1)', function (data) {
-            $.ajax({
-                url: "userhandler.ashx?action=add",
-                type: "POST",
-                dataType: "json",
-                data: data.field,
-                success: function (e) {
-                    if (e.code == 0) {
-                        layer.msg(e.msg);
-                        window.parent.location.reload();//修改成功后刷新父界面
-                    } else {
-                        layer.msg(e.msg);
-                    }
-                },
-                error: function (e) {
-                    layer.msg(e);
-                }
-            });
-            return false;
-        });
+
     });
 </script>
 </html>

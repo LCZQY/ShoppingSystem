@@ -9,9 +9,7 @@ using System.Model;
 /// </summary>
 namespace System.BLL
 {
-    /// <summary>
-    /// 类型表
-    /// </summary>
+  
     public class CategoryService : IBaseServer<Category>
     {
         private CategoryDal _infoDal = CacheControl.Get<CategoryDal>();
@@ -26,7 +24,7 @@ namespace System.BLL
         {
             var jsontree = new List<LayerTreeJson>();
             IEnumerable<Category> data = GetList();
-            data = data.Where(y => y.ParentId == parentId);
+            data = data?.Where(y => y.ParentId == parentId);
             foreach (var item in data)
             {
                 jsontree.Add(new LayerTreeJson

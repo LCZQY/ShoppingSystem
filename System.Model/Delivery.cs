@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace System.Model
+﻿namespace System.Model
 {
     /// <summary>
     /// 收货地址表
@@ -15,7 +9,7 @@ namespace System.Model
         /// <summary>
         /// key
         /// </summary>
-        public string DeliveryID { get; set; }
+        public string DeliveryId { get; set; }
 
         /// <summary>
         /// 用户id

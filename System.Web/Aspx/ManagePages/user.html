@@ -3,15 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <title>用户管理</title>
-    <link href="../../Content/Shopping/layer.css" rel="stylesheet" />
-    <link href="../../Content/Shopping/layui.css" rel="stylesheet" />
+    <link href="../../AppData/layui/css/layui.css" rel="stylesheet" />
 </head>
 <body>
-  
+
     <table class="layui-hide" id="test" lay-filter="test"></table>
     <div id="add-main" style="display: none;">
 
-        <div class="my-form">           
+        <div class="my-form">
             <form class="layui-form" method="POST" lay-skin="line">
                 <div class="layui-form-item my-form-item">
                     <label class="layui-form-label layui-icon">&#xe770;</label>
@@ -52,7 +51,7 @@
         </div>
     </div>
     <script src="../../Scripts/jquery-3.3.1.min.js"></script>
-    <script src="../../Scripts/Shopping/layui.js"></script>
+    <script src="../../AppData/layui/layui.js"></script>
     <script src="../../Scripts/Shopping/master.js"></script>
 </body>
 
@@ -72,7 +71,7 @@
 </script>
 
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>  
+    <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>
 </script>
 
 <script>
@@ -83,7 +82,7 @@
         var $ = layui.$;
 
         table.render({
-            url: "userhandler.ashx?action=list"  
+            url: "userhandler.ashx?action=list"
             , method: "POST"
             //, where: { page: 0, limit: 10 }
             , elem: '#test'
@@ -137,7 +136,7 @@
                 case
                     'batchDel'
                     :
-                       layer.msg("开发中...");
+                    layer.msg("开发中...");
                     /*发送ajax请求到后台执行批量删除*/
                     break;
                 case
@@ -225,7 +224,7 @@
                 data: data.field,
                 success: function (e) {
                     if (e.code == 0) {
-                        layer.msg(e.msg);                      
+                        layer.msg(e.msg);
                         window.parent.location.reload();//修改成功后刷新父界面
                     } else {
                         layer.msg(e.msg);
@@ -237,6 +236,6 @@
             });
             return false;
         });
-    });  
+    });
 </script>
 </html>

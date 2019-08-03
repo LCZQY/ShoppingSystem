@@ -1,4 +1,5 @@
-﻿using System.BLL;
+﻿using log4net;
+using System.BLL;
 using System.Collections.Generic;
 using System.Common;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace System.Web.Aspx
     public class adminhandler : IHttpHandler
     {
 
+        private static readonly ILog _log = LogManager.GetLogger(typeof(adminhandler));
         private AdminUserService _userInfoService = CacheControl.Get<AdminUserService>();
+
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
@@ -74,15 +77,15 @@ namespace System.Web.Aspx
             }
             catch (Exception e)
             {
+                _log.Error("判断该用户是否存在报错 56：" + e.Message);
                 response.code = 500;
-            
-                response.msg = "用户名或者密码错误";
+                response.msg = "请求错误，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
         }
 
 
-      
+
 
         /// <summary>
         /// 批量删除
@@ -127,7 +130,7 @@ namespace System.Web.Aspx
             catch (Exception e)
             {
                 response.code = 500;
-                response.msg = "删除失败";
+                response.msg = "操作失败，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
         }
@@ -172,7 +175,7 @@ namespace System.Web.Aspx
             catch (Exception e)
             {
                 response.code = 500;
-                response.msg = "修改失败";
+                response.msg = "操作失败，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
 
@@ -214,7 +217,7 @@ namespace System.Web.Aspx
             catch (Exception e)
             {
                 response.code = 500;
-                response.msg = "添加失败";
+                response.msg = "操作失败，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
 

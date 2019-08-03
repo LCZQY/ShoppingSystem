@@ -101,14 +101,15 @@
                         return false;
                     } else {
                         $("#userName").text(login.user);
-
-                        if (login.r === "0") {                                                     
+                        /**简单的处理下权限管理*/
+                        if (login.r === "0") {
                             menu.getMenu('../json/menu2.json');
-                      
-                        } else if (login.r === "1") {                   
+                        } else if (login.r === "1") {
                             menu.getMenu('../json/menu.json');
                         }
-                     
+                        else {
+                            $(".weIframe").hide();
+                        }
                         return false;
                     }
                 } else {

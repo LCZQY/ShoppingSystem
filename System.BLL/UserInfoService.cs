@@ -12,9 +12,7 @@ using System.Common;
 /// </summary>
 namespace System.BLL
 {
-    /// <summary>
-    ///用户表
-    /// </summary>
+ 
     public class UserInfoService 
     {
         UserInfoDal UserInfoDal = System.Common.CacheControl.Get<UserInfoDal>();

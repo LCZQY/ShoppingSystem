@@ -46,7 +46,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Photo.cs" />
-    <Compile Include="OrdersDetail.cs" />
+    <Compile Include="Detail.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="News.cs" />
     <Compile Include="Favorite.cs" />

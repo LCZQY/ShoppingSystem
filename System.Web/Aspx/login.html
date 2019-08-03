@@ -28,7 +28,7 @@
             <hr class="hr15">
             <input class="loginin" value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
             <hr class="hr20">
-          
+
         </form>
     </div>
     <script src="../Scripts/Shopping/master.js"></script>
@@ -40,7 +40,7 @@
             var form = layui.form
                 , admin = layui.admin
                 , layer = layui.layer
-                , $ = layui.jquery;    
+                , $ = layui.jquery;
             //监听提交
             form.on('submit(login)', function (data) {
                 loading = layer.load(2, {
@@ -48,23 +48,22 @@
                 });
                 ajax_request({
                     url: "adminhandler.ashx?action=isexist",
-                    data:  data.field ,
+                    data: data.field,
                     callback(e) {
                         layer.close(loading);
                         e = JSON.parse(e);
                         console.log(e, "-----------------------");
                         if (e.code == 0) {
                             //JSON对象转JSON字符串
-                            var obj = { "user":  data.field.UserName,  "r": e.model };
+                            var obj = { "user": data.field.UserName, "r": e.model };
                             obj = JSON.stringify(obj); //转化为JSON字符串
-                            localStorage.setItem("login", obj);                 
+                            localStorage.setItem("login", obj);
                             window.location.href = 'ManageIndex.aspx';
                         } else {
-
                             layer.msg(e.msg);
                         }
                     }
-                });             
+                });
                 return false;
             });
         });

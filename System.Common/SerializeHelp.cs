@@ -24,10 +24,11 @@ namespace System.Common
         public static string ToTableJson<T>(List<T> list, int count = 0)
         {
             var json = new LayerTableJson
+
             {
                 data = list,
                 code = 0,
-                count = count == 0 ? list.Count() : count,
+                count = count == 0 ? list == null? 0 : list.Count():count,
                 msg = "成功"
             };
             var res = JsonConvert.SerializeObject(json);

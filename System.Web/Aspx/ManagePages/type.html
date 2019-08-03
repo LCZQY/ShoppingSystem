@@ -6,7 +6,6 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link href="../../AppData/layui/css/layui.css" rel="stylesheet" />
     <style>
 
@@ -273,9 +272,9 @@
                     callback: function (data) {
                         data = JSON.parse(data);
                         if (data.code == 0) {
-                           layer.msg("添加成功");
-                           layer.closeAll("page"); //关闭（信息框，默认dialog）1（page页面层）2（iframe层）3（loading加载层）4（tips层）
-                           loadtree();                                               
+                            layer.msg("添加成功");
+                            layer.closeAll("page"); //关闭（信息框，默认dialog）1（page页面层）2（iframe层）3（loading加载层）4（tips层）
+                            loadtree();
                         } else {
                             console.log(data);
                             layer.msg("服务器出错了，请重试");

@@ -15,7 +15,7 @@ namespace System.Model
         /// <summary>
         /// 角色【0:管理员， 1：超级管理员 】
         /// </summary>
-        public int Role { get; set; }
+        public int? Role { get; set; }
     }
 
     ///// <summary>

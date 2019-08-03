@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace System.Model
+﻿namespace System.Model
 {
     /// <summary>
     ///订单表
@@ -19,7 +13,7 @@ namespace System.Model
         /// <summary>
         /// 下单时间
         /// </summary>
-        public string Orderdate { get; set; }
+        public DateTime Orderdate { get; set; }
 
         /// <summary>
         /// 用户id
@@ -34,7 +28,7 @@ namespace System.Model
         /// <summary>
         /// 用户收货地址编号
         /// </summary>
-        public string DeliveryID { get; set; }
+        public string DeliveryId { get; set; }
 
         /// <summary>
         /// 收货日期
@@ -42,9 +36,9 @@ namespace System.Model
         public DateTime DeliveryDate { get; set; }
 
         /// <summary>
-        /// 订单状态
+        /// 订单状态[0:未付款，1：已付款， 2：已发货，3：已收货，4：已评价]
         /// </summary>
-        public StatesEnum States { get; set; }
+        public int? States { get; set; }
 
         /// <summary>
         /// 备注

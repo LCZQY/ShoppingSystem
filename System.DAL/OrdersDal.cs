@@ -10,9 +10,7 @@ using System.Model;
 namespace System.DAL
 {
 
-    /// <summary>
-    /// 订单表表
-    /// </summary>
+   
     public class OrdersDal
     {
         /// <summary>
@@ -142,10 +140,11 @@ namespace System.DAL
         {
             Orders.OrdersId = row["OrdersId"] != DBNull.Value ? row["OrdersId"].ToString() : string.Empty;
             Orders.DeliveryDate = Convert.ToDateTime(row["DeliveryDate"] != DBNull.Value ? row["DeliveryDate"].ToString() : string.Empty);
+            Orders.Orderdate = Convert.ToDateTime(row["Orderdate"] != DBNull.Value ? row["Orderdate"].ToString() : string.Empty);
             Orders.UserId = row["UserId"] != DBNull.Value ? row["UserId"].ToString() : string.Empty;
             Orders.Total = Convert.ToDecimal(row["Total"] != DBNull.Value ? row["Total"].ToString() : string.Empty);
-            Orders.DeliveryID = row["DeliveryID"] != DBNull.Value ? row["DeliveryID"].ToString() : string.Empty;
-            Orders.States = (Convert.ToInt32(row["States"] != DBNull.Value ? row["States"].ToString() : string.Empty)) == 1 ? StatesEnum.Unpaid : StatesEnum.Unpaid;
+            Orders.DeliveryId = row["DeliveryId"] != DBNull.Value ? row["DeliveryId"].ToString() : string.Empty;
+            Orders.States = Convert.ToInt32(row["States"] != DBNull.Value ? row["States"].ToString() : string.Empty);
             Orders.Remark = row["Remark"] != DBNull.Value ? row["Remark"].ToString() : string.Empty;
         }
 

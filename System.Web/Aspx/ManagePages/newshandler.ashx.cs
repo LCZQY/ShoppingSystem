@@ -169,7 +169,7 @@ namespace System.Web.Aspx.ManagePages
                 string title = context.Request.Form["Title"];
                 string nTypes = context.Request.Form["NTypes"];
                 string content = context.Request.Form["Content"];
-                var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
+            //    var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
 
                 var states = Convert.ToInt32(context.Request.Form["States"]);
 
@@ -182,7 +182,7 @@ namespace System.Web.Aspx.ManagePages
                     Content = content,
                     PhotoUrl = path,
                     States = states,
-                    PushTime = pushTime
+                    PushTime = DateTime.Now
                 };
                 _log.Error($"咨询添加请求体：{SerializeHelp.ToJson(News)}");
                 var add = _InfoService.Add(News);
@@ -213,15 +213,17 @@ namespace System.Web.Aspx.ManagePages
             var index = context.Request.Form["limit"];
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
-                var list = _InfoService.GetList().ToList();
+                var list = _InfoService.GetList()?.ToList();
+                list= list ?? new List<News> { };
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
             }
             else
             {
-                var list = _InfoService.GetList().ToList(); ;
-                var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
-                var res = SerializeHelp.ToTableJson(list1, list.Count());
+                var list = _InfoService.GetList()?.ToList()??null;
+                list = list ?? new List<News> { };
+                var list1 = list?.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
+                var res = SerializeHelp.ToTableJson(list1, list == null ? 0: list.Count());
                 context.Response.Write(res);
                
             }            

@@ -8,9 +8,7 @@ using System.Model;
 namespace System.BLL
 {
 
-    /// <summary>
-    ///  商品
-    /// </summary>
+ 
     public class ProductService : IBaseServer<Product>
     {
         private ProductDal _infoDal = System.Common.CacheControl.Get<ProductDal>();

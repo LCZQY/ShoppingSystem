@@ -44,6 +44,13 @@
                         <img id="myPic" src="" width="400em" style="max-height:300em;  box-shadow:1px 2px 1px black;" />
                     </div>
                 </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">消息类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="States" value="0" title="置顶" checked>
+                        <input type="radio" name="States" value="1" title="热点">
+                    </div>
+                </div>
                 <div class="layui-form-item layui-form-text">
                     <label class="layui-form-label">咨询内容</label>
                     <div class="layui-input-block">
@@ -51,11 +58,11 @@
                     </div>
                 </div>
                 <!--<div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">发布时间：现版本立即发送</label>
-                    <div class="layui-input-block">
-                        <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
-                    </div>
-                </div>-->
+        <label class="layui-form-label">发布时间：现版本立即发送</label>
+        <div class="layui-input-block">
+            <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+        </div>
+    </div>-->
                 <div class="layui-form-item my-form-item">
                     <div class="layui-input-block item">
                         <button class="layui-btn" lay-submit="" lay-filter="demo1" id="submit1">发布</button>
@@ -90,6 +97,13 @@
     <a class="layui-btn layui-btn-danger layui-btn-xs layui-icon" lay-event="del">&#xe640;</a>
 </script>
 
+<script type="text/html" id="switchTpl">    
+    {{#  if(d.States === 0){ }}
+    <input type="checkbox" name="States" value="{{d.States}}" lay-skin="switch" lay-text="置顶|热点" lay-filter="sexDemo" {{ d.States == 0 ? 'checked' : '' }}>
+    {{#  } else { }}
+    <input type="checkbox" name="States" value="{{d.States}}" lay-skin="switch" lay-text="热点|置顶" lay-filter="sexDemo" {{ d.States != 1 ? 'checked' : '' }}>
+    {{#  } }}
+</script>
 
 <script>
 
@@ -155,6 +169,7 @@
         table.render({
             url: "newshandler.ashx?action=list"
             , method: "POST"
+            , cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
             //, where: { page: 0, limit: 10 }
             , elem: '#test'
             , toolbar: '#toolbarDemo'
@@ -163,17 +178,23 @@
             , cols: [
                 [
                     { type: 'checkbox', fixed: 'left' }
-                    , { field: 'Title', title: '用户名', width: 120, edit: 'text' }
+                    , { field: 'Title', title: '标题', width: 120, edit: 'text' }
                     , { field: 'NTypes', title: '分类', width: 120, edit: 'text' }
-                    , { field: 'PhotoUrl', title: '图片地址', width: 120, /*edit: 'text'*/ }
+                    , { field: 'PhotoUrl', title: '图片地址', width: 220, /*edit: 'text'*/ }
                     , { field: 'PushTime', title: '发布时间', width: 120, edit: 'text' }
                     , { field: 'Content', title: '内容', width: 120, edit: 'text' }
-                    , { field: 'States', title: '消息状态', width: 120, edit: 'text' }
+                    //, { field: 'States', title: '消息状态', width: 120, edit: 'text' }
+                    , { field: 'States', title: '消息状态', width: 120, templet: '#switchTpl', unresize: true }
                     , { fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150 }
                 ]
             ]
             , page: true
         });
+
+     // 修改置顶或者热点
+     // form.on('switch(sexDemo)', function(obj){
+     //   layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+     // });
 
         //头工具栏事件
         table.on('toolbar(test)', function (obj) {
@@ -219,7 +240,7 @@
                 case
                     'search'
                     :
-                //    layer.msg("根据用户名查找");
+                    //    layer.msg("根据用户名查找");
                     var name = $('input[name="search"]').val();
                     table.reload('test', {
                         url: 'newshandler.ashx?action=search',
@@ -293,7 +314,7 @@
             var loading = layer.load(2, {
                 shade: [0.1, '#000']
             });
-            data.field.Content = layedit.getContent(editIndex); //只是可以获取到文本不能够获取到源码？         
+            data.field.Content = layedit.getContent(editIndex); //只是可以获取到文本不能够获取到源码？
             $.ajax({
                 url: "newshandler.ashx?action=add",
                 type: "POST",
@@ -315,5 +336,7 @@
             return false;
         });
     });
+
+
 </script>
 </html>
