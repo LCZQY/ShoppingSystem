@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace System.Common
+namespace ShoppingSystem.Common
 {
     /// <summary>
     /// 返回体JSON转化字符串帮助类

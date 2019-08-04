@@ -2,23 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Model;
-using System.Text;
-using System.Threading.Tasks;
+using ShoppingSystem.Model;
 
 /// <summary>
 /// 数据处理层
 /// </summary>
-namespace System.DAL
+namespace ShoppingSystem.DAL
 {
     /// <summary>
     /// 用户表
     /// </summary>
     public class UserInfoDal
     {
-      
+
 
         /// <summary>
         /// 获取用户列表
@@ -48,10 +44,10 @@ namespace System.DAL
         /// 获取用户列表
         /// </summary>
         /// <returns></returns>
-        public List<Users> GetList(int page , int index)
+        public List<Users> GetList(int page, int index)
         {
 
-            string sql =  $"select UserId,UserName,Pwd,Nick,Email,DeliveryId from Users limit  {((page-1) * index )}, {index}";
+            string sql = $"select UserId,UserName,Pwd,Nick,Email,DeliveryId from Users limit  {((page - 1) * index)}, {index}";
             DataTable da = SqlHelper.GetDataTable(sql, CommandType.Text);
             List<Users> list = null;
             if (da.Rows.Count > 0)

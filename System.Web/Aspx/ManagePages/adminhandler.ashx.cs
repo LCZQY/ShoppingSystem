@@ -1,7 +1,7 @@
-﻿using System.BLL;
-using System.Common;
+﻿using ShoppingSystem.BLL;
+using ShoppingSystem.Common;
 using System.Linq;
-using System.Model;
+using ShoppingSystem.Model;
 
 namespace System.Web.Aspx.ManagePages
 {

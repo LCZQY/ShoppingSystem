@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using System.DAL;
-using System.Model;
+using ShoppingSystem.DAL;
+using ShoppingSystem.Model;
 
 /// <summary>
 /// 逻辑处理层
 /// </summary>
-namespace System.BLL
+namespace ShoppingSystem.BLL
 {
 
  
     public class ProductService : IBaseServer<Product>
     {
-        private ProductDal _infoDal = System.Common.CacheControl.Get<ProductDal>();
+        private ProductDal _infoDal = ShoppingSystem.Common.CacheControl.Get<ProductDal>();
 
 
         

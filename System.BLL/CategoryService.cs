@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Common;
-using System.DAL;
+using ShoppingSystem.Common;
+using ShoppingSystem.DAL;
 using System.Linq;
-using System.Model;
+using ShoppingSystem.Model;
 
 /// <summary>
 /// 逻辑处理层
 /// </summary>
-namespace System.BLL
+namespace ShoppingSystem.BLL
 {
   
     public class CategoryService : IBaseServer<Category>

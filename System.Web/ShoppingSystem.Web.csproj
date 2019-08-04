@@ -579,17 +579,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\System.BLL\System.BLL.csproj">
+    <ProjectReference Include="..\System.BLL\ShoppingSystem.BLL.csproj">
       <Project>{236d5c0a-8827-465e-8423-6a96ddfcf6e2}</Project>
-      <Name>System.BLL</Name>
+      <Name>ShoppingSystem.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Common\System.Common.csproj">
+    <ProjectReference Include="..\System.Common\ShoppingSystem.Common.csproj">
       <Project>{96E9F0A9-0C4C-4CE8-A0FB-9AE7FACA36AE}</Project>
-      <Name>System.Common</Name>
+      <Name>ShoppingSystem.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Model\System.Model.csproj">
+    <ProjectReference Include="..\System.Model\ShoppingSystem.Model.csproj">
       <Project>{7E818C1B-4745-4D14-9C37-352743562530}</Project>
-      <Name>System.Model</Name>
+      <Name>ShoppingSystem.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

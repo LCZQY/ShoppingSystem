@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace System.BLL
+namespace ShoppingSystem.BLL
 {
     /// <summary>
     ///  数据库基本操作

@@ -1,4 +1,6 @@
-﻿namespace System.Model
+﻿using System;
+
+namespace ShoppingSystem.Model
 {
     /// <summary>
     ///订单表

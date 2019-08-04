@@ -1,10 +1,10 @@
 ﻿using log4net;
 using System;
-using System.BLL;
+using ShoppingSystem.BLL;
 using System.Collections.Generic;
-using System.Common;
+using ShoppingSystem.Common;
 using System.Linq;
-using System.Model;
+using ShoppingSystem.Model;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;

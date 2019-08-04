@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.DAL;
-using System.Model;
+using ShoppingSystem.DAL;
+using ShoppingSystem.Model;
 
-namespace System.BLL
+namespace ShoppingSystem.BLL
 {
     public class NewsService : IBaseServer<News>
     {
-        private NewsDal _infoDal = System.Common.CacheControl.Get<NewsDal>();
+        private NewsDal _infoDal = ShoppingSystem.Common.CacheControl.Get<NewsDal>();
 
 
         public bool Add(News model)

@@ -53,17 +53,17 @@
     <Compile Include="UserInfoService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\System.Common\System.Common.csproj">
+    <ProjectReference Include="..\System.Common\ShoppingSystem.Common.csproj">
       <Project>{96e9f0a9-0c4c-4ce8-a0fb-9ae7faca36ae}</Project>
-      <Name>System.Common</Name>
+      <Name>ShoppingSystem.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.DAL\System.DAL.csproj">
+    <ProjectReference Include="..\System.DAL\ShoppingSystem.DAL.csproj">
       <Project>{abf5ff36-950c-451f-9df8-6a12888583cb}</Project>
-      <Name>System.DAL</Name>
+      <Name>ShoppingSystem.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Model\System.Model.csproj">
+    <ProjectReference Include="..\System.Model\ShoppingSystem.Model.csproj">
       <Project>{7E818C1B-4745-4D14-9C37-352743562530}</Project>
-      <Name>System.Model</Name>
+      <Name>ShoppingSystem.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

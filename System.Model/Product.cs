@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace System.Model
+namespace ShoppingSystem.Model
 {
     /// <summary>
     /// 商品表

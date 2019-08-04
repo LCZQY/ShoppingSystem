@@ -1,7 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 using System.Reflection;
 
-namespace System.Common
+namespace ShoppingSystem.Common
 {
     public class Sql
     {
