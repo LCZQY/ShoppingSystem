@@ -304,10 +304,10 @@
                             <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></h4>
                             <div class="footer-contact">
                                 <p class="address add">
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址：1234天堂压力，比佛利山OldYork-美国Lorem</font></font></span>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址：XXXX</font></font></span>
                                 </p>
                                 <p class="phone add">
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(800)0123 4567 890 </font></font></span>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(800)xxxx xxx 890 </font></font></span>
                                     <br>
                                     <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（800）0987 654 321</font></font></span>
                                 </p>
@@ -326,16 +326,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="copyright">
-                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有© </font></font><a href="http://hastech.company/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hastech</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有</font></font></p>
+                            <p><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">版权所有© </font></font>
+                                <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Change</font>
+
+                                                       </font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有</font></font></p>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="payment">
-                            <a href="#">
-                                <img src="img/payment.png" alt="">
-                            </a>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>

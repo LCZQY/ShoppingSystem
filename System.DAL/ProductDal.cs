@@ -15,6 +15,8 @@ namespace System.DAL
     /// </summary>
     public class ProductDal
     {
+
+
         /// <summary>
         /// 获取列表
         /// </summary>

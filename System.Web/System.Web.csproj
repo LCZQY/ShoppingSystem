@@ -429,6 +429,7 @@
     <Content Include="Scripts\Shopping\lay\modules\tree.js" />
     <Content Include="Scripts\Shopping\lay\modules\upload.js" />
     <Content Include="Scripts\Shopping\lay\modules\util.js" />
+    <Content Include="Scripts\Shopping\pageindex.js" />
     <Content Include="Scripts\Shopping\menu.js" />
     <Content Include="Scripts\Shopping\showtable.js" />
     <Content Include="Scripts\Shopping\master.js" />

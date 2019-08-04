@@ -11,7 +11,7 @@
                         <div class="product-menu-title">
                             <h2>全部商品分类</h2>
                         </div>
-                        <div class="product_vmegamenu">
+                        <div class="product_vmegamenu">                            
                             <ul>
                                 <li>
                                     <a href="#" class="hover-icon">women</a>
@@ -283,7 +283,7 @@
                         <div role="tabpanel" class="tab-pane active" id="men">
                             <div class="favourite-product">
                                 <div class="row">
-                                    <div class="favourite-carousel">
+                                    <div class="favourite-carousel" id="favourite">
                                         <div class="col-md-12">
                                             <div class="single-product">
                                                 <div class="product-img">
@@ -358,441 +358,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/2.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="product-name">
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/4.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5 class="product-name">
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/5.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/6.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/7.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                            <del>£ 24.60 </del>
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/8.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/9.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/10.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/11.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/12.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                            <del>£ 24.60 </del>
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/13.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-product">
-                                                <div class="product-img">
-                                                    <a href="#">
-                                                        <img src="img/product/14.jpg" alt="" />
-                                                        <span class="new-box">new</span>
-                                                    </a>
-                                                    <div class="quick-preview">
-                                                        <a href="#myModal" data-toggle="modal">Quick view</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content">
-                                                    <h5>
-                                                        <a href="#">Printed Chiffon Dress</a>
-                                                    </h5>
-                                                    <div class="product-ratings">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <h2>£ 19.68
-                                                        </h2>
-                                                    </div>
-                                                    <div class="product-action">
-                                                        <ul>
-                                                            <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
-                                                            <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
-                                                            <li><a href="#"><i class="fa fa-random" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div>                                      
                                     </div>
                                 </div>
                             </div>
@@ -4069,11 +3635,11 @@
                 </div>
                 <div class="col-md-9 col-sm-8">
                     <div class="section-title">
-                        <h2>新 上架商铺</h2>
+                        <h2>新 上架商品</h2>
                     </div>
                     <div class="row">
-                        <div class="new-product-carousel">
-                            <div class="col-md-12">
+                        <div class="new-product-carousel"  id="carousel">
+            <%--                <div class="col-md-12">
                                 <div class="single-product">
                                     <div class="product-img">
                                         <a href="#">
@@ -4109,7 +3675,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -5298,4 +4864,10 @@
         </div>
     </div>
     <%--促销咨询结束--%>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/Shopping/pageindex.js"></script>
+    <script>
+        var list = '<%= GetProductList() %>';
+        productList(list);
+    </script>
 </asp:Content>

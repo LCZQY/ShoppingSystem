@@ -51,4 +51,13 @@ namespace System.Model
         /// </summary>
         public int Stock { get; set; }
     }
+
+    public class ProductEx : Product
+    {
+        /// <summary>
+        /// 图片路径
+        /// </summary>
+        public string Path { get; set; }
+
+    }
 }

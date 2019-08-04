@@ -14,6 +14,8 @@ namespace System.BLL
         private ProductDal _infoDal = System.Common.CacheControl.Get<ProductDal>();
 
 
+        
+
         public bool Add(Product model)
         {
             return _infoDal.AddProduct(model) > 0;

@@ -18,13 +18,15 @@ namespace System.Common
     public class CreateSqlString
     {
 
-        /// <summary>
-        ///  抽取实体属性
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        private static Sql SplicingSql<T>(T model)
+        
+
+            /// <summary>
+            ///  抽取实体属性
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            /// <param name="model"></param>
+            /// <returns></returns>
+            private static Sql SplicingSql<T>(T model)
         {
             var field = "";
             var parameter = "";
@@ -68,6 +70,10 @@ namespace System.Common
             var Sql = $"SELECT { str.FieldStr } FROM {GetName(name)}";
             return Sql;
         }
+
+   
+
+
 
         /// <summary>
         /// 插入Sql
