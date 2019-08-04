@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
-using ShoppingSystem.DAL;
-using ShoppingSystem.Model;
+using Shopping.DAL;
+using Shopping.Model;
 
 /// <summary>
 /// 逻辑处理层
 /// </summary>
-namespace ShoppingSystem.BLL
+namespace Shopping.BLL
 {
     /// <summary>
     ///  管理员表
     /// </summary>
     public class AdminUserService : IBaseServer<AdminUser>
     {
-        private AdminUserDal _infoDal = ShoppingSystem.Common.CacheControl.Get<AdminUserDal>();
+        private AdminUserDal _infoDal = Shopping.Common.CacheControl.Get<AdminUserDal>();
 
 
 

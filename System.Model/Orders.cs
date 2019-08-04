@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingSystem.Model
+namespace Shopping.Model
 {
     /// <summary>
     ///订单表

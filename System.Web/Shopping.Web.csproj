@@ -44,9 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -579,17 +576,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\System.BLL\ShoppingSystem.BLL.csproj">
+    <ProjectReference Include="..\System.BLL\Shopping.BLL.csproj">
       <Project>{236d5c0a-8827-465e-8423-6a96ddfcf6e2}</Project>
-      <Name>ShoppingSystem.BLL</Name>
+      <Name>Shopping.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Common\ShoppingSystem.Common.csproj">
+    <ProjectReference Include="..\System.Common\Shopping.Common.csproj">
       <Project>{96E9F0A9-0C4C-4CE8-A0FB-9AE7FACA36AE}</Project>
-      <Name>ShoppingSystem.Common</Name>
+      <Name>Shopping.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Model\ShoppingSystem.Model.csproj">
+    <ProjectReference Include="..\System.Model\Shopping.Model.csproj">
       <Project>{7E818C1B-4745-4D14-9C37-352743562530}</Project>
-      <Name>ShoppingSystem.Model</Name>
+      <Name>Shopping.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

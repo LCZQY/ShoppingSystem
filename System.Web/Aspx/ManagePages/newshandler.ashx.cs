@@ -1,9 +1,8 @@
-﻿using log4net;
-using ShoppingSystem.BLL;
+﻿using Shopping.BLL;
+using Shopping.Common;
+using Shopping.Model;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
 using System.Linq;
-using ShoppingSystem.Model;
 
 namespace System.Web.Aspx.ManagePages
 {
@@ -14,7 +13,6 @@ namespace System.Web.Aspx.ManagePages
     {
         //！ 促销应该和商品挂钩，下个版本可优化
 
-        private static readonly ILog _log = LogManager.GetLogger(typeof(newshandler));
         private NewsService _InfoService = CacheControl.Get<NewsService>();
         private PhotoService _photoInfoService = CacheControl.Get<PhotoService>();
         public void ProcessRequest(HttpContext context)
@@ -69,13 +67,13 @@ namespace System.Web.Aspx.ManagePages
             var index = context.Request.Form["limit"];
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
-                var list = _InfoService.GetList().Where(y=>y.Title.Contains(title)).ToList();
+                var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList();
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
             }
             else
             {
-                var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList(); 
+                var list = _InfoService.GetList().Where(y => y.Title.Contains(title)).ToList();
                 var list1 = list.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
                 var res = SerializeHelp.ToTableJson(list1, list.Count());
                 context.Response.Write(res);
@@ -99,7 +97,7 @@ namespace System.Web.Aspx.ManagePages
                     response.code = 0;
                     response.msg = "删除成功";
                     context.Response.Write(SerializeHelp.ToJson(response));
-                   
+
                 }
                 response.code = 500;
                 response.msg = "删除失败";
@@ -107,7 +105,7 @@ namespace System.Web.Aspx.ManagePages
             }
             catch (Exception e)
             {
-               
+
                 response.code = 500;
                 response.msg = "删除失败";
                 context.Response.Write(SerializeHelp.ToJson(response));
@@ -169,7 +167,7 @@ namespace System.Web.Aspx.ManagePages
                 string title = context.Request.Form["Title"];
                 string nTypes = context.Request.Form["NTypes"];
                 string content = context.Request.Form["Content"];
-            //    var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
+                //    var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
 
                 var states = Convert.ToInt32(context.Request.Form["States"]);
 
@@ -184,7 +182,7 @@ namespace System.Web.Aspx.ManagePages
                     States = states,
                     PushTime = DateTime.Now
                 };
-                _log.Error($"咨询添加请求体：{SerializeHelp.ToJson(News)}");
+             
                 var add = _InfoService.Add(News);
 
                 response.code = add == true ? 0 : 500;
@@ -194,7 +192,7 @@ namespace System.Web.Aspx.ManagePages
             catch (Exception e)
             {
                 string error = e.Message;
-                _log.Error($"咨询添加失败：{error}");
+      
                 response.code = 500;
                 response.msg = "添加失败";
                 context.Response.Write(SerializeHelp.ToJson(response));
@@ -214,23 +212,23 @@ namespace System.Web.Aspx.ManagePages
             if (string.IsNullOrWhiteSpace(page) && string.IsNullOrWhiteSpace(index))
             {
                 var list = _InfoService.GetList()?.ToList();
-                list= list ?? new List<News> { };
+                list = list ?? new List<News> { };
                 var res = SerializeHelp.ToTableJson(list);
                 context.Response.Write(res);
             }
             else
             {
-                var list = _InfoService.GetList()?.ToList()??null;
+                var list = _InfoService.GetList()?.ToList() ?? null;
                 list = list ?? new List<News> { };
                 var list1 = list?.Skip((int.Parse(page) - 1) * int.Parse(index)).Take(int.Parse(index)).ToList();
-                var res = SerializeHelp.ToTableJson(list1, list == null ? 0: list.Count());
+                var res = SerializeHelp.ToTableJson(list1, list == null ? 0 : list.Count());
                 context.Response.Write(res);
-               
-            }            
+
+            }
         }
 
 
-     
+
 
         /// <summary>
         ///  文件上传

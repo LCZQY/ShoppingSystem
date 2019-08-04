@@ -1,14 +1,14 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.Data;
-using ShoppingSystem.Model;
+using Shopping.Model;
 using System;
 
-using ShoppingSystem.Common;
+using Shopping.Common;
 /// <summary>
 /// 数据处理层
 /// </summary>
-namespace ShoppingSystem.DAL
+namespace Shopping.DAL
 {
 
     /// <summary>

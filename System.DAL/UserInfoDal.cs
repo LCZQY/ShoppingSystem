@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using ShoppingSystem.Model;
+using Shopping.Model;
 
 /// <summary>
 /// 数据处理层
 /// </summary>
-namespace ShoppingSystem.DAL
+namespace Shopping.DAL
 {
     /// <summary>
     /// 用户表

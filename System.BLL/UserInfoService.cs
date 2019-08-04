@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ShoppingSystem.Model;
+using Shopping.Model;
 using System.Text;
 using System.Threading.Tasks;
-using ShoppingSystem.DAL;
-using ShoppingSystem.Common;
+using Shopping.DAL;
+using Shopping.Common;
 
 /// <summary>
 /// 逻辑处理层
 /// </summary>
-namespace ShoppingSystem.BLL
+namespace Shopping.BLL
 {
  
     public class UserInfoService 
     {
-        UserInfoDal UserInfoDal = ShoppingSystem.Common.CacheControl.Get<UserInfoDal>();
+        UserInfoDal UserInfoDal = Shopping.Common.CacheControl.Get<UserInfoDal>();
 
       
         /// <summary>

@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using ShoppingSystem.DAL;
-using ShoppingSystem.Model;
+using Shopping.DAL;
+using Shopping.Model;
 
 /// <summary>
 /// 逻辑处理层
 /// </summary>
-namespace ShoppingSystem.BLL
+namespace Shopping.BLL
 {
 
 
     public class PhotoService : IBaseServer<Photo>
     {
-        private PhotoDal _infoDal = ShoppingSystem.Common.CacheControl.Get<PhotoDal>();
+        private PhotoDal _infoDal = Shopping.Common.CacheControl.Get<PhotoDal>();
 
 
         public bool Add(Photo model)

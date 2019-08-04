@@ -1,4 +1,4 @@
-﻿namespace ShoppingSystem.Model
+﻿namespace Shopping.Model
 {
     /// <summary>
     /// 收货地址表

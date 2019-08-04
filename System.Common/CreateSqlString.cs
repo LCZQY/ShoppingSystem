@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace ShoppingSystem.Common
+namespace Shopping.Common
 {
     public class Sql
     {

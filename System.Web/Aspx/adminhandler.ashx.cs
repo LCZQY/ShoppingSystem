@@ -1,9 +1,8 @@
-﻿using log4net;
-using ShoppingSystem.BLL;
+﻿using Shopping.BLL;
+using Shopping.Common;
+using Shopping.Model;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
 using System.Linq;
-using ShoppingSystem.Model;
 
 namespace System.Web.Aspx
 {
@@ -13,7 +12,6 @@ namespace System.Web.Aspx
     public class adminhandler : IHttpHandler
     {
 
-        private static readonly ILog _log = LogManager.GetLogger(typeof(adminhandler));
         private AdminUserService _userInfoService = CacheControl.Get<AdminUserService>();
 
         public void ProcessRequest(HttpContext context)
@@ -77,7 +75,7 @@ namespace System.Web.Aspx
             }
             catch (Exception e)
             {
-                _log.Error("判断该用户是否存在报错 56：" + e.Message);
+
                 response.code = 500;
                 response.msg = "请求错误，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using ShoppingSystem.DAL;
-using ShoppingSystem.Model;
+using Shopping.DAL;
+using Shopping.Model;
 
-namespace ShoppingSystem.BLL
+namespace Shopping.BLL
 {
     public class DeliveryService : IBaseServer<Delivery>
     {
-        private DeliveryDal _infoDal = ShoppingSystem.Common.CacheControl.Get<DeliveryDal>();
+        private DeliveryDal _infoDal = Shopping.Common.CacheControl.Get<DeliveryDal>();
 
 
         public bool Add(Delivery model)

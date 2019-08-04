@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// 数据模型层
 /// </summary>
-namespace ShoppingSystem.Model
+namespace Shopping.Model
 {
     /// <summary>
     /// 管理员表

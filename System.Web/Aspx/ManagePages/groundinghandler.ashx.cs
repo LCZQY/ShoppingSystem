@@ -1,11 +1,11 @@
 ﻿using System;
-using ShoppingSystem.BLL;
+using Shopping.BLL;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
+using Shopping.Common;
 using System.IO;
 using System.Linq;
 using System.Web;
-using ShoppingSystem.Model;
+using Shopping.Model;
 using System.Data.SqlClient;
 
 namespace System.Web.Aspx.ManagePages

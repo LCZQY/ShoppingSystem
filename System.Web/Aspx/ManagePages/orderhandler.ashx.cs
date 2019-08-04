@@ -1,8 +1,8 @@
-﻿using ShoppingSystem.BLL;
+﻿using Shopping.BLL;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
+using Shopping.Common;
 using System.Linq;
-using ShoppingSystem.Model;
+using Shopping.Model;
 
 namespace System.Web.Aspx.ManagePages
 {

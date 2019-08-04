@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using ShoppingSystem.BLL;
+using Shopping.BLL;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
+using Shopping.Common;
 using System.Linq;
-using ShoppingSystem.Model;
+using Shopping.Model;
 using System.Web;
 
 namespace System.Web.Aspx.ManagePages

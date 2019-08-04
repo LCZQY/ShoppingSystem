@@ -74,13 +74,13 @@
     <Compile Include="UserInfoDal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\System.Common\ShoppingSystem.Common.csproj">
+    <ProjectReference Include="..\System.Common\Shopping.Common.csproj">
       <Project>{96e9f0a9-0c4c-4ce8-a0fb-9ae7faca36ae}</Project>
-      <Name>ShoppingSystem.Common</Name>
+      <Name>Shopping.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\System.Model\ShoppingSystem.Model.csproj">
+    <ProjectReference Include="..\System.Model\Shopping.Model.csproj">
       <Project>{7e818c1b-4745-4d14-9c37-352743562530}</Project>
-      <Name>ShoppingSystem.Model</Name>
+      <Name>Shopping.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

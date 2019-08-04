@@ -1,11 +1,7 @@
-﻿using log4net;
-using System;
-using ShoppingSystem.BLL;
-using System.Collections.Generic;
-using ShoppingSystem.Common;
+﻿using Shopping.BLL;
+using Shopping.Common;
+using Shopping.Model;
 using System.Linq;
-using ShoppingSystem.Model;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +9,7 @@ namespace System.Web
 {
     public partial class _Default : Page
     {
-        private static readonly ILog _log = LogManager.GetLogger(typeof(_Default));
+
         private ProductService _InfoProductService = CacheControl.Get<ProductService>();
         private PhotoService _InfoImageService = CacheControl.Get<PhotoService>();
         protected void Page_Load(object sender, EventArgs e)
@@ -49,7 +45,7 @@ namespace System.Web
             }
             catch (Exception e)
             {
-                _log.Error(e.Message);
+
                 return "";
             }
         }

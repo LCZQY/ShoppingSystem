@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ShoppingSystem.Common;
-using ShoppingSystem.DAL;
+using Shopping.Common;
+using Shopping.DAL;
 using System.Linq;
-using ShoppingSystem.Model;
+using Shopping.Model;
 
-namespace ShoppingSystem.BLL
+namespace Shopping.BLL
 {
     public class OrderService : IBaseServer<Orders>
     {

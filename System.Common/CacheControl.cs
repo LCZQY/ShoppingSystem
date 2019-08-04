@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Caching;
 
-namespace ShoppingSystem.Common
+namespace Shopping.Common
 {
     public class CacheControl
     {
