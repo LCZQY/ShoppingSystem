@@ -55,21 +55,10 @@
                                     <a href="#">我的账户</a>
                                     <ul>
                                         <li><a href="#">我的Change</a></li>
-                                        <li><a  runat="server" target="_blank" href="Aspx/ManageIndex.aspx">后台登陆</a></li>
+                                        <li><a runat="server" target="_blank" href="Aspx/ManageIndex.aspx">后台登陆</a></li>
                                         <li><a href="#">登陆/注册</a></li>
                                     </ul>
                                 </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 text-right">
-                        <div class="header-top-right">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -148,9 +137,9 @@
                                                 </div>
                                                 <div class="cart-img-contaent">
                                                     <a href="#">
-                                                        <h4>Printed...</h4>
+                                                        <h4>帽子</h4>
                                                     </a>
-                                                    <span>£165.00</span>
+                                                    <span>￥165.00</span>
                                                 </div>
                                                 <div class="pro-del">
                                                     <a href="#"><i class="fa fa-times-circle"></i></a>
@@ -164,19 +153,16 @@
                                                 </div>
                                                 <div class="cart-img-contaent">
                                                     <a href="#">
-                                                        <h4>Printed...</h4>
+                                                        <h4>衣服</h4>
                                                     </a>
-                                                    <span>£50.00</span>
+                                                    <span>￥50.00</span>
                                                 </div>
                                                 <div class="pro-del">
                                                     <a href="#"><i class="fa fa-times-circle"></i></a>
                                                 </div>
                                             </div>
                                             <div class="cart-inner-bottom">
-                                                <p class="total">Total: <span class="amount">£ 56.28</span></p>
-                                                <div class="clear"></div>
-                                                <!--<p class="cart-button-top"><a href="checkout.html">查看</a></p>-->
-                                                <p class="cart-button-top"><a href="cart.html">查看</a></p>
+                                                <p class="cart-button-top"><a runat="server" href="ShoppingCart.aspx">查看</a></p>
                                             </div>
                                         </div>
                                     </li>
@@ -186,16 +172,18 @@
                             <div class="header-search-box">
                                 <form action="#">
                                     <div class="pos-select-box">
+
                                         <select>
                                             <option value="">所有类别</option>
-                                            <option value="70">Health</option>
+                                            <%-- <option value="70">Health</option>
                                             <option value="71">Medical</option>
-                                            <option value="72">Electronics</option>
+                                            <option value="72">Electronics</option>--%>
                                         </select>
                                     </div>
                                     <div class="search-box">
-                                        <input type="text" placeholder="Search entire store here ..." />
-                                        <button id="Search"><i class="fa fa-search"></i></button>
+                                        <input type="text" placeholder="请输入商品名称" />
+                                        <button id="Searchs"> <a  class="fa fa-search" href="ShopList.aspx" runat="server"></a></button>
+                                       
                                     </div>
                                 </form>
                             </div>
@@ -206,28 +194,6 @@
         </div>
 
     </header>
- <%--    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" runat="server" href="~/">欢迎光临Change商城[登陆-注册]</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a runat="server" href="~/">Change商城</a> |</li>
-                    <li><a runat="server" href="~/Aspx/MyChange">我的Change</a> |</li>
-                    <li><a runat="server" href="~/Aspx/ShoppingCart">购物车</a>|</li>
-                    <li><a runat="server" href="~/Aspx/Favorites">收藏夹</a>|</li>
-                    <li><a runat="server" target="_blank" href="~/Aspx/ManageIndex">登陆后台</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>--%>
-
     <asp:ContentPlaceHolder ID="MainContent" runat="server">
     </asp:ContentPlaceHolder>
     <footer class="footer-area">
@@ -246,17 +212,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-5 text-right">
-                        <div class="footer-top-social-bookmarks">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -272,7 +228,6 @@
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新产品</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最畅销</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们的商店</font></font></a></li>
-                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网站地图</font></font></a></li>
                             </ul>
                         </div>
                     </div>
@@ -281,7 +236,6 @@
                             <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的帐户</font></font></h4>
                             <ul>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的订单</font></font></a></li>
-                                <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的信用卡滑了</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的地址</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我的个人信息</font></font></a></li>
                             </ul>
@@ -291,7 +245,7 @@
                         <div class="footer-widget">
                             <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">分类</font></font></h4>
                             <ul>
-                               <%-- <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">妇女</font></font></a></li>
+                                <%-- <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">妇女</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">男人</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">首饰</font></font></a></li>
                                 <li><a href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设备</font></font></a></li>
@@ -304,15 +258,15 @@
                             <h4><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联系我们</font></font></h4>
                             <div class="footer-contact">
                                 <p class="address add">
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址：XXXX</font></font></span>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址：xxxx</font></font></span>
                                 </p>
                                 <p class="phone add">
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(800)xxxx xxx 890 </font></font></span>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(xxx)xxxx xxx xxx </font></font></span>
                                     <br>
-                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（800）0987 654 321</font></font></span>
+                                    <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（xxx）xxxx xxx xxx</font></font></span>
                                 </p>
                                 <p class="email add">
-                                    <a href="mailto:hastech@hastech.company"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">demo@hastech.company</font></font></a>
+                                    <a href="mailto:hastech@hastech.company"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@qq</font></font></a>
                                 </p>
                             </div>
                         </div>
@@ -326,13 +280,15 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="copyright">
-                            <p><font style="vertical-align: inherit;">
+                            <p>
+                                <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">版权所有© </font></font>
                                 <a href="javascript:;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Change</font>
 
-                                                       </font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有</font></font></p>
+                                                       </font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">版权所有</font></font>
+                            </p>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
@@ -397,68 +353,35 @@
                                             <img src="img/product-view/4.jpg" alt="" /></a></li>
                                     </ul>
                                 </div>
+                                <%--/*弹出模态框*/--%>
                                 <div class="col-sm-7">
                                     <div class="product-content">
-                                        <h1 class="product-name">Faded Short Sleeves T-shirt</h1>
-                                        <p class="productreference">
-                                            <label>Reference: </label>
-                                            <span class="editable" content="demo_1">demo_1</span>
-                                        </p>
+                                        <h1 class="product-name">褪色短袖T恤</h1>
                                         <p id="product-condition">
-                                            <label>Condition: </label>
-                                            <span class="editable">New product</span>
+                                            <label>商品类型: </label>
+                                            <span class="editable">男装</span>
                                         </p>
                                         <div class="product-price">
-                                            <h2>£ 19.81
-                                                <span>tax incl.</span>
+                                            <h2>￥ 19.81
+                                                <del>￥20</del>
                                             </h2>
                                         </div>
-                                        <p>Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+                                        <p>褪色短袖T恤，高领口。柔软弹性材质，舒适贴合。用草帽装饰，你准备好夏天了！</p>
                                         <div class="box-info-product clearfix">
                                             <form action="#">
                                                 <div class="quantity-wanted-p">
-                                                    <label for="quantity-wanted">Quantity</label>
+                                                    <label for="quantity-wanted">数量</label>
                                                     <input type="number" id="quantity-wanted" min="1" name="qty" value="1" />
                                                 </div>
                                                 <div class="product-action">
                                                     <ul>
-                                                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add to cart</a></li>
+                                                        <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>加入购物车</a></li>
                                                     </ul>
                                                 </div>
-                                                <ul class="usefull-link">
-                                                    <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>Send to a friend</a></li>
-                                                    <li><a href="#"><i class="fa fa-print" aria-hidden="true"></i>Print</a></li>
-                                                    <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>Add to wishlist</a></li>
-                                                    <li>
-                                                        <div class="size">
-                                                            <label>Size</label>
-                                                            <select>
-                                                                <option value="">S</option>
-                                                                <option value="">M</option>
-                                                                <option value="">L</option>
-                                                            </select>
-                                                        </div>
-                                                    </li>
-                                                </ul>
                                             </form>
                                         </div>
-                                        <div class="color-list-container">
-                                            <h5>Color</h5>
-                                            <ul>
-                                                <li><a href="#" id="color_one" class="color_pick"></a></li>
-                                                <li><a href="#" id="color_two" class="color_pick"></a></li>
-                                            </ul>
-                                        </div>
                                         <span class="quantity-available">296 Items</span>
-                                        <span class="availability">In stock </span>
-                                        <div class="social">
-                                            <ul>
-                                                <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Tweet</a></li>
-                                                <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Share</a></li>
-                                                <li><a href="#" class="google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i>google+</a></li>
-                                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i>Pinterest </a></li>
-                                            </ul>
-                                        </div>
+                                        <span class="availability">库存</span>
                                     </div>
                                 </div>
                             </div>
@@ -499,6 +422,14 @@
     <script src="Scripts/Shopping/master/plugins.js"></script>
     <!-- main js -->
     <script src="Scripts/Shopping/master/main.js"></script>
+    <script>
+        $("#Searchs").click(function () {
+            console.log('搜索');
+           // window.location.href = "ShopList.aspx";
+            window.location.replace("ShopList.aspx");
+        });
+
+    </script>
 </body>
 
 </html>

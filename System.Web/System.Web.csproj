@@ -243,7 +243,8 @@
     <Content Include="Aspx\ManagePages\user.html" />
     <Content Include="Aspx\ManagePages\type.html" />
     <Content Include="Aspx\MyChange.aspx" />
-    <Content Include="Aspx\ShoppingCart.aspx" />
+    <Content Include="ShopList.aspx" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -523,11 +524,18 @@
     <Compile Include="Aspx\MyChange.aspx.designer.cs">
       <DependentUpon>MyChange.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Aspx\ShoppingCart.aspx.cs">
+    <Compile Include="ShopList.aspx.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopList.aspx.designer.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Aspx\ShoppingCart.aspx.designer.cs">
+    <Compile Include="ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -596,9 +604,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="log4\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
