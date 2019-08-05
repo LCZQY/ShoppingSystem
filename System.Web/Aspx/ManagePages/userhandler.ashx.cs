@@ -35,8 +35,44 @@ namespace System.Web.Aspx.ManagePages
                 case "removelist":
                     DeleteListUsersRequest(context);
                     break;
+                case "login":
+                    LoginRequest(context);
+                    break;
             }
         }
+
+        /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <param name="context"></param>
+        public void LoginRequest(HttpContext context)
+        {
+            var response = new ResponseMessage();
+            try
+            {
+                string userName = context.Request.Form["name"];
+                string userPwd = context.Request.Form["pwd"];
+                var model = _userInfoService.GetList().Where(y => y.UserName == userName && y.Pwd == userPwd).SingleOrDefault();
+                if (model != null)
+                {
+                    response.code = 0;
+                    response.msg = "登陆成功";
+                    context.Response.Write(SerializeHelp.ToJson(response));
+                    return;
+                }
+                response.code = 500;
+                response.msg = "用户名或密码错误";
+                context.Response.Write(SerializeHelp.ToJson(response));
+                return;
+            } catch (Exception e)
+            {
+                response.code =500;
+                response.msg = "失败，请重试";
+                context.Response.Write(SerializeHelp.ToJson(response));
+                return;
+            }
+        }
+
 
         /// <summary>
         /// 批量删除
@@ -148,14 +184,21 @@ namespace System.Web.Aspx.ManagePages
                 userInfo.DeliveryId = "?";
                 var add = _userInfoService.AddUserInfo(userInfo);
 
-                response.code = add == true ? 0 : 500;
-                response.msg = "添加成功";
+                if (add)
+                {
+                    response.code = 0;
+                    response.msg = "添加成功";
+                    context.Response.Write(SerializeHelp.ToJson(response));
+                    return;
+                }
+                response.code = 500;
+                response.msg = "添加失败";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
             catch (Exception e)
             {
                 response.code = 500;
-                response.msg = "添加失败";
+                response.msg = "失败，请重试";
                 context.Response.Write(SerializeHelp.ToJson(response));
             }
 

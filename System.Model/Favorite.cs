@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Shopping.Model
+﻿namespace Shopping.Model
 {
     /// <summary>
     /// 收藏夹表
@@ -15,7 +9,7 @@ namespace Shopping.Model
         /// <summary>
         /// key
         /// </summary>
-        public string FavoriteID { get; set; }
+        public string FavoriteId { get; set; }
 
         /// <summary>
         /// 商品id

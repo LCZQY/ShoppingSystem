@@ -299,6 +299,7 @@
     <Content Include="Content\fonts\iconfont.woff" />
     <Content Include="img\bg.png" />
     <Content Include="Aspx\ManagePages\adminhandler.ashx" />
+    <Content Include="Aspx\ManagePages\favoritehandler.ashx" />
     <None Include="json\menu2.json" />
     <Content Include="json\menu.json" />
     <Content Include="AppData\layui\font\iconfont.eot" />
@@ -498,6 +499,9 @@
     </Compile>
     <Compile Include="Aspx\ManagePages\adminhandler.ashx.cs">
       <DependentUpon>adminhandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ManagePages\favoritehandler.ashx.cs">
+      <DependentUpon>favoritehandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ManagePages\groundinghandler.ashx.cs">
       <DependentUpon>groundinghandler.ashx</DependentUpon>

@@ -52,14 +52,55 @@
                         <div class="header-top-left">
                             <ul>
                                 <li>
-                                    <a href="#">我的账户</a>
+                                    <a href="#" id="mychange">我的账户</a>
                                     <ul>
                                         <li><a href="#">我的Change</a></li>
                                         <li><a runat="server" target="_blank" href="Aspx/ManageIndex.aspx">后台登陆</a></li>
-                                        <li><a href="#">登陆/注册</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#exampleModal" id="loginout" data-whatever="@mdo">登陆/注册</a></li>
                                     </ul>
                                 </li>
                             </ul>
+                            <%--用户登陆模态框开始--%>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                <div class="modal-dialog model-sm" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="exampleModalLabel">用户登陆</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="control-label">用户名:</label>
+                                                    <input type="text" class="form-control" id="name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="control-label">密码:</label>
+                                                     <input type="password" class="form-control" id="pwd">
+                                                </div>
+                                                <div class="form-group registration" hidden>
+                                                    <label for="recipient-name" class="control-label">昵称:</label>
+                                                    <input type="text" class="form-control" id="nick">
+                                                </div>
+                                                <div class="form-group registration" hidden>
+                                                    <label for="message-text" class="control-label">电子邮件:</label>
+                                                    <input type="password" class="form-control " id="email">
+                                                </div>
+                                                <div class="form-group text-right">
+                                                    <span style="color:red; float:left " class="text-left" id="tipe"></span>
+                                                    <a href="javascript:;"  id="registration">用户注册</a>
+                                                </div>
+                                            </form>                                             
+                                        </div>
+                                       
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                            <button type="button" id="submit" class="btn btn-primary">登陆</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <%--用户登陆模态框结束--%>
                         </div>
                     </div>
                 </div>
@@ -182,8 +223,8 @@
                                     </div>
                                     <div class="search-box">
                                         <input type="text" placeholder="请输入商品名称" />
-                                        <button id="Searchs"> <a  class="fa fa-search" href="ShopList.aspx" runat="server"></a></button>
-                                       
+                                        <button id="Searchs"><a class="fa fa-search" href="ShopList.aspx" runat="server"></a></button>
+
                                     </div>
                                 </form>
                             </div>
@@ -303,7 +344,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="modal-body">
                     <div class="product-details">
                         <div class="single-product">
                             <div class="row">
@@ -425,10 +466,20 @@
     <script>
         $("#Searchs").click(function () {
             console.log('搜索');
-           // window.location.href = "ShopList.aspx";
+            // window.location.href = "ShopList.aspx";
             window.location.replace("ShopList.aspx");
         });
-
+        var login = JSON.parse(localStorage.getItem("index"));
+        console.log(login,"--------------用户登陆-------------------");
+        if (login) {
+            $("#mychange").text(login);
+            //退出登陆
+            $("#loginout").on('click', function () {
+                localStorage.removeItem("index");
+                location.reload();
+            });
+        }
+    
     </script>
 </body>
 

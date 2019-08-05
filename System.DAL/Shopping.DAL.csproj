@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FavoriteDal.cs" />
     <Compile Include="AdminUserDal.cs" />
     <Compile Include="DeliveryDal.cs" />
     <Compile Include="PhotoDal.cs" />
