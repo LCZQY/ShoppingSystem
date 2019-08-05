@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Reflection;
 
 namespace Shopping.Common
@@ -19,15 +21,15 @@ namespace Shopping.Common
     public class CreateSqlString
     {
 
-        
 
-            /// <summary>
-            ///  抽取实体属性
-            /// </summary>
-            /// <typeparam name="T"></typeparam>
-            /// <param name="model"></param>
-            /// <returns></returns>
-            private static Sql SplicingSql<T>(T model)
+
+        /// <summary>
+        ///  抽取实体属性
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private static Sql SplicingSql<T>(T model)
         {
             var field = "";
             var parameter = "";
@@ -39,9 +41,9 @@ namespace Shopping.Common
                 parameter += "@" + pi.Name + ",";
                 updatestr += $"{pi.Name} =@{pi.Name},";
             }
-            field = field.Substring(0, field.LastIndexOf(",") );
+            field = field.Substring(0, field.LastIndexOf(","));
             parameter = parameter.Substring(0, parameter.LastIndexOf(","));
-            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(",") );
+            updatestr = updatestr.Substring(0, updatestr.LastIndexOf(","));
             Sql sql = new Sql { FieldStr = field, ParameterStr = parameter, UpdateStr = updatestr };
             return sql;
         }
@@ -72,7 +74,7 @@ namespace Shopping.Common
             return Sql;
         }
 
-   
+
 
 
 
@@ -119,8 +121,67 @@ namespace Shopping.Common
             return Sql;
         }
 
+
         /// <summary>
-        /// 防止Sql注入，组合参数化写法
+        /// SqlServer防止Sql注入，组合参数化写法
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static SqlParameter[] SqlServerParameterArray<T>(T model)
+        {
+            Type t = model.GetType();
+            try
+            {
+                SqlParameter[] pars = new SqlParameter[t.GetProperties().Length];
+                var i = 0;
+                foreach (PropertyInfo pi in t.GetProperties())
+                {
+                    var value = pi.GetValue(model, null);//用pi.GetValue获得值
+                    var type = (value?.GetType() ?? typeof(object)).Name;//获得属性的类型         
+                                                                         //if (pi.Name.ToLower().IndexOf("id") > -1) continue;
+                    switch (type)
+                    {
+                        case "String":
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.VarChar, 32);
+
+                            break;
+                        case "DateTime":
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.DateTime);
+
+                            break;
+                        case "Int32":
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.Int);
+
+                            break;
+                        case "Decimal":
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.Decimal);
+
+                            break;
+                        case "Double":
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.Float);
+                            break;
+                        default:
+                            pars[i] = new SqlParameter($"@{pi.Name}", SqlDbType.VarChar, 32);
+                            break;
+                    }
+                    pars[i].Value = value ?? null;
+                    i += 1;
+                }
+
+                return pars;
+            }
+            catch (Exception e)
+            {
+                string error = e.Message;
+                throw;
+
+
+            }
+        }
+
+        /// <summary>
+        ///Mysql 防止Sql注入，组合参数化写法
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="model"></param>
@@ -162,12 +223,13 @@ namespace Shopping.Common
                             pars[i] = new MySqlParameter($"@{pi.Name}", MySqlDbType.VarChar, 32);
                             break;
                     }
-                    pars[i].Value = value?? null;
+                    pars[i].Value = value ?? null;
                     i += 1;
                 }
 
                 return pars;
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 string error = e.Message;
                 throw;

@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="women">
+                    <%--    <div role="tabpanel" class="tab-pane" id="women">
                             <div class="favourite-product">
                                 <div class="row">
                                     <div class="favourite-carousel">
@@ -735,8 +735,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="equipments">
+                        </div>--%>
+            <%--            <div role="tabpanel" class="tab-pane" id="equipments">
                             <div class="favourite-product">
                                 <div class="row">
                                     <div class="favourite-carousel">
@@ -3320,7 +3320,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </div>
@@ -3455,7 +3455,7 @@
                         <h2>促销咨询</h2>
                     </div>
                     <div class="row">
-                        <div class="blog-carousel carousel-indicator">
+                        <div class="blog-carousel carousel-indicator" id="indicator">                            
                             <div class="col-md-12">
                                 <div class="latest-blog">
                                     <div class="latest-block-img">
@@ -3477,8 +3477,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -3487,8 +3487,23 @@
     <%--促销咨询结束--%>
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/Shopping/pageindex.js"></script>
+    <script src="AppData/layui/layui.js"></script>
+    <script src="Scripts/Shopping/master.js"></script>
     <script>
-        var list = '<%= GetProductList() %>';
-        productList(list);
+
+        ajax_request({
+            url: "Aspx/ManagePages/groundinghandler.ashx?action=productlist",
+            data: null,
+            callback: function (e) {
+                e = JSON.parse(e);
+               // if (e.code === 0) {
+                    productList(e);
+               // } else {
+
+               // }
+            }
+        });
+       <%-- var list = '<%= GetProductList() %>';--%>
+    
     </script>
 </asp:Content>

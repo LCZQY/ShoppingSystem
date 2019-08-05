@@ -69,6 +69,7 @@
     <Compile Include="NewsDal.cs" />
     <Compile Include="ProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerHelper.cs" />
     <Compile Include="SqlHelper.cs" />
     <Compile Include="CategoryDal.cs" />
     <Compile Include="UserInfoDal.cs" />

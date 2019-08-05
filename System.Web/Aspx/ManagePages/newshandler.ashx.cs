@@ -167,7 +167,7 @@ namespace System.Web.Aspx.ManagePages
                 string title = context.Request.Form["Title"];
                 string nTypes = context.Request.Form["NTypes"];
                 string content = context.Request.Form["Content"];
-                //    var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
+                //var pushTime = Convert.ToDateTime(context.Request.Form["PushTime"]);
 
                 var states = Convert.ToInt32(context.Request.Form["States"]);
 

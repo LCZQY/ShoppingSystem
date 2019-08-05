@@ -39,8 +39,8 @@ namespace System.Web.Aspx.ManagePages
                 case "search":
                     SeachProductRequest(context);
                     break;
-                case "removelist":
-                    DeleteListProductRequest(context);
+                case "productlist":
+                    GetProductList(context);
                     break;
                 case "upload":
                     UploadImg(context);
@@ -50,12 +50,35 @@ namespace System.Web.Aspx.ManagePages
         }
 
         /// <summary>
-        /// 批量删除
+        /// 获取商品
         /// </summary>
-        /// <param name="context"></param>
-        public void DeleteListProductRequest(HttpContext context)
+        /// <returns></returns>
+        public void GetProductList(HttpContext context)
         {
-            // ?
+            try
+            {
+                var list1 = _InfoService.GetList().AsQueryable();
+                var list2 = _photoInfoService.GetList().AsQueryable();
+                var list3 = from c in list1
+                            select new ProductEx
+                            {
+                                Content = c.Content,
+                                CateId = c.CateId,
+                                MarketPrice = c.MarketPrice,
+                                Path = list2.Where(u => u.ProductId == c.ProductId).FirstOrDefault().PhotoUrl,
+                                Price = c.Price,
+                                ProductId = c.ProductId,
+                                Title = c.Title,
+                                Stock = c.Stock
+                            };
+                
+                context.Response.Write(SerializeHelp.ToJson(list3?.ToList()));
+            }
+            catch (Exception e)
+            {
+
+                context.Response.Write(SerializeHelp.ToJson(new List<string> { }));
+            }
         }
 
 
